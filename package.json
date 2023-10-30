@@ -8,7 +8,8 @@
     "postinstall": "NUXT_TELEMETRY_DISABLED=1 nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.7.4"
+    "nuxt": "^3.7.4",
+    "sass": "^1.69.5"
   },
   "dependencies": {
     "@nuxt/content": "2.9.0",
