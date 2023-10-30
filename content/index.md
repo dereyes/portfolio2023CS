@@ -1,12 +1,12 @@
 ---
 title: Home
-heading: Bridging Design and Code on the Web
+heading: Dev.Lab
 description: Article about creating categories.
 categories:
     - First Category
 hideAuthor: true
 ---
 
-# Hello Content Home
+## Bridging Design and Code on the Web
 
 Testing testing
