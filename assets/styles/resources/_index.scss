@@ -11,8 +11,6 @@ $primary: #49240f;
 $secondary: #e4a79d;
 $light-grey: #cdcdcd;
 
-$icon-border-width: 4px;
-
 $ratios: (
   //just interval ratios
   "minorSecond": 1.067,
@@ -41,7 +39,7 @@ $typeScale-factor: ratio(4);
 $typeScale-base: 1em;
 // Levels in the type scale, in order from smallest to largest
 $typeScale-levels: "xxsmall", "xsmall", "small", "p", "subtitle", "h3", "h2",
-  "h1";
+  "h1", "large", "xlarge", "xxlarge";
 // Eventually houses typescale tokens
 $typeScale: ();
 
@@ -75,6 +73,8 @@ $breakpoints: (
     "1.5": 1.5rem,
     "1.75": 1.75rem,
     "2": 2rem,
+    "2.25": 2.25rem,
+    "2.5": 2.5rem,
     "3": 3rem,
     "3.25": 3.25rem,
     "3.5": 3.5rem,

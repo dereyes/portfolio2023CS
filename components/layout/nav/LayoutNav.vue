@@ -6,19 +6,19 @@
 const listItems = [
   {
     text: "Home",
-    href: "/"
+    href: "/",
   },
   {
-    text: "About",
-    href: "/about"
+    text: "About Me",
+    href: "/about-me",
   },
   {
     text: "Contact",
-    href: "/contact"
+    href: "/contact",
   },
   {
     text: "Typography",
-    href: "/typography"
+    href: "/typography",
   },
-]
+];
 </script>
