@@ -2,8 +2,8 @@
 @use "sass:map";
 @use "sass:list";
 
-// @use "mixins";
-// @forward "mixins";
+@use "mixins";
+@forward "mixins";
 
 // variables: expose properties and values that we want to easily contol or reuse
 

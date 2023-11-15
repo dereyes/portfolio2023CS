@@ -1,9 +1,10 @@
 <template>
-  <ul class="layout-nav-list">
-    <LayoutNavListItem
+  <ul class="cards-list">
+    <CardsListItem
       v-for="(listItem, index) in listItems"
       :key="index"
-      :text="listItem.text"
+      :title="listItem.title"
+      :subtitle="listItem.subtitle"
       :href="listItem.href"
     />
   </ul>
@@ -16,8 +17,7 @@ const props = defineProps({
 </script>
 
 <styles lang="scss" scoped>
-.layout-nav-list {
+.cards-list {
   @include unstyle-list;
-  text-align: center;
 }
 </styles>
