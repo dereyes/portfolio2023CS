@@ -1,13 +1,18 @@
 <template>
   <main class="layout-main">
     <div class="layout-panel layout-panel-intro">
-      <slot class="layout-intro" name="intro" />
+      <slot name="intro" />
     </div>
-    <div class="layout-viz">
-      <slot class="layout-viz" name="viz" />
+    <div class="layout-panel layout-panel-viz">
+      <slot name="viz" />
     </div>
     <div class="layout-arrow">
-      <div class="layout-arrow-inner">↓</div>
+      <div class="layout-arrow-inner">
+        <span class="layout-arrow-character">↓</span>
+      </div>
+    </div>
+    <div class="layout-panel layout-panel-skills">
+      <slot name="skills" />
     </div>
   </main>
 </template>
@@ -19,6 +24,10 @@
   &-main {
     display: grid;
     grid-auto-flow: row;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    width: 100vw;
 
     // @include breakpoint("desktop") {
     //   grid-template-columns: [window-start] 1fr [center] 1fr [window-end];
@@ -29,7 +38,14 @@
   &-panel {
     display: flex;
     flex-flow: column nowrap;
+    min-height: 100vh;
     padding: $panel-padding;
+    scroll-snap-align: start;
+
+    &-viz {
+      border: u(0.25) solid black;
+      height: 100vh;
+    }
   }
 
   &-arrow {
@@ -44,7 +60,7 @@
 
     &-inner {
       background: color.palette("hilite");
-      border-radius: $arrow-size / 2;
+      border-radius: math.div($arrow-size, 2);
       color: color.palette("concrete");
       display: grid;
       height: $arrow-size;
@@ -54,11 +70,10 @@
       right: $panel-padding;
       width: $arrow-size;
     }
-  }
 
-  &-viz {
-    border: u(0.25) solid black;
-    height: 200vh;
+    &-character {
+      font-family: typography.fontFamily("sansSerif");
+    }
   }
 
   @include breakpoint("max-mobile") {
@@ -66,11 +81,11 @@
       &-intro {
         min-height: 80vh;
       }
-    }
 
-    &-viz {
-      grid-column: 1 / -1;
-      grid-row: 2 / 3;
+      &-viz {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+      }
     }
 
     &-arrow {
