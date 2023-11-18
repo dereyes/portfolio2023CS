@@ -35,7 +35,7 @@
     display: flex;
     flex-flow: column nowrap;
     min-height: 100vh;
-    padding: $panel-padding;
+    padding: $layout-panel-padding;
     scroll-snap-align: start;
   }
 

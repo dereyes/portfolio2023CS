@@ -1,7 +1,8 @@
 @use "collection";
 @use "u" as *;
 
-$panel-padding: u(0.5);
+$layout-panel-padding: u(0.5);
+$layout-viz-height-mobile: 25vh;
 
 @function _getBreakpoint($size) {
   $breakpoints: (
