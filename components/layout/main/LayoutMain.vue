@@ -1,18 +1,6 @@
 <template>
   <main class="layout-main">
-    <div class="layout-panel layout-panel-intro">
-      <slot name="intro" />
-    </div>
-    <LayoutPanelViz />
-    <div class="layout-panel layout-panel-background">
-      <slot name="background" />
-    </div>
-    <div class="layout-panel layout-panel-skills">
-      <slot name="skills" />
-    </div>
-    <div class="layout-panel layout-panel-footer">
-      <slot name="footer" />
-    </div>
+    <slot />
   </main>
 </template>
 
@@ -41,18 +29,10 @@
     height: max-content;
     min-height: 100vh;
     padding: $layout-panel-padding-y $layout-panel-padding-x;
-
-    &-background {
-      // scroll-snap-align: start;
-    }
   }
 
   @include breakpoint("max-mobile") {
     &-panel {
-      &-intro {
-        min-height: 85vh;
-      }
-
       &:not(.layout-panel-intro, .layout-panel-viz) {
         padding-top: calc($layout-panel-padding-y + $layout-viz-height-mobile);
       }
