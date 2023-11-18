@@ -1,4 +1,7 @@
 @use "collection";
+@use "u" as *;
+
+$panel-padding: u(0.5);
 
 @function _getBreakpoint($size) {
   $breakpoints: (
