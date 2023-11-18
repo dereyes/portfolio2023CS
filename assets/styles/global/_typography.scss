@@ -37,11 +37,5 @@ li {
   font-size: typography.typescale("p");
   font-weight: typography.fontWeight("light");
   line-height: ratio.justInterval(6);
-  margin: 0 0 1em;
-}
-
-ul {
-  list-style: none;
-  margin: 0 0 1em;
-  padding: 0;
+  margin: 0 0 2em;
 }
