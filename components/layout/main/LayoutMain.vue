@@ -40,7 +40,10 @@
     height: max-content;
     min-height: 100vh;
     padding: $layout-panel-padding-y $layout-panel-padding-x;
-    scroll-snap-align: start;
+
+    &-background {
+      // scroll-snap-align: start;
+    }
   }
 
   @include breakpoint("max-mobile") {
