@@ -3,13 +3,13 @@
     <div class="layout-panel layout-panel-intro">
       <slot name="intro" />
     </div>
-    <div class="layout-panel layout-panel-viz">
-      <slot name="viz" />
-    </div>
     <div class="layout-arrow">
       <div class="layout-arrow-inner">
         <span class="layout-arrow-character">↓</span>
       </div>
+    </div>
+    <div class="layout-panel layout-panel-viz">
+      <slot name="viz" />
     </div>
     <div class="layout-panel layout-panel-skills">
       <slot name="skills" />
@@ -26,6 +26,7 @@
     grid-auto-flow: row;
     height: 100vh;
     overflow-y: scroll;
+    position: relative;
     scroll-snap-type: y mandatory;
     width: 100vw;
 
@@ -54,9 +55,9 @@
 
     $arrow-position-y: math.div($arrow-size, 2);
 
-    display: grid;
-    place-items: start end;
-    transform: translate(0, $arrow-position-y * -1);
+    position: sticky;
+    top: $arrow-position-y + $panel-padding;
+    transform: translate(0, $arrow-position-y * -2);
 
     &-inner {
       background: color.palette("hilite");
@@ -66,7 +67,7 @@
       height: $arrow-size;
       top: $arrow-position-y + $panel-padding;
       place-items: center;
-      position: sticky;
+      position: absolute;
       right: $panel-padding;
       width: $arrow-size;
     }
@@ -82,16 +83,16 @@
         min-height: 80vh;
       }
 
-      &-viz {
-        grid-column: 1 / -1;
-        grid-row: 2 / 3;
-      }
+      // &-viz {
+      //   grid-column: 1 / -1;
+      //   grid-row: 2 / 3;
+      // }
     }
 
-    &-arrow {
-      grid-column: 1 / -1;
-      grid-row: 2 / 3;
-    }
+    // &-arrow {
+    //   grid-column: 1 / -1;
+    //   grid-row: 2 / 3;
+    // }
   }
 }
 </style>
