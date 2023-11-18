@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&display=swap");
+@import "typography";
 
 * {
   box-sizing: border-box;
@@ -9,30 +10,9 @@ body,
 #__nuxt {
   height: 100%;
   width: 100%;
-  // overflow: hidden;
-}
-
-html {
-  font-size: typography.$remInPx; // set rem
 }
 
 body {
   background-color: color.palette("concrete");
   margin: 0;
-}
-
-h1 {
-  font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("h1");
-  font-weight: typography.fontWeight("semibold");
-  line-height: ratio.justInterval(6);
-  margin: 0 0 1em;
-}
-
-p {
-  font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("p");
-  font-weight: typography.fontWeight("light");
-  line-height: ratio.justInterval(6);
-  margin: 0 0 1em;
 }

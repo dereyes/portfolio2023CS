@@ -4,6 +4,9 @@
       <slot name="intro" />
     </div>
     <LayoutPanelViz />
+    <div class="layout-panel layout-panel-background">
+      <slot name="background" />
+    </div>
     <div class="layout-panel layout-panel-skills">
       <slot name="skills" />
     </div>
@@ -22,7 +25,7 @@
     height: 100vh;
     overflow-y: scroll;
     position: relative;
-    scroll-snap-type: y mandatory;
+    // scroll-snap-type: y proximity;
     width: 100vw;
 
     // @include breakpoint("desktop") {
@@ -34,8 +37,9 @@
   &-panel {
     display: flex;
     flex-flow: column nowrap;
+    height: max-content;
     min-height: 100vh;
-    padding: $layout-panel-padding;
+    padding: $layout-panel-padding-y $layout-panel-padding-x;
     scroll-snap-align: start;
   }
 
@@ -43,6 +47,10 @@
     &-panel {
       &-intro {
         min-height: 85vh;
+      }
+
+      &:not(.layout-panel-intro, .layout-panel-viz) {
+        padding-top: calc($layout-panel-padding-y + $layout-viz-height-mobile);
       }
     }
   }

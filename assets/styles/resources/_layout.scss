@@ -2,7 +2,9 @@
 @use "u" as *;
 
 $layout-panel-padding: u(0.5);
-$layout-viz-height-mobile: 25vh;
+$layout-panel-padding-x: u(0.5);
+$layout-panel-padding-y: u(2);
+$layout-viz-height-mobile: 20vh;
 
 @function _getBreakpoint($size) {
   $breakpoints: (

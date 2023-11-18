@@ -7,7 +7,7 @@
 @use "ratio";
 @use "u" as *;
 
-$remInPx: 32px;
+$remInPx: 24px;
 
 @function _getTypescalePixelSize(
   $level: 0,
@@ -23,7 +23,7 @@ $remInPx: 32px;
   // The size of a <p> tag in the type scale
   $typescale-base: 1rem;
   // Levels in the type scale, from smallest to largest
-  $typescale-levels: "p", "h2", "h1";
+  $typescale-levels: "p", "h3", "h2", "h1";
   // Eventually houses typescale values
   $typescale: ();
 

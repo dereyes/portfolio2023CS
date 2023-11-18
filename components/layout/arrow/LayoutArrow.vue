@@ -15,7 +15,7 @@
 
   height: calc($layout-viz-height-mobile + ($arrow-position-y * -2));
   position: absolute;
-  right: $layout-panel-padding;
+  right: $layout-panel-padding-x;
   top: $arrow-position-y;
 
   &-inner {
