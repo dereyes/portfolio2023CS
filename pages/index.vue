@@ -1,10 +1,10 @@
 <template>
   <LayoutMain>
     <template v-slot:intro>
-      <h1>Darin E. Reyes is a Front-End Web Developer.</h1>
+      <h1>Darin E. Reyes is a Front-End Web Developer</h1>
       <p>
         Currently based in
-        <span class="noWrap">Mountain View,</span> California.
+        <span class="noWrap">Mountain View,</span> California
       </p>
     </template>
     <template v-slot:background>
