@@ -32,14 +32,3 @@
     </template>
   </LayoutMain>
 </template>
-
-<script setup>
-const projects = [
-  {
-    title: "Planet",
-    subtitle:
-      "Return to real life with a chat app designed for planning social events",
-    href: "/projects/planet",
-  },
-];
-</script>

@@ -10,7 +10,6 @@
 .layout-arrow {
   $arrow-size: u(3);
   $arrow-inner-size: $arrow-size * 1.5;
-  $arrow-position-y: $arrow-size * 0.5;
   $arrow-overflow-top: $arrow-size * -0.5;
   $arrow-overflow-bottom: $arrow-size * 0.5;
   $arrow-track-height: calc(
@@ -29,7 +28,7 @@
     color: color.palette("concrete");
     display: grid;
     height: $arrow-size;
-    top: calc($layout-viz-height-mobile + $arrow-position-y);
+    top: calc($layout-viz-height-mobile + $arrow-overflow-bottom);
     place-items: center;
     position: sticky;
     width: $arrow-size;
