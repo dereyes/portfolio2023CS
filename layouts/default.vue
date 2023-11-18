@@ -1,10 +1,10 @@
 <template>
   <div class="layout">
-    <LayoutNavUnderlay v-show="navStore.isOpen"></LayoutNavUnderlay>
+    <!-- <LayoutNavUnderlay v-show="navStore.isOpen"></LayoutNavUnderlay>
     <header class="layout-header">
       <LayoutNavToggle></LayoutNavToggle>
     </header>
-    <LayoutNavOverlay v-show="navStore.isOpen"></LayoutNavOverlay>
+    <LayoutNavOverlay v-show="navStore.isOpen"></LayoutNavOverlay> -->
     <slot></slot>
   </div>
 </template>
@@ -19,10 +19,10 @@ const navStore = useNavStore();
   display: contents;
 }
 
-.layout-header {
-  grid-column: main-end / window-end;
-  grid-row: window-start / header-end;
-  position: sticky;
-  top: 0;
-}
+// .layout-header {
+//   grid-column: main-end / window-end;
+//   grid-row: window-start / header-end;
+//   position: sticky;
+//   top: 0;
+// }
 </style>

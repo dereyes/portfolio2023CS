@@ -18,6 +18,6 @@ const props = defineProps({
 
 <styles lang="scss" scoped>
 .cards-list {
-  @include unstyle-list;
+  @include unstyle.list;
 }
 </styles>

@@ -24,7 +24,7 @@ $layout-nav-toggle-size: u(3);
 $layout-nav-toggle-border-width: 7px;
 
 .layout-nav-toggle {
-  @include resetButtonStyles;
+  @include unstyle.button;
   border: $layout-nav-toggle-border-width solid black;
   border-radius: math.div($layout-nav-toggle-size, 2);
   display: grid;

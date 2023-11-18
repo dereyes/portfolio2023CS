@@ -1,0 +1,67 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:string";
+
+@use "collection";
+@use "ratio";
+@use "u" as *;
+
+$remInPx: 32px;
+
+@function _getTypescalePixelSize(
+  $level: 0,
+  $typescale-base,
+  $typescale-factor
+) {
+  @return math.pow($typescale-factor, $level) * $typescale-base;
+}
+
+@function typescale($level) {
+  // Difference in size from one level to the next
+  $typescale-factor: ratio.justInterval(2);
+  // The size of a <p> tag in the type scale
+  $typescale-base: 1rem;
+  // Levels in the type scale, from smallest to largest
+  $typescale-levels: "p", "h3", "h2", "h1";
+  // Eventually houses typescale values
+  $typescale: ();
+
+  @for $i from 1 to length($typescale-levels) + 1 {
+    $typescale-name: list.nth($typescale-levels, $i);
+    $typescale-p-index: list.index($typescale-levels, "p");
+    $typescale-index-relativeToP: ($i - $typescale-p-index);
+    $typescale-pixelSize: _getTypescalePixelSize(
+      $typescale-index-relativeToP,
+      $typescale-base,
+      $typescale-factor
+    );
+
+    $typescale: map.merge(
+      $typescale,
+      (
+        $typescale-name: $typescale-pixelSize,
+      )
+    );
+  }
+
+  @return collection.get($typescale, #{$level});
+}
+
+@function fontFamily($family) {
+  $families: (
+    "sansSerif": string.unquote("'Space Grotesk', sans-serif"),
+  );
+
+  @return collection.get($families, #{$family});
+}
+
+@function fontWeight($weight) {
+  $weights: (
+    "light": 300,
+    "medium": 500,
+    "semibold": 600,
+  );
+
+  @return collection.get($weights, #{$weight});
+}

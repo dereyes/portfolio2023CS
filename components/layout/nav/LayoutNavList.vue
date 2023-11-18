@@ -17,7 +17,7 @@ const props = defineProps({
 
 <styles lang="scss" scoped>
 .layout-nav-list {
-  @include unstyle-list;
+  @include unstyle.list;
   text-align: center;
 }
 </styles>

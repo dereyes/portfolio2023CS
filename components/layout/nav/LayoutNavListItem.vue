@@ -23,6 +23,6 @@ const props = defineProps({
 <styles lang="scss" scoped>
 .layout-nav-list-item {
   color: white;
-  font-size: map.get($h1, "font-size");
+  /* font-size: map.get($h1, "font-size"); */
 }
 </styles>

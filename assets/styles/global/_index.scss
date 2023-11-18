@@ -1,14 +1,4 @@
-// @use "sass:math";
-// @use "sass:map";
-// @use "sass:list";
-
-// @import "@/assets/styles/_index.scss";
-// @import "@/assets/styles/_variables.scss";
-
-// @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Newsreader:opsz,wght@6..72,300;6..72,500&display=swap');
-
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,500;1,6..72,200;1,6..72,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -19,79 +9,20 @@ body,
 #__nuxt {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 html {
-  font-size: 25px; // set em
+  font-size: typography.$remInPx; // set rem
 }
 
 body {
-  background-color: $light-grey;
-  font-family: "Newsreader", serif;
-  // padding: 0 2rem;
+  background-color: color.palette("concrete");
   margin: 0;
-  // max-width: 64rem;
-}
-
-h1,
-h2,
-h3,
-p {
-  max-width: 60ch;
 }
 
 h1 {
-  font-family: map-get($h1, "font-family");
-  font-size: map-get($h1, "font-size");
-  font-style: map-get($h1, "font-style");
-  font-weight: map-get($h1, "font-weight");
-  line-height: map-get($h1, "line-height");
-  margin: map-get($h1, "margin");
-}
-
-h2 {
-  font-family: map-get($h2, "font-family");
-  font-size: map-get($h2, "font-size");
-  font-style: map-get($h2, "font-style");
-  font-weight: map-get($h2, "font-weight");
-  line-height: map-get($h2, "line-height");
-  margin: map-get($h2, "margin");
-}
-
-h3 {
-  font-family: map-get($h3, "font-family");
-  font-size: map-get($h3, "font-size");
-  font-style: map-get($h3, "font-style");
-  font-weight: map-get($h3, "font-weight");
-  line-height: map-get($h3, "line-height");
-  margin: map-get($h3, "margin");
-}
-
-p {
-  font-family: map-get($p, "font-family");
-  font-size: map-get($p, "font-size");
-  font-weight: map-get($p, "font-weight");
-  letter-spacing: 0.001em;
-  line-height: map-get($p, "line-height");
-  margin: map-get($p, "margin");
-
-  strong {
-    font-weight: 700;
-  }
-}
-
-li {
-  font-family: map-get($p, "font-family");
-  font-size: map-get($p, "font-size");
-  font-weight: map-get($p, "font-weight");
-  line-height: map-get($p, "line-height");
-}
-
-i {
-  font-style: italic;
-}
-
-.noWrap {
-  white-space: nowrap;
+  font-family: typography.fontFamily("sansSerif");
+  font-size: typography.typescale("h1");
+  line-height: ratio.justInterval(6);
 }

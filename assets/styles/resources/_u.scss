@@ -1,0 +1,26 @@
+@use "collection";
+
+@function u($size) {
+  $sizes: (
+    "0": 0rem,
+    "0.25": 0.25rem,
+    "0.5": 0.5rem,
+    "0.75": 0.75rem,
+    "1": 1rem,
+    "1.25": 1.25rem,
+    "1.5": 1.5rem,
+    "2": 2rem,
+    "2.5": 2.5rem,
+    "2.25": 2.25rem,
+    "3": 3rem,
+    "3.25": 3.25rem,
+    "3.5": 3.5rem,
+    "4": 4rem,
+    "4.5": 4.5rem,
+    "5": 5rem,
+    "6": 6rem,
+    "7": 7rem,
+  );
+
+  @return collection.get($sizes, #{$size});
+}

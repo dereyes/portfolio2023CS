@@ -1,0 +1,9 @@
+@use "collection";
+
+@function palette($key) {
+  $palette: (
+    "concrete": #cdcdcd,
+  );
+
+  @return collection.get($palette, #{$key});
+}
