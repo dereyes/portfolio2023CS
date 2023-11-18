@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -24,5 +24,15 @@ body {
 h1 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h1");
+  font-weight: typography.fontWeight("semibold");
   line-height: ratio.justInterval(6);
+  margin: 0 0 1em;
+}
+
+p {
+  font-family: typography.fontFamily("sansSerif");
+  font-size: typography.typescale("p");
+  font-weight: typography.fontWeight("light");
+  line-height: ratio.justInterval(6);
+  margin: 0 0 1em;
 }

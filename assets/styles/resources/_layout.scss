@@ -1,0 +1,21 @@
+@use "collection";
+
+@function _getBreakpoint($size) {
+  $breakpoints: (
+    "mobile": 640px,
+  );
+
+  @return collection.get($breakpoints, #{$size});
+}
+
+@mixin breakpoint($breakpoint) {
+  @if ($breakpoint == "max-mobile") {
+    @media (max-width: _getBreakpoint("mobile")) {
+      @content;
+    }
+  } @else if ($breakpoint == "min-desktop") {
+    @media (min-width: (_getBreakpoint("mobile") + 1)) {
+      @content;
+    }
+  }
+}

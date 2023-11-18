@@ -7,6 +7,7 @@ const useScss = [
   '@use "sass:string";',
   '@use "@/assets/styles/resources/_collection.scss";',
   '@use "@/assets/styles/resources/_color.scss";',
+  '@use "@/assets/styles/resources/_layout.scss" as *;',
   '@use "@/assets/styles/resources/_ratio.scss";',
   '@use "@/assets/styles/resources/_typography.scss";',
   '@use "@/assets/styles/resources/_u.scss" as *;',

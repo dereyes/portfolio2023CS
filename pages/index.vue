@@ -1,11 +1,12 @@
 <template>
   <LayoutMain>
-    <!-- <h1 class="h1-xxlarge">Dev+Lab</h1> -->
-    <!-- <p class="p-large">Hello! I'm <NuxtLink to="/about-me">Darin.</NuxtLink></p> -->
-    <h1 class="display">
-      <strong>Darin E. Reyes is a Front-End Web Developer</strong> based in
-      Mountain View, California.
-    </h1>
+    <template v-slot:intro>
+      <h1>Darin E. Reyes is a Front-End Web Developer.</h1>
+      <p>
+        Currently based in
+        <span class="noWrap">Mountain View,</span> California.
+      </p>
+    </template>
     <Cards :listItems="projects" />
   </LayoutMain>
 </template>
@@ -20,13 +21,3 @@ const projects = [
   },
 ];
 </script>
-
-<styles lang="scss">
-.display {
-  font-weight: typography.fontWeight("light");
-
-  span {
-    font-weight: typography.fontWeight("semibold");
-  }
-}
-</styles>
