@@ -10,13 +10,18 @@
 .layout-arrow {
   $arrow-size: u(3);
   $arrow-inner-size: $arrow-size * 1.5;
+  $arrow-position-y: $arrow-size * 0.5;
+  $arrow-overflow-top: $arrow-size * -0.5;
+  $arrow-overflow-bottom: $arrow-size * 0.5;
+  $arrow-track-height: calc(
+    100vh + $layout-viz-height-mobile + ($arrow-overflow-top * -1) +
+      $arrow-overflow-bottom
+  );
 
-  $arrow-position-y: $arrow-size * -0.75;
-
-  height: calc($layout-viz-height-mobile + ($arrow-position-y * -2));
+  height: $arrow-track-height;
   position: absolute;
   right: $layout-panel-padding-x;
-  top: $arrow-position-y;
+  top: $arrow-overflow-top;
 
   &-inner {
     background: color.palette("hilite");

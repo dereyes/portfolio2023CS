@@ -36,6 +36,7 @@
 
   &-panel {
     display: flex;
+    background: color.palette("concrete");
     flex-flow: column nowrap;
     height: max-content;
     min-height: 100vh;

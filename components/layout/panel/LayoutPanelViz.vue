@@ -7,10 +7,13 @@
 <style lang="scss" scoped>
 .layout {
   &-panel-viz {
+    // background: transparent;
     border: u(0.25) solid black;
-    min-height: $layout-viz-height-mobile;
+    height: calc(100vh + $layout-viz-height-mobile);
+    // min-height: $layout-viz-height-mobile;
     position: sticky;
-    top: 0;
+    // scroll-snap-align: start;
+    top: calc(-100vh - ($layout-viz-height-mobile / 2));
   }
 }
 </style>
