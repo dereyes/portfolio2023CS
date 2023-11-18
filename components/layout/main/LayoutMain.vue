@@ -8,16 +8,14 @@
         <span class="layout-arrow-character">↓</span>
       </div>
     </div>
-    <div class="layout-panel layout-panel-viz">
-      <slot name="viz" />
-    </div>
+    <LayoutPanelViz />
     <div class="layout-panel layout-panel-skills">
       <slot name="skills" />
     </div>
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   $panel-padding: u(0.5);
 
@@ -42,11 +40,6 @@
     min-height: 100vh;
     padding: $panel-padding;
     scroll-snap-align: start;
-
-    &-viz {
-      border: u(0.25) solid black;
-      height: 100vh;
-    }
   }
 
   &-arrow {
@@ -82,11 +75,6 @@
       &-intro {
         min-height: 80vh;
       }
-
-      // &-viz {
-      //   grid-column: 1 / -1;
-      //   grid-row: 2 / 3;
-      // }
     }
 
     // &-arrow {
