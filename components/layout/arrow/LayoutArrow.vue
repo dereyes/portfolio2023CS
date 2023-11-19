@@ -1,7 +1,9 @@
 <template>
   <div class="layout-arrow">
-    <div class="layout-arrow-inner">
-      <span class="layout-arrow-character">↓</span>
+    <div class="layout-arrow-outer">
+      <div class="layout-arrow-inner">
+        <span class="layout-arrow-character">↓</span>
+      </div>
     </div>
   </div>
 </template>
@@ -12,15 +14,22 @@
   $arrow-inner-size: $arrow-size * 1.5;
   $arrow-overflow-top: $arrow-size * -0.5;
   $arrow-overflow-bottom: $arrow-size * 0.5;
-  $arrow-track-height: calc(
-    100vh + $layout-viz-height-mobile + ($arrow-overflow-top * -1) +
-      $arrow-overflow-bottom
-  );
 
-  height: $arrow-track-height;
-  position: absolute;
-  right: $layout-panel-padding-x;
-  top: $arrow-overflow-top;
+  bottom: 0;
+  display: grid;
+  height: 0;
+  padding: 0 $layout-panel-padding-x;
+  place-items: end;
+  // pointer-events: none;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+
+  &-outer {
+    height: $layout-viz-height-mobile;
+    position: sticky;
+    top: 0;
+  }
 
   &-inner {
     background: color.palette("hilite");
@@ -28,9 +37,10 @@
     color: color.palette("concrete");
     display: grid;
     height: $arrow-size;
-    top: calc($layout-viz-height-mobile + $arrow-overflow-bottom);
+    transform: translate(0, math.div($arrow-size, 2));
     place-items: center;
     position: sticky;
+    right: 0;
     width: $arrow-size;
   }
 

@@ -4,7 +4,9 @@
 $layout-panel-padding: u(0.5);
 $layout-panel-padding-x: u(0.5);
 $layout-panel-padding-y: u(2);
-$layout-viz-height-mobile: 20vh;
+
+$layout-panel-intro-height: 85vh;
+$layout-viz-height-mobile: 100vh - $layout-panel-intro-height;
 
 @function _getBreakpoint($size) {
   $breakpoints: (
