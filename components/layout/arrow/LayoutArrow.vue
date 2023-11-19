@@ -10,7 +10,7 @@
 
 <style lang="scss" scoped>
 .layout-arrow {
-  $arrow-size: u(3);
+  $arrow-size: u(4);
   $arrow-inner-size: $arrow-size * 1.5;
   $arrow-overflow-top: $arrow-size * -0.5;
   $arrow-overflow-bottom: $arrow-size * 0.5;
@@ -49,6 +49,8 @@
 
   &-character {
     font-family: typography.fontFamily("sansSerif");
+    font-size: u(2);
+    font-weight: typography.fontWeight("extrabold");
   }
 }
 </style>
