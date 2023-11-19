@@ -24,6 +24,7 @@
   position: sticky;
   top: 0;
   width: 100vw;
+  z-index: 1;
 
   &-outer {
     height: $layout-viz-height-mobile;
