@@ -24,10 +24,12 @@
   position: sticky;
   top: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 2;
 
   &-outer {
+    display: grid;
     height: $layout-viz-height-mobile;
+    place-items: center;
     position: sticky;
     top: 0;
   }
@@ -38,7 +40,7 @@
     color: color.palette("concrete");
     display: grid;
     height: $arrow-size;
-    transform: translate(0, math.div($arrow-size, 2));
+    // transform: translate(0, math.div($arrow-size, 2));
     place-items: center;
     position: sticky;
     right: 0;

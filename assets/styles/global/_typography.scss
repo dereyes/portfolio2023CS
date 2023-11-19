@@ -10,7 +10,7 @@ body {
 h1 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h1");
-  font-weight: typography.fontWeight("semibold");
+  font-weight: typography.fontWeight("extrabold");
   line-height: ratio.justInterval(5);
   margin: 0 0 0.5em;
 }
@@ -18,7 +18,7 @@ h1 {
 h2 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h2");
-  font-weight: typography.fontWeight("semibold");
+  font-weight: typography.fontWeight("extrabold");
   line-height: ratio.justInterval(5);
   margin: 0 0 1em;
 }
@@ -26,7 +26,7 @@ h2 {
 h3 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h3");
-  font-weight: typography.fontWeight("semibold");
+  font-weight: typography.fontWeight("extrabold");
   line-height: ratio.justInterval(5);
   margin: 0 0 1em;
 }
@@ -35,7 +35,12 @@ p,
 li {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("p");
-  font-weight: typography.fontWeight("light");
-  line-height: ratio.justInterval(6);
+  font-weight: typography.fontWeight("regular");
+  letter-spacing: 0.03em;
+  line-height: ratio.justInterval(7);
   margin: 0 0 2em;
+
+  strong {
+    font-weight: typography.fontWeight("bold");
+  }
 }

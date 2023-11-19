@@ -1,6 +1,6 @@
 <template>
   <LayoutPanel>
-    <h2 ref="scrollRef">Specializing in</h2>
+    <h2 ref="scrollRef">Specialties</h2>
     <ListHighlight>
       <ListHighlightItem>
         <h3>UX Engineering</h3>

@@ -12,6 +12,7 @@
   height: calc(100vh + ($layout-viz-height-mobile * 2));
   position: sticky;
   top: calc(-100vh - $layout-viz-height-mobile);
+  z-index: 1;
 }
 
 .viz {

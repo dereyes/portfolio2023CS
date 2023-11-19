@@ -50,7 +50,7 @@ $remInPx: 18px;
 
 @function fontFamily($family) {
   $families: (
-    "sansSerif": string.unquote("'Space Grotesk', sans-serif"),
+    "sansSerif": string.unquote("'Manrope', sans-serif"),
   );
 
   @return collection.get($families, #{$family});
@@ -58,9 +58,9 @@ $remInPx: 18px;
 
 @function fontWeight($weight) {
   $weights: (
-    "light": 300,
-    "medium": 500,
-    "semibold": 600,
+    "regular": 400,
+    "bold": 700,
+    "extrabold": 800,
   );
 
   @return collection.get($weights, #{$weight});

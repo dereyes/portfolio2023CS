@@ -22,7 +22,7 @@ const onExit = () => {
 onMounted(() => {
   observer.value = onIntersect(scrollRef.value, onEnter, onExit, false, {
     threshold: 0.5,
-    rootMargin: "-12.5% 0px -50% 0px",
+    rootMargin: "-33% 0px -33% 0px",
   });
 });
 
@@ -37,8 +37,8 @@ onUnmounted(() => {
   display: flex;
   flex-flow: column nowrap;
   margin: 0 0 u(3);
-  opacity: 0.25;
-  transition: opacity 0.25s ease;
+  opacity: 0.15;
+  transition: opacity 0.5s ease;
 
   &.list-highlight-item-highlighted {
     opacity: 1;
