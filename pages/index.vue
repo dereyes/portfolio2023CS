@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
     <LayoutPanelIntro />
-    <!-- <LayoutArrow /> -->
+    <LayoutArrow />
     <LayoutPanelViz />
     <LayoutPanelSkills />
     <LayoutPanelBackground />

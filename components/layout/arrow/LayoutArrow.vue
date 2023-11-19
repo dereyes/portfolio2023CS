@@ -17,12 +17,12 @@
 
   bottom: 0;
   display: grid;
-  height: 0;
+  // height: 0;
   padding: 0 $layout-panel-padding-x;
   place-items: end;
   position: sticky;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 2;
 
   &-outer {
@@ -49,6 +49,14 @@
     font-family: typography.fontFamily("sansSerif");
     font-size: u(2);
     font-weight: typography.fontWeight("extrabold");
+  }
+
+  @include breakpoint("max-mobile") {
+    height: 0;
+  }
+
+  @include breakpoint("min-desktop") {
+    grid-column: 2 / -1;
   }
 }
 </style>
