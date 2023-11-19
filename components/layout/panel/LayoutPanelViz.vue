@@ -1,6 +1,6 @@
 <template>
   <LayoutPanel class="layout-panel-viz">
-    <div class="viz"></div>
+    <Visualization />
   </LayoutPanel>
 </template>
 
@@ -13,15 +13,5 @@
   position: sticky;
   top: calc(-100vh - $layout-viz-height-mobile);
   z-index: 1;
-}
-
-.viz {
-  background: linear-gradient(orange, pink);
-  height: 100vh;
-  left: 0;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  width: 100vh;
 }
 </style>
