@@ -18,7 +18,7 @@
   bottom: 0;
   display: grid;
   // height: 0;
-  padding: 0 $layout-panel-padding-x;
+  padding: 0 $layout-panel-padding-mobile-x;
   place-items: end;
   position: sticky;
   top: 0;

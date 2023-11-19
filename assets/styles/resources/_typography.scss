@@ -23,7 +23,7 @@ $remInPx: 16px;
   // The size of a <p> tag in the type scale
   $typescale-base: 1rem;
   // Levels in the type scale, from smallest to largest
-  $typescale-levels: "p", "", "h3", "h2", "h1";
+  $typescale-levels: "small", "p", "", "h3", "h2", "h1";
   // Eventually houses typescale values
   $typescale: ();
 

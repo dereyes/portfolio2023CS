@@ -40,6 +40,23 @@ li {
   line-height: ratio.justInterval(7);
   margin: 0 0 2em;
 
+  a {
+    background: linear-gradient(
+      to top,
+      color.palette("black") 0.1em,
+      color.palette("hilite2") 0.1em,
+      color.palette("hilite2") 0.4em,
+      transparent 0.4em
+    );
+    color: color.palette("black");
+    text-decoration: none;
+
+    &::after {
+      content: "↗";
+      font-size: typography.typescale("small");
+    }
+  }
+
   strong {
     font-weight: typography.fontWeight("bold");
   }

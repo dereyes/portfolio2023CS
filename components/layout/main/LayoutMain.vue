@@ -22,7 +22,7 @@
 
     &-panel {
       &:not(.layout-panel-intro, .layout-panel-viz) {
-        padding-top: calc($layout-panel-padding-y + $layout-viz-height-mobile);
+        padding-top: calc($layout-panel-padding-mobile-y + $layout-viz-height-mobile);
       }
     }
   }

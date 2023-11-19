@@ -18,6 +18,13 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   flex-flow: column nowrap;
   height: max-content;
   min-height: 100vh;
-  padding: $layout-panel-padding-y $layout-panel-padding-x;
+
+  @include breakpoint("max-mobile") {
+    padding: $layout-panel-padding-mobile;
+  }
+
+  @include breakpoint("min-desktop") {
+    padding: $layout-panel-padding-desktop;
+  }
 }
 </style>

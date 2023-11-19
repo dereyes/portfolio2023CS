@@ -1,9 +1,19 @@
 @use "collection";
 @use "u" as *;
 
-$layout-panel-padding: u(0.5);
-$layout-panel-padding-x: u(0.5);
-$layout-panel-padding-y: u(2);
+// $layout-panel-padding: u(0.5);
+
+// $layout-panel-padding-x: u(0.5);
+// $layout-panel-padding-y: u(2);
+// $layout-panel-padding-mobile: u(0.5);
+
+$layout-panel-padding-mobile-x: u(0.5);
+$layout-panel-padding-mobile-y: u(2);
+$layout-panel-padding-mobile: $layout-panel-padding-mobile-y $layout-panel-padding-mobile-x;
+
+$layout-panel-padding-desktop-x: u(0.5);
+$layout-panel-padding-desktop-y: u(2);
+$layout-panel-padding-desktop: $layout-panel-padding-desktop-y $layout-panel-padding-desktop-x;
 
 $layout-panel-intro-height: 85vh;
 $layout-viz-height-mobile: 100vh - $layout-panel-intro-height;
