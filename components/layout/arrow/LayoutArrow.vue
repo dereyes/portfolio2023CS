@@ -56,7 +56,7 @@
   }
 
   @include breakpoint("min-desktop") {
-    grid-column: 2 / -1;
+    grid-column: 1 / span 1;
   }
 }
 </style>

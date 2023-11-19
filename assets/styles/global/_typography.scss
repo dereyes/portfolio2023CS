@@ -57,6 +57,10 @@ li {
     }
   }
 
+  small {
+    font-size: typography.typescale("small");
+  }
+
   strong {
     font-weight: typography.fontWeight("bold");
   }
