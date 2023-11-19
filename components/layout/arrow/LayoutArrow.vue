@@ -20,7 +20,6 @@
   height: 0;
   padding: 0 $layout-panel-padding-x;
   place-items: end;
-  // pointer-events: none;
   position: sticky;
   top: 0;
   width: 100vw;
@@ -40,7 +39,6 @@
     color: color.palette("concrete");
     display: grid;
     height: $arrow-size;
-    // transform: translate(0, math.div($arrow-size, 2));
     place-items: center;
     position: sticky;
     right: 0;

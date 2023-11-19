@@ -19,7 +19,7 @@ $remInPx: 16px;
 
 @function typescale($level) {
   // Difference in size from one level to the next
-  $typescale-factor: ratio.justInterval(6);
+  $typescale-factor: ratio.justInterval(5);
   // The size of a <p> tag in the type scale
   $typescale-base: 1rem;
   // Levels in the type scale, from smallest to largest
