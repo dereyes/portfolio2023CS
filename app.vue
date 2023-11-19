@@ -1,5 +1,5 @@
 <template>
-  <div :class="['app', { 'app-navIsOpen': navStore.isOpen }]" id="app">
+  <div class="app">
     <NuxtLayout>
       <NuxtPage
         :transition="{
@@ -10,11 +10,6 @@
     </NuxtLayout>
   </div>
 </template>
-
-<script setup>
-import { useNavStore } from "@/stores/navStore";
-const navStore = useNavStore();
-</script>
 
 <style lang="scss">
 .app {
@@ -37,7 +32,6 @@ const navStore = useNavStore();
   position: sticky;
   top: 0;
 }
-
 
 .slide-left-enter-active,
 .slide-left-leave-active,

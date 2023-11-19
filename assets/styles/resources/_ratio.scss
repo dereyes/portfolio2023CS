@@ -1,0 +1,44 @@
+@use "sass:list";
+
+@use "collection";
+
+// @function ratio($ratio) {
+//   $ratios: (
+//     //just interval ratios
+//     "minorSecond": 1.067,
+//     "majorSecond": 1.125,
+//     "minorThird": 1.2,
+//     "majorThird": 1.25,
+//     "perfectFourth": 1.333,
+//     "augmentedFourth": 1.414,
+//     "perfectFifth": 1.5,
+//     "minorSixth": 1.6,
+//     "majorSixth": 1.666,
+//     "minorSeventh": 1.8,
+//     "majorSeventh": 1.875,
+//     "octave": 2,
+//     // other
+//     "golden": 1.618
+//   );
+
+//   @return collection.get($ratios, #{$ratio});
+// }
+
+@function justInterval($index) {
+  $ratios: (
+    "minorSecond": 1.067,
+    "majorSecond": 1.125,
+    "minorThird": 1.2,
+    "majorThird": 1.25,
+    "perfectFourth": 1.333,
+    "augmentedFourth": 1.414,
+    "perfectFifth": 1.5,
+    "minorSixth": 1.6,
+    "majorSixth": 1.666,
+    "minorSeventh": 1.8,
+    "majorSeventh": 1.875,
+    "octave": 2,
+  );
+
+  @return list.nth(list.nth($ratios, $index), 2);
+}
