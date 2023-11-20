@@ -6,68 +6,66 @@
 import { onMounted, nextTick, ref } from "vue";
 import p5 from "p5";
 
+import vert from "./vert.js";
+import frag from "./frag.js";
+
 const viz = ref(null);
 
 onMounted(() => {
   nextTick(() => {
     let visualization = (p5) => {
-      let rectShader;
+      // let rectShader;
+      // let getShaders = {};
 
       const canvasResized = () => {
         p5.resizeCanvas(viz.value.clientWidth, viz.value.clientHeight);
       };
 
       p5.preload = () => {
-        rectShader = p5.loadShader(
-          "shader.vert",
-          "shader.frag",
-          () => {
-            console.log("success?");
-          },
-          (error) => {
-            console.log(error);
-          },
-        );
+        // console.log(p5.loadStrings("vert.glsl"));
+        // rectShader = p5.loadShader(
+        //   "vert.glsl",
+        //   "frag.glsl",
+        //   () => {
+        //     console.log("success?");
+        //   },
+        //   (error) => {
+        //     console.log(error);
+        //   },
+        // );
+        // getShaders = {
+        //   vert: p5.loadStrings("vert.glsl"),
+        //   frag: p5.loadStrings("frag.glsl"),
+        // };
+        // p5.loadStrings("vert.glsl", (result) => {
+        //   getShaders.vert = result.join("\n");
+        // });
+        // p5.loadStrings("frag.glsl", (result) => {
+        //   getShaders.frag = result.join("\n");
+        // });
       };
-
-      // the 'varying's are shared between both vertex & fragment shaders
-      let varying = "precision highp float; varying vec2 vPos;";
-
-      // the vertex shader is called for each vertex
-      let vs =
-        varying +
-        "attribute vec3 aPosition;" +
-        "void main() { vPos = (gl_Position = vec4(aPosition,1.0)).xy; }";
-
-      // the fragment shader is called for each pixel
-      let fs =
-        varying +
-        "uniform vec2 p;" +
-        "uniform float r;" +
-        "const int I = 500;" +
-        "void main() {" +
-        "  vec2 c = p + vPos * r, z = c;" +
-        "  float n = 0.0;" +
-        "  for (int i = I; i > 0; i --) {" +
-        "    if(z.x*z.x+z.y*z.y > 4.0) {" +
-        "      n = float(i)/float(I);" +
-        "      break;" +
-        "    }" +
-        "    z = vec2(z.x*z.x-z.y*z.y, 2.0*z.x*z.y) + c;" +
-        "  }" +
-        "  gl_FragColor = vec4(0.5-cos(n*17.0)/2.0,0.5-cos(n*13.0)/2.0,0.5-cos(n*23.0)/2.0,1.0);" +
-        "}";
 
       let mandel;
 
       p5.setup = () => {
         const canvas = p5.createCanvas(400, 400, p5.WEBGL);
         canvas.parent("viz");
+        // canvasResized();
+        // console.log(rectShader);
+        // rectShader._glProgram = WebGLProgram;
         // p5.shader(rectShader);
+        // p5.copyToContext(p5.p5);
 
-        mandel = p5.createShader(vs, fs);
+        mandel = p5.createShader(vert, frag);
+        // mandel = p5.createShader(getShaders.vert, getShaders.frag);
+        // p5.shader(mandel);
+        // console.log(mandel);
+
+        // rectShader = p5.createShader(getShaders.vert, getShaders.frag);
+
+        // console.log(mandel, rectShader);
+
         p5.shader(mandel);
-
         p5.noStroke();
 
         // 'p' is the center point of the Mandelbrot image
@@ -80,7 +78,7 @@ onMounted(() => {
         // p5.rect(0, 0, p5.width, p5.height);
         mandel.setUniform(
           "r",
-          1.5 * p5.exp(-6.5 * (1 + p5.sin(p5.millis() / 2000))),
+          1.5 * p5.exp(-6.5 * (1 + p5.sin(p5.millis() / 200000))),
         );
         p5.quad(-1, -1, 1, -1, 1, 1, -1, 1);
       };
