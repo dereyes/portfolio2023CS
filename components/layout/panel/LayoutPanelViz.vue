@@ -1,6 +1,8 @@
 <template>
   <LayoutPanel class="layout-panel-viz">
-    <Visualization />
+    <ClientOnly>
+      <Visualization />
+    </ClientOnly>
   </LayoutPanel>
 </template>
 
