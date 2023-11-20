@@ -65,21 +65,31 @@ onMounted(() => {
 
         // console.log(mandel, rectShader);
 
+        p5.pixelDensity(1);
         p5.shader(mandel);
         p5.noStroke();
 
         // 'p' is the center point of the Mandelbrot image
-        mandel.setUniform("p", [-0.74364388703, 0.13182590421]);
+        // mandel.setUniform("p", [-0.74364388703, 0.13182590421]);
 
         // p5.rect(0, 0, p5.width, p5.height);
       };
 
       p5.draw = () => {
         // p5.rect(0, 0, p5.width, p5.height);
-        mandel.setUniform(
-          "r",
-          1.5 * p5.exp(-6.5 * (1 + p5.sin(p5.millis() / 200000))),
-        );
+
+        // mandel.setUniform(
+        //   "r",
+        //   1.5 * p5.exp(-6.5 * (1 + p5.sin(p5.millis() / 200000))),
+        // );
+
+        mandel.setUniform("iResolution", [p5.width, p5.height]);
+        mandel.setUniform("iFrame", p5.frameCount);
+        mandel.setUniform("iMouse", [
+          p5.mouseX,
+          p5.map(p5.mouseY, 0, p5.height, p5.height, 0),
+        ]);
+
         p5.quad(-1, -1, 1, -1, 1, 1, -1, 1);
       };
 
