@@ -10,7 +10,6 @@ precision mediump float;
 
 uniform vec2 iResolution;
 uniform int iFrame;
-uniform vec2 iMouse;
 
 float hash( float n )
 			{
@@ -38,13 +37,13 @@ void main()
 {
     
     
-    vec3 t = (float(iFrame)*vec3(1.0,2.0,3.0)/1.0)/1000.0;//+iMouse.xyz/1000.0;
+    vec3 t = (float(iFrame)*vec3(1.0,2.0,3.0)/1.0)/10000.0;
 
     
     // Normalized pixel coordinates (from 0 to 1)
     vec2 uv = gl_FragCoord.xy/iResolution.xy;
     uv=uv/4.0+.5;
-    uv-=iMouse.xy/iResolution.xy/4.0;
+	uv-=iResolution.xy/4.0;
 
     vec3 col = vec3(0.0);
     
