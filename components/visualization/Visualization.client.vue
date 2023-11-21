@@ -6,42 +6,157 @@
 import { onMounted, nextTick, ref } from "vue";
 import p5 from "p5";
 
-import vert from "./vert.js";
-import frag from "./frag.js";
+// const viz = ref(null);
+const backgroundColor = 0;
 
-const viz = ref(null);
+let viz = {};
+let font;
+
+let time = {
+  position: 0,
+  speed: 0.1, // Smaller = slower evolution.
+};
+
+let noise = {
+  scale: 0.025, // Bigger = more "zoomed out" of noise space, more variation. Smaller = larger, smoother waves.
+  level: 255,
+};
+
+let grid = {
+  rows: 25,
+  columns: 25,
+  cell: {},
+};
+
+grid.cells = Array.from({ length: grid.columns }, (x, i) => {
+  return Array.from({ length: grid.rows }, (y, j) => {
+    return {
+      index: `${i}, ${j}`,
+    };
+  });
+});
+
+grid.forEach = (method) => {
+  for (let x = 0; x < grid.columns; x++) {
+    for (let y = 0; y < grid.rows; y++) {
+      method(grid.cells[x][y], x, y);
+    }
+  }
+};
+
+// $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^'.
+// .:-=+*#%@
+// " .:-=+x*azm8W#%@"
+const characters = Array.from(
+  "$@B%8&WM#*oahkbdpqwmZ     O0QLCJUYXzc  vunxrjft/\|()1{}[]?-        _+~<>i!lI;:,^                                         ",
+).reverse();
+
+console.log(grid);
 
 onMounted(() => {
   nextTick(() => {
+    viz.element = document.getElementById("viz");
+
     let visualization = (p5) => {
-      const canvasResized = () => {
-        p5.resizeCanvas(viz.value.clientWidth, viz.value.clientHeight);
+      grid.display = () => {
+        grid.forEach((cell) => {
+          p5.noFill(cell.noise);
+          p5.stroke(cell.noise);
+          p5.rect(
+            cell.position.x,
+            cell.position.y,
+            grid.cell.width,
+            grid.cell.height,
+          );
+        });
       };
 
-      let shader;
+      viz.resized = () => {
+        p5.resizeCanvas(viz.element.offsetWidth, viz.element.offsetHeight);
+      };
+
+      viz.display = {
+        frameRate: () => {
+          // p5.fill(255);
+          p5.textSize(10);
+          p5.textAlign(p5.LEFT, p5.BASELINE);
+          p5.text(p5.frameRate(), 0, p5.height);
+        },
+      };
+
+      p5.preload = () => {
+        font = p5.loadFont("SpaceMono-Bold.ttf");
+      };
 
       p5.setup = () => {
-        const canvas = p5.createCanvas(400, 400, p5.WEBGL);
+        const canvas = p5.createCanvas(400, 400, p5.P2D);
         canvas.parent("viz");
-        canvasResized();
+        viz.resized();
 
         p5.smooth();
-        p5.pixelDensity(1);
+        p5.fill(0);
         p5.noStroke();
+        p5.background(backgroundColor);
 
-        shader = p5.createShader(vert, frag);
-        p5.shader(shader);
+        p5.textFont(font);
+        p5.textAlign(p5.CENTER, p5.CENTER);
+
+        if (p5.width < p5.height) {
+          grid.width = p5.width * 0.85;
+        } else {
+          grid.width = p5.height * 0.85;
+        }
+
+        grid.height = grid.width;
+        grid.cell.width = grid.width / grid.columns;
+        grid.cell.height = grid.height / grid.rows;
+
+        grid.left = p5.width / 2 - grid.width / 2;
+        grid.top = p5.height / 2 - grid.height / 2;
+
+        grid.forEach((cell, x, y) => {
+          cell.position = {
+            x: grid.left + grid.cell.width * x,
+            y: grid.top + grid.cell.height * y,
+          };
+        });
       };
 
       p5.draw = () => {
-        shader.setUniform("iResolution", [p5.width, p5.height]);
-        shader.setUniform("iFrame", p5.frameCount);
+        p5.background(backgroundColor);
 
-        p5.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+        time.position = p5.frameCount * time.speed;
+        p5.textSize(grid.cell.height * 0.6);
+
+        grid.forEach((cell, x, y) => {
+          cell.noise =
+            noise.level *
+            p5.noise(
+              x * noise.scale,
+              y * noise.scale,
+              noise.scale * time.position,
+            );
+
+          cell.character =
+            characters[
+              Math.floor((cell.noise / noise.level) * characters.length)
+            ];
+
+          // p5.fill(cell.noise);
+          p5.fill(cell.noise);
+          p5.text(
+            cell.character,
+            cell.position.x + grid.cell.width * 0.35,
+            cell.position.y + grid.cell.height * 0.7,
+          );
+        });
+
+        // grid.display();
+        viz.display.frameRate();
       };
 
       p5.windowResized = () => {
-        canvasResized();
+        viz.resized();
       };
     };
 
