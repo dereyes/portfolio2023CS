@@ -14,18 +14,28 @@ let font;
 
 let time = {
   position: 0,
-  speed: 0.25, // Smaller = slower evolution.
+  speed: 0.005, // Smaller = slower evolution.
 };
 
 let noise = {
-  scale: 0.02, // Bigger = more "zoomed out" of noise space, more variation. Smaller = larger, smoother waves.
+  // Bigger = more "zoomed out" of noise space, more variation. Smaller = larger, smoother waves.
+  scale: {
+    x: 0.008,
+    y: 0.02,
+    z: 0.01,
+  },
+  speed: {
+    x: 0.001,
+    y: 0.0001,
+    z: 0.001,
+  },
   min: 0,
-  max: 255, // Will not map directly to colors if not 0 and 255
+  max: 275, // Will not map directly to colors if not 0 and 255
 };
 
 let grid = {
-  rows: 16,
-  columns: 16,
+  rows: 50,
+  columns: 10,
   cell: {},
 };
 
@@ -45,16 +55,48 @@ grid.forEach = (method) => {
   }
 };
 
+const scrollSpeed = (settings) => {
+  settings = settings || {};
+
+  var lastPos,
+    newPos,
+    timer,
+    delta,
+    delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+
+  function clear() {
+    lastPos = null;
+    delta = 0;
+  }
+
+  clear();
+
+  return function () {
+    newPos = window.scrollY;
+    if (lastPos != null) {
+      // && newPos < maxScroll
+      delta = newPos - lastPos;
+    }
+    lastPos = newPos;
+    clearTimeout(timer);
+    timer = setTimeout(clear, delay);
+    return delta;
+  };
+};
+
 /*
 TODO:
 * Max visualization size
 * Resize correctly
+* Respect 'prefers-reduced-motion'
 */
 
 // $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^'.
 // .:-=+*#%@
 // " .:-=+x*azm8W#%@"
-const characters = Array.from("`' ~ z +x  `'+*  `' -oaA.@@@@");
+const characters = Array.from(
+  "`' ~    z+  >x- . %i|/-      - +*+ - -#%& +*.    -<+*.  -xyz.@@@",
+);
 
 console.log(grid);
 
@@ -115,6 +157,9 @@ onMounted(() => {
         grid.height = grid.width;
         grid.cell.width = grid.width / grid.columns;
         grid.cell.height = grid.height / grid.rows;
+        grid.text = {
+          size: grid.cell.height * 1.25,
+        };
 
         grid.left = p5.width / 2 - grid.width / 2;
         grid.top = p5.height / 2 - grid.height / 2;
@@ -129,18 +174,16 @@ onMounted(() => {
 
       p5.draw = () => {
         p5.background(backgroundColor);
-
-        time.position = p5.frameCount * time.speed;
-        p5.textSize(grid.cell.height * 0.6);
+        p5.textSize(grid.text.size);
 
         grid.forEach((cell, x, y) => {
           cell.noise =
             noise.min +
             noise.max *
               p5.noise(
-                x * noise.scale,
-                y * noise.scale,
-                noise.scale * time.position,
+                x * noise.scale.x + p5.frameCount * noise.speed.x,
+                y * noise.scale.y + p5.frameCount * noise.speed.y,
+                noise.scale.z + p5.frameCount * noise.speed.z,
               );
 
           cell.character =
