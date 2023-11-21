@@ -14,17 +14,18 @@ let font;
 
 let time = {
   position: 0,
-  speed: 0.1, // Smaller = slower evolution.
+  speed: 0.25, // Smaller = slower evolution.
 };
 
 let noise = {
-  scale: 0.025, // Bigger = more "zoomed out" of noise space, more variation. Smaller = larger, smoother waves.
-  level: 255,
+  scale: 0.02, // Bigger = more "zoomed out" of noise space, more variation. Smaller = larger, smoother waves.
+  min: 0,
+  max: 255, // Will not map directly to colors if not 0 and 255
 };
 
 let grid = {
-  rows: 25,
-  columns: 25,
+  rows: 16,
+  columns: 16,
   cell: {},
 };
 
@@ -44,12 +45,16 @@ grid.forEach = (method) => {
   }
 };
 
+/*
+TODO:
+* Max visualization size
+* Resize correctly
+*/
+
 // $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^'.
 // .:-=+*#%@
 // " .:-=+x*azm8W#%@"
-const characters = Array.from(
-  "$@B%8&WM#*oahkbdpqwmZ     O0QLCJUYXzc  vunxrjft/\|()1{}[]?-        _+~<>i!lI;:,^                                         ",
-).reverse();
+const characters = Array.from("`' ~ z +x  `'+*  `' -oaA.@@@@");
 
 console.log(grid);
 
@@ -130,16 +135,17 @@ onMounted(() => {
 
         grid.forEach((cell, x, y) => {
           cell.noise =
-            noise.level *
-            p5.noise(
-              x * noise.scale,
-              y * noise.scale,
-              noise.scale * time.position,
-            );
+            noise.min +
+            noise.max *
+              p5.noise(
+                x * noise.scale,
+                y * noise.scale,
+                noise.scale * time.position,
+              );
 
           cell.character =
             characters[
-              Math.floor((cell.noise / noise.level) * characters.length)
+              Math.floor((cell.noise / noise.max) * characters.length)
             ];
 
           // p5.fill(cell.noise);
