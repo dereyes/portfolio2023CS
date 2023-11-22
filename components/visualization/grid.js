@@ -24,7 +24,6 @@ const getGrid = (p5, columns) => {
       top: undefined,
       left: undefined,
     },
-    forEachCell: undefined,
     render: undefined,
   };
 
@@ -50,7 +49,7 @@ const getGrid = (p5, columns) => {
     grid.cells = initializeCells(grid.settings.columns, grid.settings.rows);
   };
 
-  grid.forEachCell = (method) => {
+  const forEachCell = (method) => {
     for (let x = 0; x < grid.settings.columns; x++) {
       for (let y = 0; y < grid.settings.rows; y++) {
         method(grid.cells[x][y], x, y);
@@ -58,12 +57,14 @@ const getGrid = (p5, columns) => {
     }
   };
 
-  grid.render = ({shift}) => {
+  const columnSpeeds = [2.5, 1.5, 2];
+
+  grid.render = ({ shift }) => {
     p5.noStroke();
     p5.fill(255);
 
-    grid.forEachCell((cell) => {
-      cell.updatePosition(shift);
+    forEachCell((cell, x) => {
+      cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
       cell.render();
     });
   };
