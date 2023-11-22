@@ -29,12 +29,12 @@ onMounted(() => {
   // right: 0;
   // top: 0;
 
-  @include breakpoint("max-mobile") {
-    width: 100%;
-  }
+  // @include breakpoint("max-mobile") {
+  //   width: 100%;
+  // }
 
-  @include breakpoint("min-desktop") {
-    width: 50%;
-  }
+  // @include breakpoint("min-desktop") {
+  //   width: 50%;
+  // }
 }
 </style>
