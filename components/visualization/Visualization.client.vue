@@ -4,7 +4,9 @@
 
 <script setup>
 import { onMounted, nextTick, ref } from "vue";
+import p5 from "p5";
 import runVisualization from "./visualization";
+
 
 /*
 TODO:
@@ -15,7 +17,7 @@ TODO:
 
 onMounted(() => {
   nextTick(() => {
-    runVisualization(window);
+    runVisualization(p5, window);
   });
 });
 </script>
@@ -25,16 +27,5 @@ onMounted(() => {
   background: linear-gradient(orange, pink);
   height: 100vh;
   pointer-events: none;
-  // position: fixed;
-  // right: 0;
-  // top: 0;
-
-  // @include breakpoint("max-mobile") {
-  //   width: 100%;
-  // }
-
-  // @include breakpoint("min-desktop") {
-  //   width: 50%;
-  // }
 }
 </style>

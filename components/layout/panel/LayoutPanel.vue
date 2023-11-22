@@ -16,6 +16,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
 .layout-panel {
   display: flex;
   flex-flow: column nowrap;
+  grid-column: 2 / -1;
   height: max-content;
   min-height: 100vh;
 

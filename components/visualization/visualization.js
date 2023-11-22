@@ -1,9 +1,8 @@
-import p5 from "p5";
 import getCanvas from "./canvas";
 import getGrid from "./grid";
 // import getScrolling from "./scrolling";
 
-const runVisualization = (window) => {
+const runVisualization = (p5, window) => {
   const gridColumns = 6;
   const canvasId = "canvas";
 
