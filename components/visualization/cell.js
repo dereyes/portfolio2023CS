@@ -14,7 +14,7 @@ const getCell = (p5, grid, x, y) => {
     },
     initialize: undefined,
     render: undefined,
-    updatePosition: undefined,
+    update: undefined,
   };
 
   const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
@@ -53,7 +53,7 @@ const getCell = (p5, grid, x, y) => {
     cell.bounds = getCellBounds(cell.position);
   };
 
-  cell.updatePosition = (shift) => {
+  cell.update = (shift) => {
     const loopPadding = grid.cell.size.height;
 
     const loopPosition = (position) => {

@@ -8,10 +8,10 @@
 .layout {
   &-main {
     display: grid;
-    height: 100vh;
-    overflow-y: scroll;
+    // height: 100vh;
+    // overflow-y: scroll;
     position: relative;
-    width: 100vw;
+    width: 100%;
   }
 
   @include breakpoint("max-mobile") {

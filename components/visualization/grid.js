@@ -2,7 +2,7 @@ import getColumn from "./column";
 
 const getGrid = (p5, columns) => {
   const gridWidthRelativeToCanvas = 1.3;
-  const textSizeRelativeToCellWidth = 2;
+  const textSizeRelativeToCellWidth = 2.1;
   const cellHeightToWidthRatio = 1.5;
   const minimumRows = 0;
   const extraRows = 2;
@@ -66,7 +66,8 @@ const getGrid = (p5, columns) => {
       return baselineCount;
     };
 
-    grid.cell.size.width = (p5.width * gridWidthRelativeToCanvas) / grid.settings.columns;
+    grid.cell.size.width =
+      (p5.width * gridWidthRelativeToCanvas) / grid.settings.columns;
     grid.cell.size.height = grid.cell.size.width * cellHeightToWidthRatio;
     grid.settings.rows = getRowCount();
 
@@ -97,7 +98,7 @@ const getGrid = (p5, columns) => {
 
     forEachCell((cell, x) => {
       if (movement) {
-        cell.updatePosition({ x: 0, y: columnSpeeds[x] * shift.y });
+        cell.update({ x: 0, y: columnSpeeds[x] * shift.y });
       }
       cell.render({ lines });
     });
