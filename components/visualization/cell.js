@@ -1,16 +1,4 @@
 const getCell = (p5, grid, x, y) => {
-  const characters = [
-    { character: "@", baseline: 0.2 },
-    { character: "A", baseline: 0.3 },
-    { character: "&", baseline: 0.3 },
-    { character: "+", baseline: 0.3 },
-    { character: "?", baseline: 0.3 },
-    { character: "*", baseline: 0.5 },
-    { character: "%", baseline: 0.3 },
-    { character: "i", baseline: 0.3 },
-    { character: ">", baseline: 0.25 },
-  ];
-
   const cell = {
     character: undefined,
     color: undefined,
@@ -46,7 +34,7 @@ const getCell = (p5, grid, x, y) => {
   };
 
   const getRandomCharacter = () => {
-    return characters[Math.floor(Math.random() * characters.length)];
+    return grid.characters[Math.floor(Math.random() * grid.characters.length)];
   };
 
   const getNextCellInColumn = () => {

@@ -1,10 +1,22 @@
 import getColumn from "./column";
 
 const getGrid = (p5, columns) => {
+  const gridWidthRelativeToCanvas = 1.3;
   const textSizeRelativeToCellWidth = 2;
   const cellHeightToWidthRatio = 1.5;
   const minimumRows = 0;
   const extraRows = 2;
+  const characters = [
+    { character: "@", baseline: 0.15 },
+    { character: "A", baseline: 0.2 },
+    { character: "&", baseline: 0.2 },
+    { character: "+", baseline: 0.2 },
+    { character: "?", baseline: 0.25 },
+    { character: "*", baseline: 0.2 },
+    { character: "%", baseline: 0.2 },
+    { character: "i", baseline: 0.25 },
+    { character: ">", baseline: 0.2 },
+  ];
 
   const grid = {
     // Properties to initialize grid
@@ -24,6 +36,7 @@ const getGrid = (p5, columns) => {
     // Array of actual cells
     cells: [],
     // Properties and public methods of the grid
+    characters: characters,
     size: {
       width: undefined,
       height: undefined,
@@ -53,17 +66,17 @@ const getGrid = (p5, columns) => {
       return baselineCount;
     };
 
-    grid.cell.size.width = p5.width / grid.settings.columns;
+    grid.cell.size.width = (p5.width * gridWidthRelativeToCanvas) / grid.settings.columns;
     grid.cell.size.height = grid.cell.size.width * cellHeightToWidthRatio;
     grid.settings.rows = getRowCount();
 
-    grid.size.width = p5.width;
+    grid.size.width = grid.settings.columns * grid.cell.size.width;
     grid.size.height = grid.settings.rows * grid.cell.size.height;
     grid.settings.text.size =
       grid.cell.size.width * textSizeRelativeToCellWidth;
 
     grid.bounds.top = p5.height / 2 - grid.size.height / 2;
-    grid.bounds.left = 0;
+    grid.bounds.left = p5.width / 2 - grid.size.width / 2;
 
     grid.cells = initializeColumns();
   };
