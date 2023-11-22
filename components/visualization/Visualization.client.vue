@@ -19,6 +19,7 @@ import getGrid from "./grid";
 TODO:
 * Resize correctly
 * Respect 'prefers-reduced-motion'
+* rotate asterisks when scrolling
 */
 
 onMounted(() => {
@@ -28,21 +29,8 @@ onMounted(() => {
         element: document.getElementById("viz"),
       };
       let font;
-      const grid = getGrid(p5, 4);
+      const grid = getGrid(p5, 3);
       const backgroundColor = 0;
-
-      // grid.display = () => {
-      //   grid.forEach((cell) => {
-      //     p5.noFill(cell.noise);
-      //     p5.stroke(cell.noise);
-      //     p5.rect(
-      //       cell.position.x,
-      //       cell.position.y,
-      //       grid.cell.width,
-      //       grid.cell.height,
-      //     );
-      //   });
-      // };
 
       viz.resized = () => {
         p5.resizeCanvas(viz.element.offsetWidth, viz.element.offsetHeight);
@@ -82,7 +70,7 @@ onMounted(() => {
 
       p5.draw = () => {
         p5.background(backgroundColor);
-        grid.render({ shift: { x: 0, y: 1 } });
+        grid.render({ shift: { x: 0, y: -1 } });
       };
 
       p5.windowResized = () => {

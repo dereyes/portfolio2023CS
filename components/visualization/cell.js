@@ -104,12 +104,12 @@ const getCell = (p5, grid, x, y) => {
         };
       }
 
-      // if (bounds.bottom < 0) {
-      //   return {
-      //     x: position.x,
-      //     y: grid.size.height + grid.cell.size,
-      //   };
-      // }
+      if (bounds.bottom < 0) {
+        return {
+          x: position.x,
+          y: p5.height,
+        };
+      }
 
       return position;
     };
