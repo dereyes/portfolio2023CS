@@ -59,14 +59,23 @@ const getGrid = (p5, columns) => {
 
   const columnSpeeds = [2.5, 1.5, 2];
 
-  grid.render = ({ shift }) => {
+  grid.render = ({ shift, lines }) => {
     p5.noStroke();
     p5.fill(255);
 
     forEachCell((cell, x) => {
-      cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
-      cell.render();
+      // cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
+      cell.render({ lines });
     });
+
+    if (lines) {
+      // Separate loop, otherwise rendering errors
+      forEachCell((cell) => {
+        p5.stroke(255);
+        p5.noFill();
+        p5.rect(cell.position.x, cell.position.y, grid.cell.size);
+      });
+    }
   };
 
   return grid;

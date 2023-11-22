@@ -7,62 +7,18 @@ const getCell = (p5, grid, x, y) => {
       x: undefined,
       y: undefined,
     },
+    bounds: {
+      top: undefined,
+      right: undefined,
+      bottom: undefined,
+      left: undefined
+    },
     initialize: undefined,
     render: undefined,
     updatePosition: undefined,
   };
 
   const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
-    // const calculatePositionBounds = (x, y, shift) => {
-    //   const position = {
-    //     x: grid.bounds.left + grid.cell.size * x + shift.x,
-    //     y: grid.bounds.top + grid.cell.size * y + shift.y,
-    //   };
-
-    //   const bounds = {
-    //     top: position.y,
-    //     bottom: position.y + grid.cell.size,
-    //   };
-
-    //   return {
-    //     position: position,
-    //     bounds: bounds,
-    //   };
-    // };
-
-    // const checkAndLoopBounds = ({ position, bounds }) => {
-    //   // if(x == 0 && y ==0) {
-    //   //   console.log(bounds);
-    //   // }
-
-    //   if (bounds.top > p5.height) {
-    //     // if (x == 0 && y == 0) {
-    //     //   console.log(bounds, p5.height);
-    //     // }
-
-    //     // return calculatePositionBounds(x, y, {
-    //     //   x: shift.x,
-    //     //   y: shift.y - grid.height - grid.cell.size,
-    //     // }).position;
-
-    //     return {
-    //       x: position.x,
-    //       y: position.y,
-    //     };
-    //   }
-
-    //   if (bounds.bottom < 0) {
-    //     return calculatePositionBounds(x, y, {
-    //       x: shift.x,
-    //       y: shift.y - grid.cell.size,
-    //     }).position;
-    //   }
-
-    //   return position;
-    // };
-
-    // return checkAndLoopBounds(calculatePositionBounds(x, y, shift));
-
     return {
       x: grid.bounds.left + grid.cell.size * x + shift.x,
       y: grid.bounds.top + grid.cell.size * y + shift.y,
@@ -72,7 +28,9 @@ const getCell = (p5, grid, x, y) => {
   const getCellBounds = (position) => {
     return {
       top: position.y,
+      right: position.x + grid.cell.size,
       bottom: position.y + grid.cell.size,
+      left: position.x
     };
   };
 
@@ -83,14 +41,7 @@ const getCell = (p5, grid, x, y) => {
   const initializeCell = (x, y) => {
     cell.character = getCharacter();
     cell.position = getCellPosition(x, y);
-  };
-
-  cell.render = () => {
-    p5.text(
-      cell.character,
-      cell.position.x + grid.cell.size * 0.5,
-      cell.position.y + grid.cell.size * 0.35,
-    );
+    cell.bounds = getCellBounds(cell.position);
   };
 
   cell.updatePosition = (shift) => {
@@ -118,6 +69,15 @@ const getCell = (p5, grid, x, y) => {
       x: cell.position.x + shift.x,
       y: cell.position.y + shift.y,
     });
+    cell.bounds = getCellBounds(cell.position);
+  };
+
+  cell.render = () => {
+    p5.text(
+      cell.character,
+      cell.position.x + grid.cell.size * 0.5,
+      cell.position.y + grid.cell.size * 0.35,
+    );
   };
 
   initializeCell(x, y);
