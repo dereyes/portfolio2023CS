@@ -1,10 +1,10 @@
 import getCell from "./cell";
 
 const getGrid = (p5, columns) => {
-  const textSizeRelativeToCellWidth = 1.5;
+  const textSizeRelativeToCellWidth = 1.3;
   const cellHeightToWidthRatio = 1.1;
-  const minimumRows = 7;
-  const extraRows = 3;
+  const minimumRows = 0;
+  const extraRows = 1;
 
   const grid = {
     // Properties to initialize grid
@@ -45,7 +45,8 @@ const getGrid = (p5, columns) => {
 
   grid.resize = () => {
     const getRowCount = () => {
-      const baselineCount = Math.ceil(p5.height / grid.cell.size.height) + extraRows;
+      const baselineCount =
+        Math.ceil(p5.height / grid.cell.size.height) + extraRows;
 
       if (baselineCount < minimumRows) {
         return minimumRows;
@@ -79,12 +80,14 @@ const getGrid = (p5, columns) => {
 
   const columnSpeeds = [2.5, 1.5, 2];
 
-  grid.render = ({ shift, lines }) => {
+  grid.render = ({ shift, lines, movement }) => {
     p5.noStroke();
     p5.fill(255);
 
     forEachCell((cell, x) => {
-      // cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
+      if(movement) {
+        cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
+      }
       cell.render({ lines });
     });
 

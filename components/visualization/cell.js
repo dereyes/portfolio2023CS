@@ -1,15 +1,16 @@
 const getCell = (p5, grid, x, y) => {
   const characters = [
-    { character: "@", baseline: 0.25 },
-    { character: "A", baseline: 0.35 },
-    { character: "&", baseline: 0.35 },
-    { character: "+", baseline: 0.35 },
-    { character: "=", baseline: 0.35 },
-    { character: "?", baseline: 0.35 },
+    { character: "@", baseline: 0.2 },
+    { character: "A", baseline: 0.3 },
+    { character: "&", baseline: 0.3 },
+    { character: "+", baseline: 0.3 },
+    { character: "=", baseline: 0.3 },
+    { character: "?", baseline: 0.3 },
     { character: "*", baseline: 0.5 },
-    { character: "%", baseline: 0.35 },
-    { character: "!!", baseline: 0.35 },
-    { character: "<", baseline: 0.3 },
+    { character: "%", baseline: 0.3 },
+    { character: "!!", baseline: 0.3 },
+    { character: "<", baseline: 0.25 },
+    { character: ".", baseline: -0.03 },
   ];
 
   const cell = {
@@ -49,6 +50,22 @@ const getCell = (p5, grid, x, y) => {
     return characters[Math.floor(Math.random() * characters.length)];
   };
 
+  const getNextCellInColumn = () => {
+    const getNextY = () => {
+      if (y + 1 >= grid.settings.rows) {
+        return 0;
+      }
+
+      return y + 1;
+    };
+
+    const nextY = getNextY();
+
+    console.log(grid, x, nextY);
+
+    return grid.cells[x][nextY];
+  };
+
   const initializeCell = (x, y) => {
     cell.character = getCharacter();
     cell.position = getCellPosition(x, y);
@@ -60,9 +77,13 @@ const getCell = (p5, grid, x, y) => {
       const bounds = getCellBounds(position);
 
       if (bounds.top > p5.height) {
+        const nextCellInColumn = getNextCellInColumn();
+
+        console.log(nextCellInColumn);
+
         return {
           x: position.x,
-          y: 0 - grid.cell.size.height,
+          y: nextCellInColumn.position.y - grid.cell.size.height,
         };
       }
 

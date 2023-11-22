@@ -70,7 +70,7 @@ onMounted(() => {
 
       p5.draw = () => {
         p5.background(backgroundColor);
-        grid.render({ shift: { x: 0, y: -1 }, lines: false });
+        grid.render({ shift: { x: 0, y: -1 }, lines: false, movement: true });
       };
 
       p5.windowResized = () => {
