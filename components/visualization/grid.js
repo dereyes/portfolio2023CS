@@ -86,7 +86,7 @@ const getGrid = (p5, columns) => {
 
     forEachCell((cell, x) => {
       if(movement) {
-        cell.updatePosition({ x: 0, y: columnSpeeds[x] + shift.x });
+        cell.updatePosition({ x: 0, y: columnSpeeds[x] * shift.y });
       }
       cell.render({ lines });
     });

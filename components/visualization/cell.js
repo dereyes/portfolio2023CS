@@ -51,19 +51,13 @@ const getCell = (p5, grid, x, y) => {
   };
 
   const getNextCellInColumn = () => {
-    const getNextY = () => {
-      if (y + 1 >= grid.settings.rows) {
-        return 0;
-      }
-
-      return y + 1;
-    };
-
-    const nextY = getNextY();
-
-    console.log(grid, x, nextY);
-
+    const nextY = (y + 1) % grid.settings.rows;
     return grid.cells[x][nextY];
+  };
+
+  const getPreviousCellInColumn = () => {
+    const previousY = y - 1 < 0 ? grid.settings.rows - 1 : y - 1;
+    return grid.cells[x][previousY];
   };
 
   const initializeCell = (x, y) => {
@@ -79,8 +73,6 @@ const getCell = (p5, grid, x, y) => {
       if (bounds.top > p5.height) {
         const nextCellInColumn = getNextCellInColumn();
 
-        console.log(nextCellInColumn);
-
         return {
           x: position.x,
           y: nextCellInColumn.position.y - grid.cell.size.height,
@@ -88,9 +80,11 @@ const getCell = (p5, grid, x, y) => {
       }
 
       if (bounds.bottom < 0) {
+        const previousCellInColumn = getPreviousCellInColumn();
+
         return {
           x: position.x,
-          y: p5.height,
+          y: previousCellInColumn.position.y + grid.cell.size.height,
         };
       }
 
