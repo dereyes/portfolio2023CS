@@ -26,24 +26,17 @@ const getNoise = (p5, window) => {
   const scrolling = getScrolling(window);
 
   const colors = {
-    black: p5.color("#000000"),
-    slate: p5.color("#1d4556"),
-    sea: p5.color("#0fbdb4"),
-    leaf: p5.color("#B3C4B1"),
-    concrete: p5.color("#cdcdcd"),
-    sun: p5.color("#ffab5c"),
-    grapefruit: p5.color("#fd3635"),
+    sun: p5.color("#FFAB5C"),
+    grapefruit: p5.color("#FD3635"),
+    black: p5.color("#000"),
   };
 
   const gradientStops = [
     { color: colors.black, progress: 0 },
-    { color: colors.slate, progress: 0.45 },
-    { color: colors.sea, progress: 0.475 },
-    { color: colors.leaf, progress: 0.5 },
-    { color: colors.sun, progress: 0.55 },
+    { color: colors.grapefruit, progress: 0.4 },
+    { color: colors.sun, progress: 0.5 },
     { color: colors.grapefruit, progress: 0.6 },
-    { color: colors.sun, progress: 0.7 },
-    { color: colors.black, progress: 1 },
+    { color: colors.grapefruit, progress: 1 },
   ];
 
   // Position should be between 0 and 1
