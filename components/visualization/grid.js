@@ -1,7 +1,7 @@
 import getCell from "./cell";
 import getNoise from "./noise";
 
-const getGrid = (p5, columns) => {
+const getGrid = (p5, window, columns) => {
   const grid = {
     // Properties to initialize grid
     settings: {
@@ -26,7 +26,7 @@ const getGrid = (p5, columns) => {
     render: undefined,
   };
 
-  const noise = getNoise(p5);
+  const noise = getNoise(p5, window);
 
   const initializeCells = () => {
     return Array.from({ length: grid.settings.columns }, (_column, x) => {
@@ -60,7 +60,7 @@ const getGrid = (p5, columns) => {
 
   grid.render = ({ shift, lines, movement, gradient }) => {
     p5.noStroke();
-    p5.fill("#cdcdcd");
+    p5.fill("#000");
 
     noise.update();
 
@@ -73,7 +73,7 @@ const getGrid = (p5, columns) => {
     if (lines) {
       // Separate loop, otherwise rendering errors
       p5.noFill();
-      p5.stroke("#cdcdcd");
+      p5.stroke("#000");
 
       forEachCell((cell) => {
         p5.rect(cell.position.x, cell.position.y, grid.cell.size);

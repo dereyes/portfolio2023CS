@@ -1,35 +1,53 @@
-const getNoise = (p5) => {
+import getScrolling from "./scrolling";
+
+const getNoise = (p5, window) => {
   const noise = {
     update: undefined,
     render: {
       gradient: undefined,
     },
-    time: undefined,
+    time: {
+      position: 0,
+      speed: 4
+    },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.09,
-      y: 0.03,
-      z: 1,
+      x: 0.03,
+      y: 0.05,
+      z: 0.8,
     },
     speed: {
       x: 0,
-      y: 0.000005,
-      z: 0.00005,
+      y: 0.00002,
+      z: 0.00002,
     },
   };
 
+  const scrolling = getScrolling(window);
+
+  const colors = {
+    black: p5.color("#000000"),
+    slate: p5.color("#1d4556"),
+    sea: p5.color("#0fbdb4"),
+    leaf: p5.color("#B3C4B1"),
+    concrete: p5.color("#cdcdcd"),
+    sun: p5.color("#ffab5c"),
+    grapefruit: p5.color("#fd3635"),
+  };
+
+  const gradientStops = [
+    { color: colors.black, progress: 0 },
+    { color: colors.slate, progress: 0.45 },
+    { color: colors.sea, progress: 0.475 },
+    { color: colors.leaf, progress: 0.5 },
+    { color: colors.sun, progress: 0.55 },
+    { color: colors.grapefruit, progress: 0.6 },
+    { color: colors.sun, progress: 0.7 },
+    { color: colors.black, progress: 1 },
+  ];
+
   // Position should be between 0 and 1
   const getGradient = (position) => {
-    const gradientStops = [
-      { color: p5.color("#f00"), progress: 0 },
-      { color: p5.color("#f00"), progress: 0.4 },
-      { color: p5.color("#ff0"), progress: 0.45 },
-      { color: p5.color("#0f0"), progress: 0.5 },
-      { color: p5.color("#0ff"), progress: 0.55 },
-      { color: p5.color("#0ff"), progress: 0.6 },
-      { color: p5.color("#00f"), progress: 1 },
-    ];
-
     const getPositionBetweenStops = (position) => {
       for (let i = 0; i < gradientStops.length; i++) {
         const currentStop = gradientStops[i];
@@ -66,15 +84,16 @@ const getNoise = (p5) => {
   };
 
   noise.update = () => {
-    noise.time = p5.millis();
+    scrolling.update();
+    noise.time.position += noise.time.speed + Math.abs(scrolling.speed * 50);
   };
 
   noise.getColor = (x, y) => {
     return getGradient(
       p5.noise(
-        x * noise.scale.x + noise.time * noise.speed.x,
-        y * noise.scale.y + noise.time * noise.speed.y,
-        noise.scale.z + noise.time * noise.speed.z,
+        x * noise.scale.x + noise.time.position * noise.speed.x,
+        y * noise.scale.y + noise.time.position * noise.speed.y,
+        noise.scale.z + noise.time.position * noise.speed.z,
       ),
     );
   };

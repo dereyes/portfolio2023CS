@@ -43,6 +43,8 @@ const getCell = (p5, grid, x, y) => {
 
   cell.render = ({color}) => {
     p5.fill(color);
+    p5.stroke(color);
+    p5.strokeWeight(1);
 
     p5.rect(
       cell.position.x,

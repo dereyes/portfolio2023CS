@@ -1,19 +1,19 @@
 import p5 from "p5";
 import getCanvas from "./canvas";
 import getGrid from "./grid";
-import getScrolling from "./scrolling";
+// import getScrolling from "./scrolling";
 
 const runVisualization = (window) => {
-  const gridColumns = 16;
+  const gridColumns = 6;
   const canvasId = "canvas";
 
   let visualization = (p5) => {
     let font;
-    const backgroundColor = 0;
+    const backgroundColor = "#000";
 
     const canvas = getCanvas(p5, document, canvasId);
-    const grid = getGrid(p5, gridColumns);
-    const scrolling = getScrolling(window);
+    const grid = getGrid(p5, window, gridColumns);
+    // const scrolling = getScrolling(window);
 
     p5.preload = () => {
       // font = p5.loadFont("Manrope-ExtraBold.ttf");
@@ -34,16 +34,16 @@ const runVisualization = (window) => {
     };
 
     p5.draw = () => {
-      scrolling.update();
+      // scrolling.update();
 
       p5.background(backgroundColor);
       grid.render({
-        lines: true,
+        lines: false,
         movement: false,
-        gradient: true,
+        gradient: false,
       });
 
-      canvas.render.frameRate();
+      // canvas.render.frameRate();
     };
 
     p5.windowResized = () => {
