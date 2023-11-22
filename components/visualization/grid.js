@@ -1,3 +1,4 @@
+import getColumn from "./column";
 import getCell from "./cell";
 
 const getGrid = (p5, columns) => {
@@ -35,6 +36,19 @@ const getGrid = (p5, columns) => {
     render: undefined,
   };
 
+  const initializeColumns = () => {
+    const characterStrings = ["@A#?/*+.<%=",".+=?</","%A#.-<"];
+
+    return Array.from({ length: grid.settings.columns }, (_column, x) => {
+      return getColumn(
+        p5,
+        grid,
+        x,
+        characterStrings[x % characterStrings.length],
+      );
+    });
+  };
+
   const initializeCells = (columns, rows) => {
     return Array.from({ length: columns }, (column, x) => {
       return Array.from({ length: rows }, (row, y) => {
@@ -43,7 +57,7 @@ const getGrid = (p5, columns) => {
     });
   };
 
-  grid.resize = () => {
+  grid.initialize = () => {
     const getRowCount = () => {
       const baselineCount =
         Math.ceil(p5.height / grid.cell.size.height) + extraRows;
@@ -67,7 +81,8 @@ const getGrid = (p5, columns) => {
     grid.bounds.top = p5.height / 2 - grid.size.height / 2;
     grid.bounds.left = 0;
 
-    grid.cells = initializeCells(grid.settings.columns, grid.settings.rows);
+    // grid.cells = initializeCells(grid.settings.columns, grid.settings.rows);
+    grid.cells = initializeColumns();
   };
 
   const forEachCell = (method) => {
@@ -85,7 +100,7 @@ const getGrid = (p5, columns) => {
     p5.fill(255);
 
     forEachCell((cell, x) => {
-      if(movement) {
+      if (movement) {
         cell.updatePosition({ x: 0, y: columnSpeeds[x] * shift.y });
       }
       cell.render({ lines });

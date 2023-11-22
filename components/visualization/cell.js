@@ -1,4 +1,4 @@
-const getCell = (p5, grid, x, y) => {
+const getCell = (p5, grid, x, y, character) => {
   const characters = [
     { character: "@", baseline: 0.2 },
     { character: "A", baseline: 0.3 },
@@ -8,13 +8,13 @@ const getCell = (p5, grid, x, y) => {
     { character: "?", baseline: 0.3 },
     { character: "*", baseline: 0.5 },
     { character: "%", baseline: 0.3 },
-    { character: "!!", baseline: 0.3 },
+    { character: "/", baseline: 0.3 },
     { character: "<", baseline: 0.25 },
     { character: ".", baseline: -0.03 },
   ];
 
   const cell = {
-    character: undefined,
+    character: character,
     position: {
       x: undefined,
       y: undefined,
@@ -61,7 +61,7 @@ const getCell = (p5, grid, x, y) => {
   };
 
   const initializeCell = (x, y) => {
-    cell.character = getCharacter();
+    // cell.character = getCharacter();
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
   };

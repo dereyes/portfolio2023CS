@@ -54,7 +54,7 @@ onMounted(() => {
         canvas.parent("viz");
 
         viz.resized();
-        grid.resize();
+        grid.initialize();
 
         p5.smooth();
         p5.noFill();
