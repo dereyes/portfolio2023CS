@@ -1,11 +1,10 @@
 import getColumn from "./column";
-import getCell from "./cell";
 
 const getGrid = (p5, columns) => {
-  const textSizeRelativeToCellWidth = 1.3;
-  const cellHeightToWidthRatio = 1.1;
+  const textSizeRelativeToCellWidth = 2;
+  const cellHeightToWidthRatio = 1.5;
   const minimumRows = 0;
-  const extraRows = 1;
+  const extraRows = 2;
 
   const grid = {
     // Properties to initialize grid
@@ -37,23 +36,8 @@ const getGrid = (p5, columns) => {
   };
 
   const initializeColumns = () => {
-    const characterStrings = ["@A#?/*+.<%=",".+=?</","%A#.-<"];
-
     return Array.from({ length: grid.settings.columns }, (_column, x) => {
-      return getColumn(
-        p5,
-        grid,
-        x,
-        characterStrings[x % characterStrings.length],
-      );
-    });
-  };
-
-  const initializeCells = (columns, rows) => {
-    return Array.from({ length: columns }, (column, x) => {
-      return Array.from({ length: rows }, (row, y) => {
-        return getCell(p5, grid, x, y);
-      });
+      return getColumn(p5, grid, x);
     });
   };
 
@@ -81,7 +65,6 @@ const getGrid = (p5, columns) => {
     grid.bounds.top = p5.height / 2 - grid.size.height / 2;
     grid.bounds.left = 0;
 
-    // grid.cells = initializeCells(grid.settings.columns, grid.settings.rows);
     grid.cells = initializeColumns();
   };
 
@@ -93,11 +76,11 @@ const getGrid = (p5, columns) => {
     }
   };
 
-  const columnSpeeds = [2.5, 1.5, 2];
+  const columnSpeeds = [2, 1.5, 2];
 
   grid.render = ({ shift, lines, movement }) => {
     p5.noStroke();
-    p5.fill(255);
+    p5.fill("#cdcdcd");
 
     forEachCell((cell, x) => {
       if (movement) {

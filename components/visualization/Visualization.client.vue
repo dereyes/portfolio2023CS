@@ -29,7 +29,7 @@ onMounted(() => {
         element: document.getElementById("viz"),
       };
       let font;
-      const grid = getGrid(p5, 3);
+      const grid = getGrid(p5, 2);
       const backgroundColor = 0;
 
       viz.resized = () => {
@@ -46,7 +46,8 @@ onMounted(() => {
       // };
 
       p5.preload = () => {
-        font = p5.loadFont("Manrope-ExtraBold.ttf");
+        // font = p5.loadFont("Manrope-ExtraBold.ttf");
+        font = p5.loadFont("SpaceMono-Bold.ttf");
       };
 
       p5.setup = () => {

@@ -1,20 +1,19 @@
-const getCell = (p5, grid, x, y, character) => {
+const getCell = (p5, grid, x, y) => {
   const characters = [
     { character: "@", baseline: 0.2 },
     { character: "A", baseline: 0.3 },
     { character: "&", baseline: 0.3 },
     { character: "+", baseline: 0.3 },
-    { character: "=", baseline: 0.3 },
     { character: "?", baseline: 0.3 },
     { character: "*", baseline: 0.5 },
     { character: "%", baseline: 0.3 },
-    { character: "/", baseline: 0.3 },
-    { character: "<", baseline: 0.25 },
-    { character: ".", baseline: -0.03 },
+    { character: "i", baseline: 0.3 },
+    { character: ">", baseline: 0.25 },
   ];
 
   const cell = {
-    character: character,
+    character: undefined,
+    color: undefined,
     position: {
       x: undefined,
       y: undefined,
@@ -46,7 +45,7 @@ const getCell = (p5, grid, x, y, character) => {
     };
   };
 
-  const getCharacter = () => {
+  const getRandomCharacter = () => {
     return characters[Math.floor(Math.random() * characters.length)];
   };
 
@@ -61,16 +60,19 @@ const getCell = (p5, grid, x, y, character) => {
   };
 
   const initializeCell = (x, y) => {
-    // cell.character = getCharacter();
+    cell.character = getRandomCharacter();
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
   };
 
   cell.updatePosition = (shift) => {
+    const loopPadding = grid.cell.size.height;
+
     const loopPosition = (position) => {
       const bounds = getCellBounds(position);
 
-      if (bounds.top > p5.height) {
+      if (bounds.top > p5.height + loopPadding) {
+        cell.character = getRandomCharacter();
         const nextCellInColumn = getNextCellInColumn();
 
         return {
@@ -79,7 +81,8 @@ const getCell = (p5, grid, x, y, character) => {
         };
       }
 
-      if (bounds.bottom < 0) {
+      if (bounds.bottom < -loopPadding) {
+        cell.character = getRandomCharacter();
         const previousCellInColumn = getPreviousCellInColumn();
 
         return {
