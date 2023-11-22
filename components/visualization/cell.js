@@ -35,8 +35,6 @@ const getCell = (p5, grid, x, y) => {
   const initializeCell = (x, y) => {
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
-
-    console.log(cell);
   };
 
   cell.update = (shift) => {
@@ -44,12 +42,6 @@ const getCell = (p5, grid, x, y) => {
   };
 
   cell.render = ({color}) => {
-    // p5.text(
-    //   cell.character.character,
-    //   cell.position.x + grid.cell.size.width * 0.5,
-    //   cell.position.y + grid.cell.size.height * cell.character.baseline,
-    // );
-    // console.log(color);
     p5.fill(color);
 
     p5.rect(

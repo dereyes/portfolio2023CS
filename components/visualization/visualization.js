@@ -4,7 +4,7 @@ import getGrid from "./grid";
 import getScrolling from "./scrolling";
 
 const runVisualization = (window) => {
-  const gridColumns = 10;
+  const gridColumns = 16;
   const canvasId = "canvas";
 
   let visualization = (p5) => {
@@ -29,6 +29,8 @@ const runVisualization = (window) => {
 
       p5.smooth();
       p5.background(backgroundColor);
+      p5.colorMode(p5.HSL);
+      // p5.noLoop();
     };
 
     p5.draw = () => {
@@ -38,7 +40,7 @@ const runVisualization = (window) => {
       grid.render({
         lines: true,
         movement: false,
-        gradient: true
+        gradient: true,
       });
 
       canvas.render.frameRate();
