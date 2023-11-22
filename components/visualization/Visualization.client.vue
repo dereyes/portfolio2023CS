@@ -15,7 +15,7 @@ TODO:
 
 onMounted(() => {
   nextTick(() => {
-    runVisualization();
+    runVisualization(window);
   });
 });
 </script>

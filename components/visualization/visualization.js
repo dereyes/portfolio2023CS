@@ -2,7 +2,7 @@ import p5 from "p5";
 import getGrid from "./grid";
 import getScrolling from "./scrolling";
 
-const runVisualization = () => {
+const runVisualization = (window) => {
   let visualization = (p5) => {
     let font;
     const backgroundColor = 0;
@@ -10,7 +10,7 @@ const runVisualization = () => {
     let viz = {
       element: document.getElementById("viz"),
     };
-    const grid = getGrid(p5, 2);
+    const grid = getGrid(p5, 8);
     const scrolling = getScrolling(window);
 
     viz.resized = () => {
@@ -39,13 +39,7 @@ const runVisualization = () => {
       grid.initialize();
 
       p5.smooth();
-      p5.noFill();
-      p5.stroke(255);
       p5.background(backgroundColor);
-
-      p5.textFont(font);
-      p5.textAlign(p5.CENTER, p5.CENTER);
-      p5.textSize(grid.settings.text.size);
     };
 
     p5.draw = () => {
@@ -53,9 +47,9 @@ const runVisualization = () => {
 
       p5.background(backgroundColor);
       grid.render({
-        shift: { x: 0, y: (-.05 - scrolling.speed) },
+        // shift: { x: 0, y: -0.05 - scrolling.speed },
         lines: true,
-        movement: true,
+        movement: false,
       });
     };
 

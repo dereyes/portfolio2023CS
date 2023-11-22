@@ -1,6 +1,5 @@
-const getCell = (p5, grid, x, y) => {
+const getCell = (grid, x, y) => {
   const cell = {
-    character: undefined,
     color: undefined,
     position: {
       x: undefined,
@@ -17,84 +16,39 @@ const getCell = (p5, grid, x, y) => {
     update: undefined,
   };
 
-  const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
+  const getCellPosition = (x, y) => {
     return {
-      x: grid.bounds.left + grid.cell.size.width * x + shift.x,
-      y: grid.bounds.top + grid.cell.size.height * y + shift.y,
+      x: grid.bounds.left + grid.cell.size * x,
+      y: grid.bounds.top + grid.cell.size * y,
     };
   };
 
   const getCellBounds = (position) => {
     return {
       top: position.y,
-      right: position.x + grid.cell.size.width,
-      bottom: position.y + grid.cell.size.height,
+      right: position.x + grid.cell.size,
+      bottom: position.y + grid.cell.size,
       left: position.x,
     };
   };
 
-  const getRandomCharacter = () => {
-    return grid.characters[Math.floor(Math.random() * grid.characters.length)];
-  };
-
-  const getNextCellInColumn = () => {
-    const nextY = (y + 1) % grid.settings.rows;
-    return grid.cells[x][nextY];
-  };
-
-  const getPreviousCellInColumn = () => {
-    const previousY = y - 1 < 0 ? grid.settings.rows - 1 : y - 1;
-    return grid.cells[x][previousY];
-  };
-
   const initializeCell = (x, y) => {
-    cell.character = getRandomCharacter();
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
+
+    console.log(cell);
   };
 
   cell.update = (shift) => {
-    const loopPadding = grid.cell.size.height;
 
-    const loopPosition = (position) => {
-      const bounds = getCellBounds(position);
-
-      if (bounds.top > p5.height + loopPadding) {
-        cell.character = getRandomCharacter();
-        const nextCellInColumn = getNextCellInColumn();
-
-        return {
-          x: position.x,
-          y: nextCellInColumn.position.y - grid.cell.size.height,
-        };
-      }
-
-      if (bounds.bottom < -loopPadding) {
-        cell.character = getRandomCharacter();
-        const previousCellInColumn = getPreviousCellInColumn();
-
-        return {
-          x: position.x,
-          y: previousCellInColumn.position.y + grid.cell.size.height,
-        };
-      }
-
-      return position;
-    };
-
-    cell.position = loopPosition({
-      x: cell.position.x + shift.x,
-      y: cell.position.y + shift.y,
-    });
-    cell.bounds = getCellBounds(cell.position);
   };
 
   cell.render = () => {
-    p5.text(
-      cell.character.character,
-      cell.position.x + grid.cell.size.width * 0.5,
-      cell.position.y + grid.cell.size.height * cell.character.baseline,
-    );
+    // p5.text(
+    //   cell.character.character,
+    //   cell.position.x + grid.cell.size.width * 0.5,
+    //   cell.position.y + grid.cell.size.height * cell.character.baseline,
+    // );
   };
 
   initializeCell(x, y);
