@@ -4,7 +4,7 @@
 
 <script setup>
 import { onMounted, nextTick, ref } from "vue";
-import runVisualization from './visualization';
+import runVisualization from "./visualization";
 
 /*
 TODO:

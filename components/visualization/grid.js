@@ -1,11 +1,12 @@
 import getCell from "./cell";
+import getNoise from "./noise";
 
 const getGrid = (p5, columns) => {
   const grid = {
     // Properties to initialize grid
     settings: {
       columns: columns,
-      rows: undefined
+      rows: undefined,
     },
     // Properties and methods of a prototypical cell
     cell: {
@@ -25,10 +26,12 @@ const getGrid = (p5, columns) => {
     render: undefined,
   };
 
+  const noise = getNoise(p5);
+
   const initializeCells = () => {
-    return Array.from({ length: grid.settings.columns }, (column, x) => {
-      return Array.from({ length: grid.settings.rows }, (row, y) => {
-        return getCell(grid, x, y);
+    return Array.from({ length: grid.settings.columns }, (_column, x) => {
+      return Array.from({ length: grid.settings.rows }, (_row, y) => {
+        return getCell(p5, grid, x, y);
       });
     });
   };
@@ -56,28 +59,24 @@ const getGrid = (p5, columns) => {
   };
 
   grid.render = ({ shift, lines, movement }) => {
-    // console.log(lines)
     p5.noStroke();
     p5.fill("#cdcdcd");
 
-    forEachCell((cell, x) => {
-      // console.log(cell);
-      // if (movement) {
-      //   // cell.update({ x: 0, y: columnSpeeds[x] * shift.y });
-      // }
-      // cell.render();
+    noise.update();
+
+    forEachCell((cell, x, y) => {
+      cell.render({
+        color: noise.getColor(x, y),
+      });
     });
 
     if (lines) {
       // Separate loop, otherwise rendering errors
+      p5.noFill();
       p5.stroke(255);
 
       forEachCell((cell) => {
-        p5.rect(
-          cell.position.x,
-          cell.position.y,
-          grid.cell.size
-        );
+        p5.rect(cell.position.x, cell.position.y, grid.cell.size);
       });
     }
   };

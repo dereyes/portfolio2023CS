@@ -1,4 +1,4 @@
-const getCell = (grid, x, y) => {
+const getCell = (p5, grid, x, y) => {
   const cell = {
     color: undefined,
     position: {
@@ -43,12 +43,20 @@ const getCell = (grid, x, y) => {
 
   };
 
-  cell.render = () => {
+  cell.render = ({color}) => {
     // p5.text(
     //   cell.character.character,
     //   cell.position.x + grid.cell.size.width * 0.5,
     //   cell.position.y + grid.cell.size.height * cell.character.baseline,
     // );
+    // console.log(color);
+    p5.fill(color);
+
+    p5.rect(
+      cell.position.x,
+      cell.position.y,
+      grid.cell.size
+    );
   };
 
   initializeCell(x, y);

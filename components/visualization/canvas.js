@@ -12,6 +12,7 @@ const getCanvas = (p5, document, canvasId) => {
   };
 
   canvas.render.frameRate = () => {
+    p5.noStroke();
     p5.fill("#00f");
     p5.textSize(10);
     p5.textAlign(p5.LEFT, p5.BASELINE);
