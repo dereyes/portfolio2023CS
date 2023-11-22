@@ -1,30 +1,19 @@
 import p5 from "p5";
+import getCanvas from "./canvas";
 import getGrid from "./grid";
 import getScrolling from "./scrolling";
 
 const runVisualization = (window) => {
+  const gridColumns = 8;
+  const canvasId = "canvas";
+
   let visualization = (p5) => {
     let font;
     const backgroundColor = 0;
 
-    let viz = {
-      element: document.getElementById("viz"),
-    };
-    const grid = getGrid(p5, 8);
+    const canvas = getCanvas(p5, document, canvasId);
+    const grid = getGrid(p5, gridColumns);
     const scrolling = getScrolling(window);
-
-    viz.resized = () => {
-      p5.resizeCanvas(viz.element.offsetWidth, viz.element.offsetHeight);
-    };
-
-    // viz.display = {
-    //   frameRate: () => {
-    //     // p5.fill(255);
-    //     p5.textSize(10);
-    //     p5.textAlign(p5.LEFT, p5.BASELINE);
-    //     p5.text(p5.frameRate(), 0, p5.height);
-    //   },
-    // };
 
     p5.preload = () => {
       // font = p5.loadFont("Manrope-ExtraBold.ttf");
@@ -32,10 +21,10 @@ const runVisualization = (window) => {
     };
 
     p5.setup = () => {
-      const canvas = p5.createCanvas(400, 400, p5.P2D);
-      canvas.parent("viz");
+      const sketch = p5.createCanvas(400, 400, p5.P2D);
+      sketch.parent(canvasId);
 
-      viz.resized();
+      canvas.initialize();
       grid.initialize();
 
       p5.smooth();
@@ -51,10 +40,12 @@ const runVisualization = (window) => {
         lines: true,
         movement: false,
       });
+
+      canvas.render.frameRate();
     };
 
     p5.windowResized = () => {
-      viz.resized();
+      canvas.initialize();
     };
   };
 

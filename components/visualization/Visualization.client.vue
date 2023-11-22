@@ -1,5 +1,5 @@
 <template>
-  <div id="viz" class="viz" ref="viz"></div>
+  <div id="canvas" class="canvas"></div>
 </template>
 
 <script setup>
@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.viz {
+.canvas {
   background: linear-gradient(orange, pink);
   height: 100vh;
   pointer-events: none;
