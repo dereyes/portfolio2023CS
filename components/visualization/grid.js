@@ -58,7 +58,7 @@ const getGrid = (p5, columns) => {
     }
   };
 
-  grid.render = ({ shift, lines, movement }) => {
+  grid.render = ({ shift, lines, movement, gradient }) => {
     p5.noStroke();
     p5.fill("#cdcdcd");
 
@@ -73,11 +73,15 @@ const getGrid = (p5, columns) => {
     if (lines) {
       // Separate loop, otherwise rendering errors
       p5.noFill();
-      p5.stroke(255);
+      p5.stroke("#cdcdcd");
 
       forEachCell((cell) => {
         p5.rect(cell.position.x, cell.position.y, grid.cell.size);
       });
+    }
+
+    if(gradient) {
+      noise.render.gradient();
     }
   };
 

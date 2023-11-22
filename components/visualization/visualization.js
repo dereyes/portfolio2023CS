@@ -36,8 +36,9 @@ const runVisualization = (window) => {
 
       p5.background(backgroundColor);
       grid.render({
-        lines: false,
+        lines: true,
         movement: false,
+        gradient: true
       });
 
       canvas.render.frameRate();

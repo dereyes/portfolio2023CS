@@ -13,9 +13,22 @@ const getNoise = (p5) => {
     },
     speed: {
       x: 0,
-      y: 0.008,
-      z: 0.01,
+      y: 0.0005,
+      z: 0.001,
     },
+  };
+
+  const getGradient = (position) => {
+    return p5.lerpColor(p5.color(0), p5.color(255), position);
+  };
+
+  noise.render.gradient = () => {
+    for (let i = 0; i < p5.width; i++) {
+      p5.stroke(
+        getGradient(i / p5.width)
+      );
+      p5.line(i, 0, i, 10);
+    }
   };
 
   noise.update = () => {
@@ -23,11 +36,13 @@ const getNoise = (p5) => {
   };
 
   noise.getColor = (x, y) => {
-    return p5.noise(
-      x * noise.scale.x + noise.time * noise.speed.x,
-      y * noise.scale.y + noise.time * noise.speed.y,
-      noise.scale.z + noise.time * noise.speed.z,
-    ) * 255;
+    return (
+      p5.noise(
+        x * noise.scale.x + noise.time * noise.speed.x,
+        y * noise.scale.y + noise.time * noise.speed.y,
+        noise.scale.z + noise.time * noise.speed.z,
+      ) * 255
+    );
   };
 
   return noise;
