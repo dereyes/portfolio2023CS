@@ -1,7 +1,7 @@
 import getCell from "./cell";
 
 const getGrid = (p5, columns) => {
-  const textSizeRelativeToCell = 0.75;
+  const textSizeRelativeToCell = 1;
 
   const grid = {
     // Properties to initialize grid
@@ -70,9 +70,10 @@ const getGrid = (p5, columns) => {
 
     if (lines) {
       // Separate loop, otherwise rendering errors
+      p5.stroke(255);
+      p5.noFill();
+
       forEachCell((cell) => {
-        p5.stroke(255);
-        p5.noFill();
         p5.rect(cell.position.x, cell.position.y, grid.cell.size);
       });
     }

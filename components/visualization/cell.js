@@ -1,5 +1,16 @@
 const getCell = (p5, grid, x, y) => {
-  const characters = Array.from("@&A>/?:*!)%^{~+=");
+  const characters = [
+    { character: "@", baseline: 0.25 },
+    { character: "A", baseline: 0.35 },
+    { character: "&", baseline: 0.35 },
+    { character: "+", baseline: 0.35 },
+    { character: "=", baseline: 0.35 },
+    { character: "?", baseline: 0.35 },
+    { character: "*", baseline: 0.5 },
+    { character: "%", baseline: 0.35 },
+    { character: "!!", baseline: 0.35 },
+    { character: "<", baseline: 0.3 },
+  ];
 
   const cell = {
     character: undefined,
@@ -11,7 +22,7 @@ const getCell = (p5, grid, x, y) => {
       top: undefined,
       right: undefined,
       bottom: undefined,
-      left: undefined
+      left: undefined,
     },
     initialize: undefined,
     render: undefined,
@@ -30,7 +41,7 @@ const getCell = (p5, grid, x, y) => {
       top: position.y,
       right: position.x + grid.cell.size,
       bottom: position.y + grid.cell.size,
-      left: position.x
+      left: position.x,
     };
   };
 
@@ -74,9 +85,9 @@ const getCell = (p5, grid, x, y) => {
 
   cell.render = () => {
     p5.text(
-      cell.character,
+      cell.character.character,
       cell.position.x + grid.cell.size * 0.5,
-      cell.position.y + grid.cell.size * 0.35,
+      cell.position.y + grid.cell.size * cell.character.baseline,
     );
   };
 
