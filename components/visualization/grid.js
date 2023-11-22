@@ -1,6 +1,7 @@
+import getCell from "./cell";
+
 const getGrid = (p5, columns) => {
   const textSizeRelativeToCell = 0.75;
-  const characters = Array.from("@&A>/?:*!)%^{~+=");
 
   const grid = {
     // Properties to initialize grid
@@ -24,61 +25,13 @@ const getGrid = (p5, columns) => {
       left: undefined,
     },
     forEachCell: undefined,
-  };
-
-  const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
-    const calculatePositionBounds = (x, y, shift) => {
-      const position = {
-        x: grid.bounds.left + grid.cell.size * x + shift.x,
-        y: grid.bounds.top + grid.cell.size * y + shift.y,
-      };
-
-      const bounds = {
-        top: grid.bounds.top + grid.cell.size * y,
-        left: grid.bounds.left + grid.cell.size * x,
-        bottom: grid.bounds.top + grid.cell.size * y + grid.cell.size,
-      };
-
-      return {
-        position: position,
-        bounds: bounds,
-      };
-    };
-
-    const potentialPositionBounds = calculatePositionBounds(x, y, shift);
-
-    if (potentialPositionBounds.bounds.top > p5.height) {
-      const correctedPositionBounds = calculatePositionBounds(x, y, {
-        x: shift.x,
-        y: shift.y - grid.height - grid.cell.size,
-      });
-
-      return correctedPositionBounds.position;
-    }
-
-    if (potentialPositionBounds.bounds.bottom < 0) {
-      const correctedPositionBounds = calculatePositionBounds(x, y, {
-        x: shift.x,
-        y: shift.y - grid.cell.size,
-      });
-
-      return correctedPositionBounds.position;
-    }
-
-    return potentialPositionBounds.position;
+    render: undefined,
   };
 
   const initializeCells = (columns, rows) => {
-    const getCharacter = () => {
-      return characters[Math.floor(Math.random() * characters.length)];
-    };
-
-    return Array.from({ length: columns }, () => {
-      return Array.from({ length: rows }, () => {
-        return {
-          character: getCharacter(),
-          position: getCellPosition(x, y),
-        };
+    return Array.from({ length: columns }, (column, x) => {
+      return Array.from({ length: rows }, (row, y) => {
+        return getCell(p5, grid, x, y);
       });
     });
   };
@@ -96,15 +49,24 @@ const getGrid = (p5, columns) => {
     grid.bounds.top = p5.height / 2 - grid.size.height / 2;
     grid.bounds.left = 0;
 
-    grid.cells = initializeCells(grid.settings.columns, grid.rows);
+    grid.cells = initializeCells(grid.settings.columns, grid.settings.rows);
   };
 
   grid.forEachCell = (method) => {
     for (let x = 0; x < grid.settings.columns; x++) {
-      for (let y = 0; y < grid.rows; y++) {
+      for (let y = 0; y < grid.settings.rows; y++) {
         method(grid.cells[x][y], x, y);
       }
     }
+  };
+
+  grid.render = () => {
+    p5.noStroke();
+    p5.fill(255);
+
+    grid.forEachCell((cell) => {
+      cell.render();
+    });
   };
 
   return grid;

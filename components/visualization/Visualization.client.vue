@@ -17,7 +17,6 @@ import getGrid from "./grid";
 
 /*
 TODO:
-* Max visualization size
 * Resize correctly
 * Respect 'prefers-reduced-motion'
 */
@@ -25,12 +24,12 @@ TODO:
 onMounted(() => {
   nextTick(() => {
     let visualization = (p5) => {
-      const backgroundColor = 0;
       let viz = {
         element: document.getElementById("viz"),
       };
       let font;
       const grid = getGrid(p5, 4);
+      const backgroundColor = 0;
 
       // grid.display = () => {
       //   grid.forEach((cell) => {
@@ -45,35 +44,18 @@ onMounted(() => {
       //   });
       // };
 
-      // grid.cell.render = (cell, x, y) => {
-      //   p5.text(
-      //     cell.text.character,
-      //     cell.position.x + grid.cell.size * 0.5,
-      //     cell.position.y + grid.cell.size * 0.35,
-      //   );
-      // };
-
-      // grid.render = () => {
-      //   p5.noStroke();
-      //   p5.fill(255);
-
-      //   grid.forEach((cell, x, y) => {
-      //     grid.cell.render(cell, x, y);
-      //   });
-      // };
-
       viz.resized = () => {
         p5.resizeCanvas(viz.element.offsetWidth, viz.element.offsetHeight);
       };
 
-      viz.display = {
-        frameRate: () => {
-          // p5.fill(255);
-          p5.textSize(10);
-          p5.textAlign(p5.LEFT, p5.BASELINE);
-          p5.text(p5.frameRate(), 0, p5.height);
-        },
-      };
+      // viz.display = {
+      //   frameRate: () => {
+      //     // p5.fill(255);
+      //     p5.textSize(10);
+      //     p5.textAlign(p5.LEFT, p5.BASELINE);
+      //     p5.text(p5.frameRate(), 0, p5.height);
+      //   },
+      // };
 
       p5.preload = () => {
         font = p5.loadFont("Manrope-ExtraBold.ttf");
@@ -82,12 +64,11 @@ onMounted(() => {
       p5.setup = () => {
         const canvas = p5.createCanvas(400, 400, p5.P2D);
         canvas.parent("viz");
+
         viz.resized();
         grid.resize();
 
         p5.smooth();
-        // p5.fill(255);
-        // p5.noStroke();
         p5.noFill();
         p5.stroke(255);
         p5.background(backgroundColor);
@@ -97,36 +78,11 @@ onMounted(() => {
         p5.textSize(grid.settings.text.size);
 
         console.log(grid);
+        grid.render();
       };
 
       p5.draw = () => {
-        // smoothly move each row upwards
-        // when a cell is not longer visible at the top, move it to the bottom
-        // p5.background(backgroundColor);
-        // p5.textSize(grid.text.size);
-        // grid.forEach((cell, x, y) => {
-        //   cell.noise =
-        //     noise.min +
-        //     noise.max *
-        //       p5.noise(
-        //         x * noise.scale.x + p5.frameCount * noise.speed.x,
-        //         y * noise.scale.y + p5.frameCount * noise.speed.y,
-        //         noise.scale.z + p5.frameCount * noise.speed.z,
-        //       );
-        //   cell.character =
-        //     characters[
-        //       Math.floor((cell.noise / noise.max) * characters.length)
-        //     ];
-        //   // p5.fill(cell.noise);
-        //   p5.fill(cell.noise);
-        //   p5.text(
-        //     cell.character,
-        //     cell.position.x + grid.cell.width * 0.35,
-        //     cell.position.y + grid.cell.height * 0.7,
-        //   );
-        // });
-        // grid.display();
-        // viz.display.frameRate();
+
       };
 
       p5.windowResized = () => {
