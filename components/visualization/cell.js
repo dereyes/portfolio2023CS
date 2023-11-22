@@ -13,43 +13,67 @@ const getCell = (p5, grid, x, y) => {
   };
 
   const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
-    const calculatePositionBounds = (x, y, shift) => {
-      const position = {
-        x: grid.bounds.left + grid.cell.size * x + shift.x,
-        y: grid.bounds.top + grid.cell.size * y + shift.y,
-      };
+    // const calculatePositionBounds = (x, y, shift) => {
+    //   const position = {
+    //     x: grid.bounds.left + grid.cell.size * x + shift.x,
+    //     y: grid.bounds.top + grid.cell.size * y + shift.y,
+    //   };
 
-      const bounds = {
-        top: grid.bounds.top + grid.cell.size * y,
-        left: grid.bounds.left + grid.cell.size * x,
-        bottom: grid.bounds.top + grid.cell.size * y + grid.cell.size,
-      };
+    //   const bounds = {
+    //     top: position.y,
+    //     bottom: position.y + grid.cell.size,
+    //   };
 
-      return {
-        position: position,
-        bounds: bounds,
-      };
+    //   return {
+    //     position: position,
+    //     bounds: bounds,
+    //   };
+    // };
+
+    // const checkAndLoopBounds = ({ position, bounds }) => {
+    //   // if(x == 0 && y ==0) {
+    //   //   console.log(bounds);
+    //   // }
+
+    //   if (bounds.top > p5.height) {
+    //     // if (x == 0 && y == 0) {
+    //     //   console.log(bounds, p5.height);
+    //     // }
+
+    //     // return calculatePositionBounds(x, y, {
+    //     //   x: shift.x,
+    //     //   y: shift.y - grid.height - grid.cell.size,
+    //     // }).position;
+
+    //     return {
+    //       x: position.x,
+    //       y: position.y,
+    //     };
+    //   }
+
+    //   if (bounds.bottom < 0) {
+    //     return calculatePositionBounds(x, y, {
+    //       x: shift.x,
+    //       y: shift.y - grid.cell.size,
+    //     }).position;
+    //   }
+
+    //   return position;
+    // };
+
+    // return checkAndLoopBounds(calculatePositionBounds(x, y, shift));
+
+    return {
+      x: grid.bounds.left + grid.cell.size * x + shift.x,
+      y: grid.bounds.top + grid.cell.size * y + shift.y,
     };
+  };
 
-    const checkAndLoopBounds = ({ position, bounds }) => {
-      if (bounds.top > p5.height) {
-        return calculatePositionBounds(x, y, {
-          x: shift.x,
-          y: shift.y - grid.height - grid.cell.size,
-        }).position;
-      }
-
-      if (bounds.bottom < 0) {
-        return calculatePositionBounds(x, y, {
-          x: shift.x,
-          y: shift.y - grid.cell.size,
-        }).position;
-      }
-
-      return position;
+  const getCellBounds = (position) => {
+    return {
+      top: position.y,
+      bottom: position.y + grid.cell.size,
     };
-
-    return checkAndLoopBounds(calculatePositionBounds(x, y, shift));
   };
 
   const getCharacter = () => {
@@ -67,6 +91,33 @@ const getCell = (p5, grid, x, y) => {
       cell.position.x + grid.cell.size * 0.5,
       cell.position.y + grid.cell.size * 0.35,
     );
+  };
+
+  cell.updatePosition = (shift) => {
+    const loopPosition = (position) => {
+      const bounds = getCellBounds(position);
+
+      if (bounds.top > p5.height) {
+        return {
+          x: position.x,
+          y: 0 - grid.cell.size,
+        };
+      }
+
+      // if (bounds.bottom < 0) {
+      //   return {
+      //     x: position.x,
+      //     y: grid.size.height + grid.cell.size,
+      //   };
+      // }
+
+      return position;
+    };
+
+    cell.position = loopPosition({
+      x: cell.position.x + shift.x,
+      y: cell.position.y + shift.y,
+    });
   };
 
   initializeCell(x, y);

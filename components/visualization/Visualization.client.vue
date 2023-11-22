@@ -78,11 +78,11 @@ onMounted(() => {
         p5.textSize(grid.settings.text.size);
 
         console.log(grid);
-        grid.render();
       };
 
       p5.draw = () => {
-
+        p5.background(backgroundColor);
+        grid.render({ shift: { x: 0, y: 1 } });
       };
 
       p5.windowResized = () => {

@@ -40,8 +40,6 @@ const getGrid = (p5, columns) => {
     grid.cell.size = p5.width / grid.settings.columns;
     grid.settings.rows = Math.ceil(p5.height / grid.cell.size);
 
-    console.log(p5.canvas);
-
     grid.size.width = p5.width;
     grid.size.height = grid.settings.rows * grid.cell.size;
     grid.settings.text.size = grid.cell.size * textSizeRelativeToCell;
@@ -60,11 +58,12 @@ const getGrid = (p5, columns) => {
     }
   };
 
-  grid.render = () => {
+  grid.render = ({shift}) => {
     p5.noStroke();
     p5.fill(255);
 
     grid.forEachCell((cell) => {
+      cell.updatePosition(shift);
       cell.render();
     });
   };
