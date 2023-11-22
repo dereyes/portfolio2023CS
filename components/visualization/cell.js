@@ -31,16 +31,16 @@ const getCell = (p5, grid, x, y) => {
 
   const getCellPosition = (x, y, shift = { x: 0, y: 0 }) => {
     return {
-      x: grid.bounds.left + grid.cell.size * x + shift.x,
-      y: grid.bounds.top + grid.cell.size * y + shift.y,
+      x: grid.bounds.left + grid.cell.size.width * x + shift.x,
+      y: grid.bounds.top + grid.cell.size.height * y + shift.y,
     };
   };
 
   const getCellBounds = (position) => {
     return {
       top: position.y,
-      right: position.x + grid.cell.size,
-      bottom: position.y + grid.cell.size,
+      right: position.x + grid.cell.size.width,
+      bottom: position.y + grid.cell.size.height,
       left: position.x,
     };
   };
@@ -62,7 +62,7 @@ const getCell = (p5, grid, x, y) => {
       if (bounds.top > p5.height) {
         return {
           x: position.x,
-          y: 0 - grid.cell.size,
+          y: 0 - grid.cell.size.height,
         };
       }
 
@@ -86,8 +86,8 @@ const getCell = (p5, grid, x, y) => {
   cell.render = () => {
     p5.text(
       cell.character.character,
-      cell.position.x + grid.cell.size * 0.5,
-      cell.position.y + grid.cell.size * cell.character.baseline,
+      cell.position.x + grid.cell.size.width * 0.5,
+      cell.position.y + grid.cell.size.height * cell.character.baseline,
     );
   };
 
