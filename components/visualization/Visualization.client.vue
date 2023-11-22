@@ -5,53 +5,14 @@
 <script setup>
 import { onMounted, nextTick, ref } from "vue";
 import p5 from "p5";
+import getGrid from "./grid";
 
-// const viz = ref(null);
-const backgroundColor = 0;
-
-let viz = {};
-let font;
-let grid = {
-  columns: 6,
-  rows: undefined,
-  cell: {},
-};
-
-grid.forEach = (method) => {
-  for (let x = 0; x < grid.columns; x++) {
-    for (let y = 0; y < grid.rows; y++) {
-      method(grid.cells[x][y], x, y);
-    }
-  }
-};
-
-// const scrollSpeed = (settings) => {
-//   settings = settings || {};
-
-//   var lastPos,
-//     newPos,
-//     timer,
-//     delta,
-//     delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
-
-//   function clear() {
-//     lastPos = null;
-//     delta = 0;
-//   }
-
-//   clear();
-
-//   return function () {
-//     newPos = window.scrollY;
-//     if (lastPos != null) {
-//       // && newPos < maxScroll
-//       delta = newPos - lastPos;
+// grid.forEach = (method) => {
+//   for (let x = 0; x < grid.columns; x++) {
+//     for (let y = 0; y < grid.rows; y++) {
+//       method(grid.cells[x][y], x, y);
 //     }
-//     lastPos = newPos;
-//     clearTimeout(timer);
-//     timer = setTimeout(clear, delay);
-//     return delta;
-//   };
+//   }
 // };
 
 /*
@@ -61,13 +22,16 @@ TODO:
 * Respect 'prefers-reduced-motion'
 */
 
-const characters = Array.from("@&A<>/?:*{}+");
-
 onMounted(() => {
   nextTick(() => {
-    viz.element = document.getElementById("viz");
-
     let visualization = (p5) => {
+      const backgroundColor = 0;
+      let viz = {
+        element: document.getElementById("viz"),
+      };
+      let font;
+      const grid = getGrid(p5, 4);
+
       // grid.display = () => {
       //   grid.forEach((cell) => {
       //     p5.noFill(cell.noise);
@@ -78,6 +42,23 @@ onMounted(() => {
       //       grid.cell.width,
       //       grid.cell.height,
       //     );
+      //   });
+      // };
+
+      // grid.cell.render = (cell, x, y) => {
+      //   p5.text(
+      //     cell.text.character,
+      //     cell.position.x + grid.cell.size * 0.5,
+      //     cell.position.y + grid.cell.size * 0.35,
+      //   );
+      // };
+
+      // grid.render = () => {
+      //   p5.noStroke();
+      //   p5.fill(255);
+
+      //   grid.forEach((cell, x, y) => {
+      //     grid.cell.render(cell, x, y);
       //   });
       // };
 
@@ -95,13 +76,14 @@ onMounted(() => {
       };
 
       p5.preload = () => {
-        font = p5.loadFont("SpaceMono-Bold.ttf");
+        font = p5.loadFont("Manrope-ExtraBold.ttf");
       };
 
       p5.setup = () => {
         const canvas = p5.createCanvas(400, 400, p5.P2D);
         canvas.parent("viz");
         viz.resized();
+        grid.resize();
 
         p5.smooth();
         // p5.fill(255);
@@ -112,81 +94,14 @@ onMounted(() => {
 
         p5.textFont(font);
         p5.textAlign(p5.CENTER, p5.CENTER);
-
-        // Move below to resize later
-        grid.cell.size = p5.width / grid.columns;
-        grid.rows = Math.ceil(p5.height / grid.cell.size);
-        grid.cell.text = {
-          size: grid.cell.size * .7,
-        };
-
-        p5.textSize(grid.cell.text.size);
-
-        grid.cells = Array.from({ length: grid.columns }, (x, i) => {
-          return Array.from({ length: grid.rows }, (y, j) => {
-            return {
-              index: `${i}, ${j}`,
-            };
-          });
-        });
-
-        grid.width = p5.width;
-        grid.height = grid.rows * grid.cell.size;
-        grid.top = p5.height / 2 - grid.height / 2;
-        grid.left = 0;
-
-        grid.forEach((cell, x, y) => {
-          cell.position = {
-            x: grid.left + grid.cell.size * x,
-            y: grid.top + grid.cell.size * y,
-          };
-
-          cell.text = {
-            character:
-              characters[Math.floor(Math.random() * characters.length)],
-          };
-
-          // p5.noFill();
-          // p5.stroke(255);
-
-          // p5.rect(
-          //   cell.position.x,
-          //   cell.position.y,
-          //   grid.cell.size,
-          //   grid.cell.size,
-          // );
-
-          p5.noStroke();
-          p5.fill(255);
-
-          p5.text(
-            cell.text.character,
-            cell.position.x + grid.cell.size * 0.5,
-            cell.position.y + grid.cell.size * .35,
-          );
-        });
+        p5.textSize(grid.settings.text.size);
 
         console.log(grid);
-
-        // grid.height = grid.width;
-        // grid.cell.width = grid.width / grid.columns;
-        // grid.cell.height = grid.height / grid.rows;
-        // grid.text = {
-        //   size: grid.cell.height * 1.25,
-        // };
-
-        // grid.left = p5.width / 2 - grid.width / 2;
-        // grid.top = p5.height / 2 - grid.height / 2;
-
-        // grid.forEach((cell, x, y) => {
-        //   cell.position = {
-        //     x: grid.left + grid.cell.width * x,
-        //     y: grid.top + grid.cell.height * y,
-        //   };
-        // });
       };
 
       p5.draw = () => {
+        // smoothly move each row upwards
+        // when a cell is not longer visible at the top, move it to the bottom
         // p5.background(backgroundColor);
         // p5.textSize(grid.text.size);
         // grid.forEach((cell, x, y) => {
