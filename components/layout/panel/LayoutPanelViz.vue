@@ -10,6 +10,8 @@
 .layout-panel.layout-panel-viz {
   background: transparent;
   border: 1px solid red;
+  position: sticky;
+  top: 0;
 
   @include breakpoint("max-mobile") {
     clip-path: inset(0 0 0 0);
