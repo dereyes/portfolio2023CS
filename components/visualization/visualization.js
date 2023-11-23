@@ -35,7 +35,8 @@ const runVisualization = (p5, window) => {
     p5.draw = () => {
       // scrolling.update();
 
-      p5.background(backgroundColor);
+      // p5.background(backgroundColor);
+      p5.clear();
       grid.render({
         lines: false,
         movement: false,

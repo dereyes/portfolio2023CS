@@ -14,7 +14,7 @@
     <p>
       <small>
         Designed and built by Darin E. Reyes using
-        <span class="noWrap">Vue.js,</span> Nuxt,
+        <span class="noWrap">Vue,</span> Nuxt,
         <span class="noWrap">and p5.js</span>
       </small>
     </p>
