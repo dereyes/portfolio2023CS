@@ -27,8 +27,8 @@ const getNoise = (p5, window) => {
     },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.005,
-      y: 0.015,
+      x: 0.003,
+      y: 0.01,
       z: 1,
     },
     speed: {
@@ -43,26 +43,19 @@ const getNoise = (p5, window) => {
   //#1b0d09, #e075b0, #ff4000, #ffb882, #c4c4c4
 
   const colors = {
-    black: p5.color("#000000"),
-    slate: p5.color("#1d4556"),
-    sea: p5.color("#0fbdb4"),
-    leaf: p5.color("#B3C4B1"),
+    blue: p5.color("#00f"),
     concrete: p5.color("#cdcdcd"),
-    sun: p5.color("#ffab5c"),
-    grapefruit: p5.color("#fd3635"),
   };
 
   const gradientStops = [
-    { color: colors.black, progress: 0 },
-    { color: colors.sea, progress: 0.25 },
-    { color: colors.slate, progress: 0.4 },
-    { color: colors.sea, progress: 0.45 },
-    { color: colors.concrete, progress: 0.5 },
-    { color: colors.sun, progress: 0.55 },
-    { color: colors.grapefruit, progress: 0.6 },
-    // { color: colors.sun, progress: 0.7 },
-    { color: colors.sea, progress: 0.45 },
-    { color: colors.black, progress: 1 },
+    { color: colors.blue, progress: 0 },
+    { color: colors.blue, progress: 0.25 },
+    { color: colors.concrete, progress: 0.3 },
+    { color: colors.blue, progress: 0.45 },
+    { color: colors.blue, progress: 0.5 },
+    { color: colors.blue, progress: 0.6 },
+    { color: colors.concrete, progress: 0.65 },
+    { color: colors.blue, progress: 1 },
   ];
 
   // Position should be between 0 and 1

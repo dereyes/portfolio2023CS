@@ -7,7 +7,7 @@ const getGrid = (p5, window) => {
   const grid = {
     // Properties to initialize grid
     settings: {
-      columns: 24,
+      columns: 50,
       rows: undefined,
     },
     // Properties and methods of a prototypical cell
