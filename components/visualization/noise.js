@@ -1,5 +1,11 @@
 import getScrolling from "./scrolling";
 
+/*
+TODO:
+* move color to its own filter
+* be able to set a starting point in noise space, maybe even speed in each axis, so they can be affected independently
+*/
+
 const getNoise = (p5, window) => {
   const noise = {
     initialize: undefined,
@@ -21,14 +27,14 @@ const getNoise = (p5, window) => {
     },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.009,
-      y: 0.01,
+      x: 0.005,
+      y: 0.015,
       z: 1,
     },
     speed: {
       x: 0.00002,
       y: 0,
-      z: 0.00002,
+      z: 0.00004,
     },
   };
 
@@ -48,12 +54,14 @@ const getNoise = (p5, window) => {
 
   const gradientStops = [
     { color: colors.black, progress: 0 },
-    { color: colors.slate, progress: 0.45 },
-    { color: colors.sea, progress: 0.475 },
-    { color: colors.leaf, progress: 0.5 },
+    { color: colors.sea, progress: 0.25 },
+    { color: colors.slate, progress: 0.4 },
+    { color: colors.sea, progress: 0.45 },
+    { color: colors.concrete, progress: 0.5 },
     { color: colors.sun, progress: 0.55 },
     { color: colors.grapefruit, progress: 0.6 },
-    { color: colors.sun, progress: 0.7 },
+    // { color: colors.sun, progress: 0.7 },
+    { color: colors.sea, progress: 0.45 },
     { color: colors.black, progress: 1 },
   ];
 

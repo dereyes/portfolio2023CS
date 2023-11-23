@@ -44,15 +44,10 @@ const getCell = (p5, grid, x, y) => {
     // p5.stroke(color);
     // p5.strokeWeight(grid.cell.size);
 
-    // p5.rect(
-    //   cell.position.x,
-    //   cell.position.y ,
-    //   grid.cell.size
-    // );
+    // p5.rect(cell.position.x, cell.position.y, grid.cell.size);
 
-    // p5.fill(color);
     p5.stroke(color);
-    p5.strokeWeight(grid.cell.size * .4);
+    p5.strokeWeight(grid.cell.size * .5);
 
     p5.point(
       cell.position.x + (grid.cell.size / 2),

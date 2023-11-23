@@ -18,6 +18,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   flex-flow: column nowrap;
   grid-column: 2 / -1;
   height: max-content;
+  justify-content: center;
   min-height: 100vh;
 
   @include breakpoint("max-mobile") {
