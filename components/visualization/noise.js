@@ -36,7 +36,7 @@ const getNoise = (p5, window) => {
     speed: {
       x: 0.000005,
       y: 0,
-      z: 0.000015,
+      z: 0.000001,
     },
   };
 
@@ -122,7 +122,7 @@ const getNoise = (p5, window) => {
 
   noise.update = () => {
     scrolling.update();
-    noise.time.position += noise.time.speed + Math.abs(scrolling.speed * 50);
+    noise.time.position += noise.time.speed + Math.abs(scrolling.speed * 100);
   };
 
   noise.getColor = (x, y) => {

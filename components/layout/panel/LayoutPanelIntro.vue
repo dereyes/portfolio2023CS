@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-intro">
     <TypographyScalingHeading tag="h1">
-      Darin E. Reyes,<br />Front-End Web Developer
+      Darin E. Reyes, Front-End Web Developer
     </TypographyScalingHeading>
     <p>Specializing in UX Engineering</p>
     <p>

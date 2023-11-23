@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "collection";
 @use "u" as *;
 
@@ -9,30 +11,44 @@
 
 $layout-panel-padding-mobile-x: u(0.75);
 $layout-panel-padding-mobile-y: 25vh;
-$layout-panel-padding-mobile: $layout-panel-padding-mobile-y $layout-panel-padding-mobile-x;
+$layout-panel-padding-mobile: $layout-panel-padding-mobile-y
+  $layout-panel-padding-mobile-x;
 
 $layout-panel-padding-desktop-x: u(0.5);
 $layout-panel-padding-desktop-y: 25vh;
-$layout-panel-padding-desktop: $layout-panel-padding-desktop-y $layout-panel-padding-desktop-x;
+$layout-panel-padding-desktop: $layout-panel-padding-desktop-y
+  $layout-panel-padding-desktop-x;
 
 $layout-panel-intro-height: 85vh;
 $layout-viz-height-mobile: 100vh - $layout-panel-intro-height;
 
 @function _getBreakpoint($size) {
   $breakpoints: (
-    "mobile": 640px,
+    "small": 640px,
+    "medium": 768px,
   );
 
   @return collection.get($breakpoints, #{$size});
 }
 
-@mixin breakpoint($breakpoint) {
-  @if ($breakpoint == "max-mobile") {
-    @media (max-width: _getBreakpoint("mobile")) {
-      @content;
+@mixin breakpoint($breakpoints) {
+  $start: map.get($breakpoints, "start");
+  $end: map.get($breakpoints, "end");
+
+  @content;
+
+  @if ($start) {
+    @if ($end) {
+      @media (min-width: _getBreakpoint($start)) and (max-width: _getBreakpoint($end) - 1) {
+        @content;
+      }
+    } @else {
+      @media (min-width: _getBreakpoint($start)) {
+        @content;
+      }
     }
-  } @else if ($breakpoint == "min-desktop") {
-    @media (min-width: (_getBreakpoint("mobile") + 1)) {
+  } @else if ($end) {
+    @media (max-width: _getBreakpoint($end) - 1) {
       @content;
     }
   }

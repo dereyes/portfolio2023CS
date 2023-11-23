@@ -51,12 +51,12 @@
     font-weight: typography.fontWeight("extrabold");
   }
 
-  @include breakpoint("max-mobile") {
-    height: 0;
-  }
+  // @include breakpoint("max-mobile") {
+  //   height: 0;
+  // }
 
-  @include breakpoint("min-desktop") {
-    grid-column: 1 / span 1;
-  }
+  // @include breakpoint("min-desktop") {
+  //   grid-column: 1 / span 1;
+  // }
 }
 </style>
