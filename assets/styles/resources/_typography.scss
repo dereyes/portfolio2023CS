@@ -7,7 +7,7 @@
 @use "ratio";
 @use "u" as *;
 
-$remInPx: 16px;
+$remInPx: 22px;
 
 @function _getTypescalePixelSize(
   $level: 0,
@@ -59,6 +59,8 @@ $remInPx: 16px;
 @function fontWeight($weight) {
   $weights: (
     "regular": 400,
+    "medium": 500,
+    "semibold": 600,
     "bold": 700,
     "extrabold": 800,
   );

@@ -1,10 +1,12 @@
 <template>
   <LayoutMain>
-    <LayoutPanelIntro />
-    <LayoutArrow />
+    <!-- <SketchIntro /> -->
     <LayoutPanelViz />
+    <LayoutPanelIntro />
+    <!-- <LayoutArrow /> -->
     <LayoutPanelSkills />
     <LayoutPanelBackground />
+    <LayoutPanelMore />
     <LayoutPanelFooter />
   </LayoutMain>
 </template>

@@ -2,7 +2,7 @@ import getCell from "./cell";
 import getNoise from "./noise";
 
 const getGrid = (p5, window) => {
-  const gridSizeRelativeToCanvasWidth = .75;
+  const gridSizeRelativeToCanvasWidth = .9;
 
   const grid = {
     // Properties to initialize grid

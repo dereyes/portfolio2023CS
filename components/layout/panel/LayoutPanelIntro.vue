@@ -1,7 +1,9 @@
 <template>
   <LayoutPanel class="layout-panel-intro">
-    <h1>Darin E. Reyes is a Front-End Web Developer</h1>
-    <p>Specializing in UX Engineering, UI Development, and Design Systems</p>
+    <TypographyScalingHeading tag="h1">
+      Darin E. Reyes,<br />Front-End Web Developer
+    </TypographyScalingHeading>
+    <p>Specializing in UX Engineering</p>
     <p>
       Currently based in
       <span class="noWrap">Mountain View,</span> California
@@ -12,11 +14,5 @@
 <style lang="scss">
 .layout-panel-intro-text {
   margin: 0;
-}
-
-@include breakpoint("max-mobile") {
-  .layout-panel.layout-panel-intro {
-    min-height: $layout-panel-intro-height;
-  }
 }
 </style>
