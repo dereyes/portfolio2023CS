@@ -10,9 +10,9 @@
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Pixel-perfect UI Development</h2>
+        <h2>UI Development</h2>
         <ul class="skills-list">
-          <li>Turning wireframes and mockups into components</li>
+          <li>Turning wireframes and mockups into pixel-perfect components</li>
           <li>Responsive, accessible development</li>
         </ul>
       </ListHighlightItem>

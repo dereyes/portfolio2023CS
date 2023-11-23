@@ -1,6 +1,11 @@
 <template>
   <div :class="classList">
-    <slot />
+    <div class="layout-panel-sidebar">
+      <slot name="sidebar" />
+    </div>
+    <div class="layout-panel-main">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -22,12 +27,22 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   // justify-content: center;
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 3fr;
   grid-auto-rows: min-content;
   justify-content: center;
-  max-width: 42rem;
+  max-width: 40rem;
   min-height: 100vh;
   width: 100%;
+
+  &-sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+  }
+
+  &-main {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+  }
 
   @include breakpoint("max-mobile") {
     padding: $layout-panel-padding-mobile;

@@ -8,7 +8,7 @@
         </a>
       </li>
     </ul>
-    <p class="layout-panel-footer-bottom-footnote">
+    <p>
       <small>
         Designed and built by Darin E. Reyes using
         <span class="noWrap">Vue.js,</span> Nuxt,
