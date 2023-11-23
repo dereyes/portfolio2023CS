@@ -22,7 +22,7 @@ const onExit = () => {
 onMounted(() => {
   observer.value = onIntersect(scrollRef.value, onEnter, onExit, false, {
     threshold: 0.5,
-    rootMargin: "-33% 0px -33% 0px",
+    rootMargin: "-25% 0px -25% 0px",
   });
 });
 

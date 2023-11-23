@@ -15,7 +15,7 @@ const classList = `scalingHeading scalingHeading-${props.tag}`;
 <style lang="scss" scoped>
 @include breakpoint("min-desktop") {
   .scalingHeading-h1 {
-    font-size: clamp(typography.typescale("h1"), 13vw, 4rem);
+    font-size: clamp(typography.typescale("h1"), 10vw, 5rem);
   }
 }
 </style>

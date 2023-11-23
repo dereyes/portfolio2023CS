@@ -1,9 +1,9 @@
 <template>
   <LayoutMain>
-    <SketchIntro />
+    <!-- <SketchIntro /> -->
+    <LayoutPanelViz />
     <LayoutPanelIntro />
     <!-- <LayoutArrow /> -->
-    <!-- <LayoutPanelViz /> -->
     <LayoutPanelSkills />
     <LayoutPanelBackground />
     <LayoutPanelMore />

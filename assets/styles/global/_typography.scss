@@ -10,7 +10,7 @@ body {
 h1 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h1");
-  font-weight: typography.fontWeight("extrabold");
+  font-weight: typography.fontWeight("semibold");
   line-height: ratio.justInterval(4);
   margin: 0 0 0.5em;
 }
@@ -18,7 +18,7 @@ h1 {
 h2 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h2");
-  font-weight: typography.fontWeight("extrabold");
+  font-weight: typography.fontWeight("semibold");
   line-height: ratio.justInterval(5);
   margin: 0 0 1em;
 }
@@ -45,8 +45,8 @@ li {
       to top,
       color.palette("black") 0.1em,
       color.palette("hilite2") 0.1em,
-      color.palette("hilite2") 0.5em,
-      transparent 0.5em
+      color.palette("hilite2") 0.15em,
+      transparent 0.35em
     );
     color: color.palette("black");
     font-weight: typography.fontWeight("bold");

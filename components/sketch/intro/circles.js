@@ -12,7 +12,7 @@ const getCircles = (p5) => {
     circles.list.push(
       getCircle(p5, {
         size: 0.6,
-        color: "hsl(76, 100%, 48%)",
+        color: "#FF4BB8",
         orbit: {
           angle: 20,
           radius: 70,
@@ -21,7 +21,7 @@ const getCircles = (p5) => {
       }),
       getCircle(p5, {
         size: 0.75,
-        color: "#F3C45C",
+        color: "#FF5021",
         orbit: {
           angle: 0,
           radius: 35,

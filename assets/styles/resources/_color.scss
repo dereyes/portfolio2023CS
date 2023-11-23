@@ -2,10 +2,10 @@
 
 @function palette($key) {
   $palette: (
-    "concrete": hsl(0, 0%, 76%),
+    "concrete": hsl(0, 1%, 65%),
     "black": #000,
     "hilite": #00f,
-    "hilite2": hsl(76, 100%, 48%),
+    "hilite2": hsl(76, 100%, 44%),
   );
 
   @return collection.get($palette, #{$key});

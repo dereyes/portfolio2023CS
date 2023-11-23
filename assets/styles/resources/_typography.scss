@@ -7,7 +7,7 @@
 @use "ratio";
 @use "u" as *;
 
-$remInPx: 16px;
+$remInPx: 22px;
 
 @function _getTypescalePixelSize(
   $level: 0,

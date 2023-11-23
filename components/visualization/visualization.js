@@ -7,7 +7,7 @@ const runVisualization = (p5, window) => {
 
   let visualization = (p5) => {
     let font;
-    const backgroundColor = "#cdcdcd";
+    const backgroundColor = "hsl(0, 1%, 65%)";
 
     const canvas = getCanvas(p5, document, canvasId);
     const grid = getGrid(p5, window);
@@ -19,7 +19,7 @@ const runVisualization = (p5, window) => {
     };
 
     p5.setup = () => {
-      const sketch = p5.createCanvas(400, 400, p5.WEBGL);
+      const sketch = p5.createCanvas(300, 300, p5.WEBGL);
       sketch.parent(canvasId);
 
       canvas.initialize();
@@ -43,13 +43,13 @@ const runVisualization = (p5, window) => {
       });
 
       // p5.filter(p5.BLUR, 10);
-      p5.fill('#00f');
+      p5.fill("#00f");
       canvas.render.frameRate();
     };
 
-    p5.windowResized = () => {
-      canvas.initialize();
-    };
+    // p5.windowResized = () => {
+    //   canvas.initialize();
+    // };
   };
 
   new p5(visualization);

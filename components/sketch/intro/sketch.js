@@ -28,7 +28,7 @@ const runSketch = (p5, window, canvasID) => {
     };
 
     p5.draw = () => {
-      p5.background("hsl(0, 0%, 76%)");
+      p5.background("#d5bdaf");
       //   // scrolling.update();
 
       //   // p5.background(backgroundColor);
@@ -45,8 +45,6 @@ const runSketch = (p5, window, canvasID) => {
       // console.log("draw")
       circles.update();
       circles.render();
-      // p5.filter(p5.BLUR, 15);
-      // console.log(p5.frameRate());
     };
 
     p5.windowResized = () => {

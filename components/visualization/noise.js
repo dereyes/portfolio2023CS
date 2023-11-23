@@ -12,10 +12,12 @@ const getNoise = (p5, window) => {
     update: undefined,
     gradient: {
       position: {
-        x: undefined, y: undefined
+        x: undefined,
+        y: undefined,
       },
       size: {
-        x: undefined, y: undefined
+        x: undefined,
+        y: undefined,
       },
     },
     render: {
@@ -27,14 +29,14 @@ const getNoise = (p5, window) => {
     },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.003,
-      y: 0.01,
+      x: 0.001,
+      y: 0.006,
       z: 1,
     },
     speed: {
-      x: 0.00002,
+      x: 0.000005,
       y: 0,
-      z: 0.00004,
+      z: 0.000015,
     },
   };
 
@@ -43,18 +45,25 @@ const getNoise = (p5, window) => {
   //#1b0d09, #e075b0, #ff4000, #ffb882, #c4c4c4
 
   const colors = {
-    blue: p5.color("#00f"),
-    concrete: p5.color("#cdcdcd"),
+    blue: p5.color("hsl(76, 100%, 42%)"),
+    concrete: p5.color("hsl(0, 1%, 65%)"),
   };
 
   const gradientStops = [
     { color: colors.blue, progress: 0 },
-    { color: colors.blue, progress: 0.25 },
     { color: colors.concrete, progress: 0.3 },
-    { color: colors.blue, progress: 0.45 },
+    { color: colors.blue, progress: 0.4 },
+    { color: colors.concrete, progress: 0.325 },
+    { color: colors.blue, progress: 0.475 },
+    { color: colors.blue, progress: 0.5 },
+    { color: colors.concrete, progress: 0.55 },
+    { color: colors.blue, progress: 0.35 },
+    { color: colors.concrete, progress: 0.45 },
+    { color: colors.blue, progress: 0.6 },
     { color: colors.blue, progress: 0.5 },
     { color: colors.blue, progress: 0.6 },
     { color: colors.concrete, progress: 0.65 },
+    { color: colors.blue, progress: 0.7 },
     { color: colors.blue, progress: 1 },
   ];
 
@@ -94,22 +103,22 @@ const getNoise = (p5, window) => {
       p5.line(
         noise.gradient.position.x + i,
         noise.gradient.position.y,
-        noise.gradient.position.x + i, 
-        noise.gradient.position.y + noise.gradient.size.height
+        noise.gradient.position.x + i,
+        noise.gradient.position.y + noise.gradient.size.height,
       );
     }
   };
 
   noise.initialize = () => {
-    noise.gradient.position = {
+    (noise.gradient.position = {
       x: p5.width * -0.5,
       y: p5.height * -0.5,
-    },
-    noise.gradient.size = {
+    }),
+      (noise.gradient.size = {
         width: p5.width,
         height: 10,
-    };
-  }
+      });
+  };
 
   noise.update = () => {
     scrolling.update();
