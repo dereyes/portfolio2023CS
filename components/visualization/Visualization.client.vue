@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { onMounted, nextTick, ref } from "vue";
+import { onMounted, nextTick } from "vue";
 import p5 from "p5";
 import runVisualization from "./visualization";
 

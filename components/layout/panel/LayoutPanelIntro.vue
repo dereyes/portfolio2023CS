@@ -15,10 +15,4 @@
 .layout-panel-intro-text {
   margin: 0;
 }
-
-@include breakpoint("max-mobile") {
-  .layout-panel.layout-panel-intro {
-    min-height: $layout-panel-intro-height;
-  }
-}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <LayoutMain>
+    <SketchIntro />
     <LayoutPanelIntro />
     <!-- <LayoutArrow /> -->
     <!-- <LayoutPanelViz /> -->
