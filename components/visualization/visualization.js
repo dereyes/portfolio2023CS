@@ -39,12 +39,12 @@ const runVisualization = (p5, window) => {
       grid.render({
         lines: false,
         movement: false,
-        gradient: true,
+        gradient: false,
       });
 
       // p5.filter(p5.BLUR, 10);
-      p5.fill("#00f");
-      canvas.render.frameRate();
+      // p5.fill("#00f");
+      // canvas.render.frameRate();
     };
 
     // p5.windowResized = () => {

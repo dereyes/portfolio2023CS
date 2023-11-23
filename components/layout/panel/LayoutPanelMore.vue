@@ -4,7 +4,7 @@
     <ul>
       <li>
         <p>
-          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+          <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
             "Make Something People Want"
           </a>
         </p>
@@ -13,7 +13,7 @@
       </li>
       <li>
         <p>
-          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+          <a href="https://vimeo.com/278603739" target="_blank">
             "ShadowPlay"
           </a>
         </p>
@@ -22,7 +22,7 @@
       </li>
       <li>
         <p>
-          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+          <a href="https://vimeo.com/243570108" target="_blank">
             "Gato"
           </a>
         </p>

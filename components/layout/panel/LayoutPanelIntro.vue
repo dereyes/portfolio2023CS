@@ -3,7 +3,7 @@
     <TypographyScalingHeading tag="h1">
       Darin E. Reyes,<br />Front-End Web Developer
     </TypographyScalingHeading>
-    <p>Specializing in UX Engineering, UI Development, and Design Systems</p>
+    <p>Specializing in UX Engineering</p>
     <p>
       Currently based in
       <span class="noWrap">Mountain View,</span> California
