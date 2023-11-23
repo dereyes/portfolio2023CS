@@ -17,5 +17,9 @@ const classList = `scalingHeading scalingHeading-${props.tag}`;
   .scalingHeading-h1 {
     font-size: clamp(typography.typescale("h1"), 9vw, 5.75rem);
   }
+
+  .scalingHeading-h2 {
+    font-size: clamp(typography.typescale("h2"), 6.25vw, 3.75rem);
+  }
 }
 </style>

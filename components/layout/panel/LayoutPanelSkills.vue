@@ -3,14 +3,14 @@
     <h2 ref="scrollRef"></h2>
     <ListHighlight>
       <ListHighlightItem>
-        <h2>A partner in UX Design & Research</h2>
+        <TypographyScalingHeading tag="h2">A partner in UX Design <span class="noWrap">& Research</span></TypographyScalingHeading>
         <ul class="skills-list">
           <li>Rapid prototyping, interactive mockups</li>
           <li>Bridging Engineering, Product, and Design teams</li>
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Design Thinking & User Focus</h2>
+        <TypographyScalingHeading tag="h2">Design Thinking & <span class="noWrap">User Focus</span></TypographyScalingHeading>
         <ul class="skills-list">
           <li>Ensuring pixel-perfect design implementation</li>
           <li>Responsive, accessible soluions</li>
@@ -18,7 +18,7 @@
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Bringing Design Systems to Life</h2>
+        <TypographyScalingHeading tag="h2">Bringing Design Systems <span class="noWrap">to Life</span></TypographyScalingHeading>
         <ul class="skills-list">
           <li>Architecting color and typography systems</li>
           <li>Building and maintaining component libraries</li>
