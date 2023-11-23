@@ -32,3 +32,22 @@
     </ul>
   </LayoutPanel>
 </template>
+
+
+
+<style lang="scss">
+.layout-panel-more {
+  margin: 0;
+
+  @include breakpoint(
+    (
+      "start": "medium",
+      "end": null,
+    )
+  ) {
+    > * {
+      grid-column: 2 / -2;
+    }
+  }
+}
+</style>

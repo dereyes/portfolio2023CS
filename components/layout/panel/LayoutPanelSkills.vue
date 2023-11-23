@@ -4,8 +4,8 @@
       <ListHighlightItem>
         <TypographyScalingHeading tag="h2">Engineering with Design Thinking</TypographyScalingHeading>
         <ul class="skills-list">
-          <li>Ensuring pixel-perfect design implementation</li>
-          <li>Responsive, accessible soluions</li>
+          <li>Pixel-perfect design implementation</li>
+          <li>Responsive, accessible components</li>
           <li>User focus and product solutions</li>
         </ul>
       </ListHighlightItem>
@@ -24,27 +24,6 @@
           <li>Building and maintaining <span class="noWrap">component libraries</span></li>
         </ul>
       </ListHighlightItem>
-      <!-- <ListHighlightItem>
-        <h2>UX Engineering</h2>
-        <ul class="skills-list">
-          <li>Collaborating with Design and Product teams</li>
-          <li>Rapid prototyping</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <h2>UI Development</h2>
-        <ul class="skills-list">
-          <li>Turning wireframes and mockups into pixel-perfect components</li>
-          <li>Responsive, accessible development</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <h2>Design Systems</h2>
-        <ul class="skills-list">
-          <li>Figma</li>
-          <li>Design Tokens</li>
-        </ul>
-      </ListHighlightItem> -->
     </ListHighlight>
   </LayoutPanel>
 </template>
@@ -60,12 +39,11 @@
     "end": "large",
   )
 ) {
-
   .scalingHeading-h2 {
     grid-column: 1 / -1;
   }
   .skills-list {
-    grid-column: 3 / -1;
+    grid-column: 4 / -1;
   }
 }
 
@@ -75,7 +53,6 @@
     "end": null,
   )
 ) {
-
   .scalingHeading-h2 {
     grid-column: 1 / -2;
   }

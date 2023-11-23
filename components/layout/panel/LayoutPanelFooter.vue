@@ -1,6 +1,6 @@
 <template>
   <LayoutPanel class="layout-panel-footer">
-    <h2>Get in touch</h2>
+    <TypographyScalingHeading tag="h2">Get in touch</TypographyScalingHeading>
     <ul>
       <li>
         <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
@@ -8,6 +8,9 @@
         </a>
       </li>
     </ul>
+    <p>
+      <small> © {{ footerYear }} Darin E. Reyes </small>
+    </p>
     <p>
       <small>
         Designed and built by Darin E. Reyes using
@@ -17,3 +20,24 @@
     </p>
   </LayoutPanel>
 </template>
+
+<script setup>
+const footerYear = new Date().getFullYear();
+</script>
+
+<style lang="scss">
+.layout-panel-footer {
+  margin: 0;
+
+  @include breakpoint(
+    (
+      "start": "medium",
+      "end": null,
+    )
+  ) {
+    > * {
+      grid-column: 2 / -2;
+    }
+  }
+}
+</style>

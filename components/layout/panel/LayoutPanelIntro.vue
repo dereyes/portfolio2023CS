@@ -3,7 +3,7 @@
     <TypographyScalingHeading tag="h1">
       Darin E. Reyes, Front-End Web Developer
     </TypographyScalingHeading>
-    <div class="layout-panel-description">
+    <div class="layout-panel-intro-description">
       <p>Specializing in UX Engineering</p>
       <p>
         Based in
@@ -14,28 +14,13 @@
 </template>
 
 <style lang="scss">
-.layout-panel-intro-text {
-  margin: 0;
-}
-
-@include breakpoint(
-  (
-    "start": "medium",
-    "end": "large",
-  )
-) {
-  .layout-panel-description {
-    grid-column: 3 / -1;
-  }
-}
-
-@include breakpoint(
-  (
-    "start": "large",
-    "end": null,
-  )
-) {
-  .layout-panel-description {
+.layout-panel-intro-description {
+  @include breakpoint(
+    (
+      "start": "medium",
+      "end": null,
+    )
+  ) {
     grid-column: 4 / -1;
   }
 }
