@@ -16,7 +16,7 @@ const useScss = [
 
 export default defineNuxtConfig({
   css: ["~/assets/styles/global/_index.scss"],
-  modules: ["@nuxt/content", "@pinia/nuxt"],
+  modules: ["@nuxt/content", "@pinia/nuxt", "@vueuse/nuxt"],
   vite: {
     css: {
       preprocessorOptions: {

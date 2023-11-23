@@ -8,10 +8,10 @@
 .layout {
   &-main {
     display: grid;
-    height: 100vh;
-    overflow-y: scroll;
+    // height: 100vh;
+    // overflow-y: scroll;
     position: relative;
-    width: 100vw;
+    width: 100%;
   }
 
   @include breakpoint("max-mobile") {
@@ -22,7 +22,9 @@
 
     &-panel {
       &:not(.layout-panel-intro, .layout-panel-viz) {
-        padding-top: calc($layout-panel-padding-mobile-y + $layout-viz-height-mobile);
+        padding-top: calc(
+          $layout-panel-padding-mobile-y + $layout-viz-height-mobile
+        );
       }
     }
   }
