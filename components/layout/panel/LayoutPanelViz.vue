@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-viz">
     <ClientOnly>
-      <Visualization />
+      <!-- <Visualization /> -->
     </ClientOnly>
   </LayoutPanel>
 </template>

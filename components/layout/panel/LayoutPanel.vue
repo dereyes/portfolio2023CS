@@ -14,12 +14,20 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
 
 <style lang="scss">
 .layout-panel {
-  display: flex;
-  flex-flow: column nowrap;
-  grid-column: 2 / -1;
-  height: max-content;
+  align-content: center;
+  // display: flex;
+  // flex-flow: column nowrap;
+  // // grid-column: 2 / -1;
+  // height: max-content;
+  // justify-content: center;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
   justify-content: center;
+  max-width: 42rem;
   min-height: 100vh;
+  width: 100%;
 
   @include breakpoint("max-mobile") {
     padding: $layout-panel-padding-mobile;

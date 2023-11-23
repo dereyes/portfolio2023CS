@@ -1,6 +1,8 @@
 <template>
   <LayoutPanel class="layout-panel-intro">
-    <h1>Darin E. Reyes is a Front-End Web Developer</h1>
+    <TypographyScalingHeading tag="h1">
+        Darin E. Reyes, <span class="noWrap">Front-End</span> Web Developer
+    </TypographyScalingHeading>
     <p>Specializing in UX Engineering, UI Development, and Design Systems</p>
     <p>
       Currently based in

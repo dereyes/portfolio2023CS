@@ -1,18 +1,39 @@
 <template>
   <LayoutPanel class="layout-panel-footer">
     <div class="layout-panel-footer-top">
+      <h2>See more</h2>
+      <ul>
+        <li>
+          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+            "Make Something People Want", talk at Hacker Dojo, 2023
+          </a>
+        </li>
+                <li>
+          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+            "ShadowPlay", interactive art installation for the Crocker Art Museum, 2016
+          </a>
+        </li>
+        <li>
+          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+            "Gato", interactive art installation for the Crocker Art Museum, 2016
+          </a>
+        </li>
+      </ul>
       <h2>Get in touch</h2>
-      <p>
-        <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
-          LinkedIn
-        </a>
-      </p>
+      <ul>
+        <li>
+          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
     </div>
     <div class="layout-panel-footer-bottom">
       <p class="layout-panel-footer-bottom-footnote">
         <small>
-          Designed and developed by Darin E. Reyes using Nuxt
-          <span class="noWrap">and Vue.js</span>
+          Designed and built by Darin E. Reyes using
+          <span class="noWrap">Vue.js,</span> Nuxt,
+          <span class="noWrap">and p5.js</span>
         </small>
       </p>
     </div>

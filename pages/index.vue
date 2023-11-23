@@ -1,8 +1,8 @@
 <template>
   <LayoutMain>
     <LayoutPanelIntro />
-    <LayoutArrow />
-    <LayoutPanelViz />
+    <!-- <LayoutArrow /> -->
+    <!-- <LayoutPanelViz /> -->
     <LayoutPanelSkills />
     <LayoutPanelBackground />
     <LayoutPanelFooter />

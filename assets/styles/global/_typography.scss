@@ -11,7 +11,7 @@ h1 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("h1");
   font-weight: typography.fontWeight("extrabold");
-  line-height: ratio.justInterval(5);
+  line-height: ratio.justInterval(4);
   margin: 0 0 0.5em;
 }
 
@@ -64,4 +64,12 @@ li {
   strong {
     font-weight: typography.fontWeight("bold");
   }
+}
+
+ul {
+  @include unstyle.list;
+
+  display: flex;
+  flex-flow: column;
+  margin: 0 0 u(3);
 }
