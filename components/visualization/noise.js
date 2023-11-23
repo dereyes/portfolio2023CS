@@ -45,8 +45,8 @@ const getNoise = (p5, window) => {
   //#1b0d09, #e075b0, #ff4000, #ffb882, #c4c4c4
 
   const colors = {
-    blue: p5.color("hsl(76, 100%, 42%)"),
-    concrete: p5.color("hsl(0, 1%, 65%)"),
+    blue: p5.color("hsl(76, 100%, 44%)"),
+    concrete: p5.color("hsl(300, 1%, 62%)"),
   };
 
   const gradientStops = [

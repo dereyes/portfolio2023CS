@@ -2,9 +2,9 @@
 
 @function palette($key) {
   $palette: (
-    "concrete": hsl(0, 1%, 65%),
+    "concrete": hsl(300, 1%, 62%),
     "black": #000,
-    "hilite": #00f,
+    "hilite": hsl(300, 100%, 50%),
     "hilite2": hsl(76, 100%, 44%),
   );
 

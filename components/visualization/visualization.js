@@ -7,7 +7,7 @@ const runVisualization = (p5, window) => {
 
   let visualization = (p5) => {
     let font;
-    const backgroundColor = "hsl(0, 1%, 65%)";
+    const backgroundColor = "hsl(0, 0%, 62%)";
 
     const canvas = getCanvas(p5, document, canvasId);
     const grid = getGrid(p5, window);

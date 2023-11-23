@@ -33,14 +33,16 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .list-highlight-item {
+  color: color.palette("concrete");
   display: flex;
   flex-flow: column nowrap;
   margin: 0 0 u(3);
-  opacity: 0.15;
-  transition: opacity 0.5s ease;
+  // opacity: 0.15;
+  transition: color 0.5s ease;
 
   &.list-highlight-item-highlighted {
-    opacity: 1;
+    color: color.palette("black");
+    // opacity: 1;
   }
 }
 </style>
