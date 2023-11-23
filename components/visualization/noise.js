@@ -2,41 +2,59 @@ import getScrolling from "./scrolling";
 
 const getNoise = (p5, window) => {
   const noise = {
+    initialize: undefined,
     update: undefined,
+    gradient: {
+      position: {
+        x: undefined, y: undefined
+      },
+      size: {
+        x: undefined, y: undefined
+      },
+    },
     render: {
       gradient: undefined,
     },
     time: {
       position: 0,
-      speed: 4
+      speed: 150,
     },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.03,
-      y: 0.05,
-      z: 0.8,
+      x: 0.009,
+      y: 0.01,
+      z: 1,
     },
     speed: {
-      x: 0,
-      y: 0.00002,
+      x: 0.00002,
+      y: 0,
       z: 0.00002,
     },
   };
 
   const scrolling = getScrolling(window);
 
+  //#1b0d09, #e075b0, #ff4000, #ffb882, #c4c4c4
+
   const colors = {
-    sun: p5.color("#FFAB5C"),
-    grapefruit: p5.color("#FD3635"),
-    black: p5.color("#000"),
+    black: p5.color("#000000"),
+    slate: p5.color("#1d4556"),
+    sea: p5.color("#0fbdb4"),
+    leaf: p5.color("#B3C4B1"),
+    concrete: p5.color("#cdcdcd"),
+    sun: p5.color("#ffab5c"),
+    grapefruit: p5.color("#fd3635"),
   };
 
   const gradientStops = [
     { color: colors.black, progress: 0 },
-    { color: colors.grapefruit, progress: 0.4 },
-    { color: colors.sun, progress: 0.5 },
+    { color: colors.slate, progress: 0.45 },
+    { color: colors.sea, progress: 0.475 },
+    { color: colors.leaf, progress: 0.5 },
+    { color: colors.sun, progress: 0.55 },
     { color: colors.grapefruit, progress: 0.6 },
-    { color: colors.grapefruit, progress: 1 },
+    { color: colors.sun, progress: 0.7 },
+    { color: colors.black, progress: 1 },
   ];
 
   // Position should be between 0 and 1
@@ -70,11 +88,27 @@ const getNoise = (p5, window) => {
   };
 
   noise.render.gradient = () => {
-    for (let i = 0; i < p5.width; i++) {
-      p5.stroke(getGradient(i / p5.width));
-      p5.line(i, 0, i, 10);
+    for (let i = 0; i < noise.gradient.size.width; i++) {
+      p5.stroke(getGradient(i / noise.gradient.size.width));
+      p5.line(
+        noise.gradient.position.x + i,
+        noise.gradient.position.y,
+        noise.gradient.position.x + i, 
+        noise.gradient.position.y + noise.gradient.size.height
+      );
     }
   };
+
+  noise.initialize = () => {
+    noise.gradient.position = {
+      x: p5.width * -0.5,
+      y: p5.height * -0.5,
+    },
+    noise.gradient.size = {
+        width: p5.width,
+        height: 10,
+    };
+  }
 
   noise.update = () => {
     scrolling.update();

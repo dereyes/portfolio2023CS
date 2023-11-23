@@ -9,7 +9,6 @@
 <style lang="scss" scoped>
 .layout-panel.layout-panel-viz {
   background: transparent;
-  border: 1px solid red;
   padding: 0;
   position: sticky;
   top: 0;

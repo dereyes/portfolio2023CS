@@ -37,19 +37,26 @@ const getCell = (p5, grid, x, y) => {
     cell.bounds = getCellBounds(cell.position);
   };
 
-  cell.update = (shift) => {
+  cell.update = (shift) => {};
 
-  };
+  cell.render = ({ color }) => {
+    // p5.fill(color);
+    // p5.stroke(color);
+    // p5.strokeWeight(grid.cell.size);
 
-  cell.render = ({color}) => {
-    p5.fill(color);
+    // p5.rect(
+    //   cell.position.x,
+    //   cell.position.y ,
+    //   grid.cell.size
+    // );
+
+    // p5.fill(color);
     p5.stroke(color);
-    p5.strokeWeight(1);
+    p5.strokeWeight(grid.cell.size * .4);
 
-    p5.rect(
-      cell.position.x,
-      cell.position.y,
-      grid.cell.size
+    p5.point(
+      cell.position.x + (grid.cell.size / 2),
+      cell.position.y + (grid.cell.size / 2),
     );
   };
 

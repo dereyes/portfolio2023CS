@@ -31,7 +31,7 @@
 
   @include breakpoint("min-desktop") {
     &-main {
-      grid-template-columns: [window-start] 2fr [center] 1fr [window-end];
+      grid-template-columns: [window-start] 1fr [center] 1fr [window-end];
       grid-template-rows: auto auto auto auto;
     }
   }

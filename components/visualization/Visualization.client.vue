@@ -24,7 +24,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .canvas {
-  background: linear-gradient(orange, pink);
   height: 100vh;
   pointer-events: none;
 }

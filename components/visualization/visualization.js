@@ -3,15 +3,14 @@ import getGrid from "./grid";
 // import getScrolling from "./scrolling";
 
 const runVisualization = (p5, window) => {
-  const gridColumns = 6;
   const canvasId = "canvas";
 
   let visualization = (p5) => {
     let font;
-    const backgroundColor = "#000";
+    const backgroundColor = "#cdcdcd";
 
     const canvas = getCanvas(p5, document, canvasId);
-    const grid = getGrid(p5, window, gridColumns);
+    const grid = getGrid(p5, window);
     // const scrolling = getScrolling(window);
 
     p5.preload = () => {
@@ -20,12 +19,13 @@ const runVisualization = (p5, window) => {
     };
 
     p5.setup = () => {
-      const sketch = p5.createCanvas(400, 400, p5.P2D);
+      const sketch = p5.createCanvas(400, 400, p5.WEBGL);
       sketch.parent(canvasId);
 
       canvas.initialize();
       grid.initialize();
 
+      p5.textFont(font);
       p5.smooth();
       p5.background(backgroundColor);
       p5.colorMode(p5.HSL);
@@ -39,10 +39,12 @@ const runVisualization = (p5, window) => {
       grid.render({
         lines: false,
         movement: false,
-        gradient: false,
+        gradient: true,
       });
 
-      // canvas.render.frameRate();
+      // p5.filter(p5.BLUR, 10);
+      p5.fill('#00f');
+      canvas.render.frameRate();
     };
 
     p5.windowResized = () => {

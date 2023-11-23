@@ -1,11 +1,13 @@
 import getCell from "./cell";
 import getNoise from "./noise";
 
-const getGrid = (p5, window, columns) => {
+const getGrid = (p5, window) => {
+  const gridSizeRelativeToCanvasWidth = .75;
+
   const grid = {
     // Properties to initialize grid
     settings: {
-      columns: columns,
+      columns: 32,
       rows: undefined,
     },
     // Properties and methods of a prototypical cell
@@ -37,16 +39,17 @@ const getGrid = (p5, window, columns) => {
   };
 
   grid.initialize = () => {
-    grid.cell.size = p5.width / grid.settings.columns;
-    grid.settings.rows = Math.ceil(p5.height / grid.cell.size);
+    grid.settings.rows = grid.settings.columns;
+    grid.size.width = p5.width * gridSizeRelativeToCanvasWidth;
+    grid.cell.size = grid.size.width / grid.settings.columns;
 
-    grid.size.width = p5.width;
     grid.size.height = grid.settings.rows * grid.cell.size;
 
-    grid.bounds.top = p5.height / 2 - grid.size.height / 2;
-    grid.bounds.left = p5.width / 2 - grid.size.width / 2;
+    grid.bounds.top = - grid.size.height / 2;
+    grid.bounds.left = - grid.size.width / 2;
 
     grid.cells = initializeCells();
+    noise.initialize();
     console.log(grid);
   };
 
