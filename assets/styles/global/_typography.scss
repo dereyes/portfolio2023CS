@@ -35,7 +35,7 @@ p,
 li {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.typescale("p");
-  font-weight: typography.fontWeight("regular");
+  font-weight: typography.fontWeight("medium");
   letter-spacing: 0.03em;
   line-height: ratio.justInterval(7);
   margin: 0 0 2em;
@@ -45,10 +45,11 @@ li {
       to top,
       color.palette("black") 0.1em,
       color.palette("hilite2") 0.1em,
-      color.palette("hilite2") 0.4em,
-      transparent 0.4em
+      color.palette("hilite2") 0.5em,
+      transparent 0.5em
     );
     color: color.palette("black");
+    font-weight: typography.fontWeight("bold");
     text-decoration: none;
 
     &::after {

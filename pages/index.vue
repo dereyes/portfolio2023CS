@@ -5,6 +5,7 @@
     <!-- <LayoutPanelViz /> -->
     <LayoutPanelSkills />
     <LayoutPanelBackground />
+    <LayoutPanelMore />
     <LayoutPanelFooter />
   </LayoutMain>
 </template>
