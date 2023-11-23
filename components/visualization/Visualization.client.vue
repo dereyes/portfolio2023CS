@@ -24,7 +24,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .canvas {
-  height: 100vh;
+  height: 300px;
   pointer-events: none;
+  width: 300px;
 }
 </style>

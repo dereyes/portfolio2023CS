@@ -31,14 +31,21 @@ onUnmounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .list-highlight-item {
   color: color.palette("concrete");
-  display: flex;
-  flex-flow: column nowrap;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: min-content;
+  // justify-items: center;
   margin: 0 0 u(3);
   // opacity: 0.15;
   transition: color 0.5s ease;
+
+  > * {
+    grid-column: 1 / -1;
+  }
 
   &.list-highlight-item-highlighted {
     color: color.palette("black");

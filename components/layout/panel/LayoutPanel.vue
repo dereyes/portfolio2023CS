@@ -15,11 +15,17 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
 <style lang="scss">
 .layout-panel {
   align-content: center;
+  align-items: center;
   display: grid;
+  grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: min-content;
-  justify-content: center;
+  // justify-items: center;
   min-height: 100vh;
   width: 100%;
+
+  > * {
+    grid-column: 1 / -1;
+  }
 
   @include breakpoint(("start": null, "end": "medium")) {
     max-width: 24rem;

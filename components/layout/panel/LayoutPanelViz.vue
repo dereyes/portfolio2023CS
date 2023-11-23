@@ -8,11 +8,11 @@
 
 <style lang="scss" scoped>
 .layout-panel.layout-panel-viz {
-  height: 100%;
+      display: flex;
+    justify-content: center;
   padding: 0;
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: -1;
 }
 </style>

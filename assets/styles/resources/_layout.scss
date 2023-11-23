@@ -14,7 +14,7 @@ $layout-panel-padding-mobile-y: 25vh;
 $layout-panel-padding-mobile: $layout-panel-padding-mobile-y
   $layout-panel-padding-mobile-x;
 
-$layout-panel-padding-desktop-x: u(0.5);
+$layout-panel-padding-desktop-x: u(1);
 $layout-panel-padding-desktop-y: 25vh;
 $layout-panel-padding-desktop: $layout-panel-padding-desktop-y
   $layout-panel-padding-desktop-x;
@@ -26,6 +26,7 @@ $layout-viz-height-mobile: 100vh - $layout-panel-intro-height;
   $breakpoints: (
     "small": 640px,
     "medium": 768px,
+    "large": 1024px,
   );
 
   @return collection.get($breakpoints, #{$size});
@@ -34,8 +35,6 @@ $layout-viz-height-mobile: 100vh - $layout-panel-intro-height;
 @mixin breakpoint($breakpoints) {
   $start: map.get($breakpoints, "start");
   $end: map.get($breakpoints, "end");
-
-  @content;
 
   @if ($start) {
     @if ($end) {
