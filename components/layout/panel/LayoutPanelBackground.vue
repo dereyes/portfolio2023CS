@@ -1,9 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-background">
     <template v-slot:top>
-      <TypographyScalingHeading tag="h2"
-        >Development Skills, Design Background</TypographyScalingHeading
-      >
+      <h2>Development Skills, Design Background</h2>
     </template>
     <template v-slot:bottom>
       <p>Front-End Web Developer <span class="noWrap">since 2018</span></p>

@@ -38,38 +38,6 @@ $remInPx: 24px;
   @return math.pow($typescale-ratio, $level) * $typescale-base;
 }
 
-// Creates a succession of font sizes which are proportional to each other, returns the requested level in the succession
-@function typescale($level) {
-  // Difference in size from one level to the next
-  $typescale-factor: ratio.justInterval(6);
-  // The size of a <p> tag in the type scale
-  $typescale-base: 1rem;
-  // Levels in the type scale, from smallest to largest
-  $typescale-levels: "small", "p", "", "h3", "h2", "h1";
-  // Eventually houses typescale values
-  $typescale: ();
-
-  @for $i from 1 to length($typescale-levels) + 1 {
-    $typescale-name: list.nth($typescale-levels, $i);
-    $typescale-p-index: list.index($typescale-levels, "p");
-    $typescale-index-relativeToP: ($i - $typescale-p-index);
-    $typescale-pixelSize: _getTypescalePixelSize(
-      $typescale-index-relativeToP,
-      $typescale-base,
-      $typescale-factor
-    );
-
-    $typescale: map.merge(
-      $typescale,
-      (
-        $typescale-name: $typescale-pixelSize,
-      )
-    );
-  }
-
-  @return collection.get($typescale, #{$level});
-}
-
 @function getFluidTypescale($startBreakpoint, $endBreakpoint, $base, $ratio) {
   // Difference in size from one level to the next
   $ratio: $ratio;
@@ -101,22 +69,20 @@ $remInPx: 24px;
       $typescale,
       (
         $level-name: $level-fluidFontSize,
+        // For non-fluid typescale, use $level-pixelSize here instead
       )
     );
   }
 
-  // @return collection.get($typescale, #{$level});
   @return $typescale;
 }
-
-// $typescaleDesktop: getFluidTypescale(18px, ratio.justInterval(6));
 
 @function fluidTypescale($screenSize, $level) {
   $typescales: (
     "tablet":
-      getFluidTypescale("phone", "tablet", .75rem, ratio.justInterval(3)),
+      getFluidTypescale("phone", "tablet", 0.75rem, ratio.justInterval(3)),
     "desktop":
-      getFluidTypescale("laptop", "desktop", .75rem, ratio.justInterval(4)),
+      getFluidTypescale("laptop", "desktop", 0.75rem, ratio.justInterval(4)),
   );
 
   @return collection.get(collection.get($typescales, $screenSize), $level);
