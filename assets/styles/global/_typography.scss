@@ -10,10 +10,10 @@ body {
 h1 {
   color: color.palette("black");
   font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("h1");
+  font-size: typography.fluidTypescale("tablet", "h1");
   font-weight: typography.fontWeight("semibold");
   line-height: ratio.justInterval(4);
-  margin: 0 0 .75em;
+  margin: 0 0 0.75em;
   text-transform: capitalize;
 }
 
@@ -23,7 +23,7 @@ h2 {
   font-size: typography.typescale("h2");
   font-weight: typography.fontWeight("semibold");
   line-height: ratio.justInterval(5);
-  margin: 0 0 .75em;
+  margin: 0 0 0.75em;
   text-transform: capitalize;
 }
 
@@ -33,7 +33,7 @@ h3 {
   font-size: typography.typescale("h3");
   font-weight: typography.fontWeight("extrabold");
   line-height: ratio.justInterval(5);
-  margin: 0 0 .75em;
+  margin: 0 0 0.75em;
 }
 
 p,

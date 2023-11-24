@@ -19,7 +19,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  padding: $layout-panel-padding-breakpointSmall;
+  padding: $layout-panel-padding-phone;
   width: 100%;
 
   > :first-child {
@@ -52,21 +52,21 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   @include breakpoint(
     (
       "start": null,
-      "end": "medium",
+      "end": "tablet",
     )
   ) {
     max-width: 24rem;
-    padding: $layout-panel-padding-breakpointMedium;
+    padding: $layout-panel-padding-tablet;
   }
 
   @include breakpoint(
     (
-      "start": "medium",
+      "start": "tablet",
       "end": null,
     )
   ) {
     max-width: 60rem;
-    padding: $layout-panel-padding-breakpointLarge;
+    padding: $layout-panel-padding-desktop;
   }
 }
 </style>

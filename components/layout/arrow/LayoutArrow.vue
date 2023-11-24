@@ -18,7 +18,7 @@
   bottom: 0;
   display: grid;
   // height: 0;
-  padding: 0 $layout-panel-padding-mobile-x;
+  padding: 0 $layout-panel-padding-phone-x;
   place-items: end;
   position: sticky;
   top: 0;
@@ -50,13 +50,5 @@
     font-size: u(2);
     font-weight: typography.fontWeight("extrabold");
   }
-
-  // @include breakpoint("max-mobile") {
-  //   height: 0;
-  // }
-
-  // @include breakpoint("min-desktop") {
-  //   grid-column: 1 / span 1;
-  // }
 }
 </style>

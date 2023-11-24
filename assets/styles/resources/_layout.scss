@@ -3,15 +3,15 @@
 @use "collection";
 @use "u" as *;
 
-$layout-panel-padding-breakpointSmall: u(1);
-$layout-panel-padding-breakpointMedium: u(1);
-$layout-panel-padding-breakpointLarge: u(1);
+$layout-panel-padding-phone: u(1);
+$layout-panel-padding-tablet: u(1);
+$layout-panel-padding-desktop: u(1);
 
-@function _getBreakpoint($size) {
+@function getBreakpoint($size) {
   $breakpoints: (
-    "small": 640px,
-    "medium": 768px,
-    "large": 1024px,
+    "phone": 320px,
+    "tablet": 768px,
+    "desktop": 1024px,
   );
 
   @return collection.get($breakpoints, #{$size});
@@ -23,16 +23,16 @@ $layout-panel-padding-breakpointLarge: u(1);
 
   @if ($start) {
     @if ($end) {
-      @media (min-width: _getBreakpoint($start)) and (max-width: _getBreakpoint($end) - 1) {
+      @media (min-width: getBreakpoint($start)) and (max-width: getBreakpoint($end) - 1) {
         @content;
       }
     } @else {
-      @media (min-width: _getBreakpoint($start)) {
+      @media (min-width: getBreakpoint($start)) {
         @content;
       }
     }
   } @else if ($end) {
-    @media (max-width: _getBreakpoint($end) - 1) {
+    @media (max-width: getBreakpoint($end) - 1) {
       @content;
     }
   }

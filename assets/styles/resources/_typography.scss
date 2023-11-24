@@ -18,22 +18,24 @@ $remInPx: 24px;
   $endScreenWidthInPx
 ) {
   $startFontSizeInPx: convert.stripUnits($startFontSizeInRem) * $remInPx;
-  $fontSizeToScreenSizeRatio: math.div($startFontSizeInPx, $startScreenWidthInPx);
+  $fontSizeToScreenSizeRatio: math.div(
+    $startFontSizeInPx,
+    $startScreenWidthInPx
+  );
   $startFontSizeInVw: $fontSizeToScreenSizeRatio * 100vw;
 
-  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) * $fontSizeToScreenSizeRatio;
+  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) *
+    $fontSizeToScreenSizeRatio;
   $remInPxUnitless: convert.stripUnits($remInPx);
-  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) * 1rem;
+  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) *
+    1rem;
 
   @return clamp($startFontSizeInRem, $startFontSizeInVw, $endFontSizeInRems);
 }
 
-@function _getTypescalePixelSize(
-  $level: 0,
-  $typescale-base,
-  $typescale-factor
-) {
-  @return math.pow($typescale-factor, $level) * $typescale-base;
+// Calculates the size of a level in a typescale succession
+@function _getTypescalePixelSize($level: 0, $typescale-base, $typescale-ratio) {
+  @return math.pow($typescale-ratio, $level) * $typescale-base;
 }
 
 // Creates a succession of font sizes which are proportional to each other, returns the requested level in the succession
@@ -66,6 +68,56 @@ $remInPx: 24px;
   }
 
   @return collection.get($typescale, #{$level});
+}
+
+@function getFluidTypescale($startBreakpoint, $endBreakpoint, $base, $ratio) {
+  // Difference in size from one level to the next
+  $ratio: $ratio;
+  // The size of a <p> tag in the type scale
+  $base: $base;
+  // Levels in the typescale, from smallest to largest
+  $levels: "small", "p", "", "h3", "h2", "h1";
+  $levels-pIndex: list.index($levels, "p");
+  // Eventually houses typescale values
+  $typescale: ();
+
+  @for $i from 1 to length($levels) + 1 {
+    $level-name: list.nth($levels, $i);
+    $level-indexRelativeToP: ($i - $levels-pIndex);
+    $level-pixelSize: _getTypescalePixelSize(
+      $level-indexRelativeToP,
+      $base,
+      $ratio
+    );
+
+    $level-fluidFontSize: getFluidFontSize(
+      $level-pixelSize,
+      getBreakpoint($startBreakpoint),
+      getBreakpoint($endBreakpoint) - 1,
+      // -1 to prevent media query overlap
+    );
+
+    $typescale: map.merge(
+      $typescale,
+      (
+        $level-name: $level-fluidFontSize,
+      )
+    );
+  }
+
+  // @return collection.get($typescale, #{$level});
+  @return $typescale;
+}
+
+// $typescaleDesktop: getFluidTypescale(18px, ratio.justInterval(6));
+
+@function fluidTypescale($screenSize, $level) {
+  $typescales: (
+    "tablet":
+      getFluidTypescale("phone", "tablet", .5rem, ratio.justInterval(4)),
+  );
+
+  @return collection.get(collection.get($typescales, $screenSize), $level);
 }
 
 @function fontFamily($family) {

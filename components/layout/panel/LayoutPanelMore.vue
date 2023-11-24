@@ -44,8 +44,8 @@
   border-top: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0 $layout-panel-padding-breakpointSmall;
-  margin-top: $layout-panel-padding-breakpointSmall;
+  gap: 0 $layout-panel-padding-phone;
+  margin-top: $layout-panel-padding-phone;
   padding-top: 0;
 
   &-border {
@@ -63,11 +63,11 @@
 
   &-heading {
     position: sticky;
-    top: $layout-panel-padding-breakpointSmall;
+    top: $layout-panel-padding-phone;
   }
 
   &-list {
-    margin-top: u(.5);
+    margin-top: u(0.5);
 
     &,
     > :last-child {

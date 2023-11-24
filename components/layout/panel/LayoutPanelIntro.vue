@@ -1,9 +1,9 @@
 <template>
   <LayoutPanel class="layout-panel-intro">
     <template v-slot:top>
-      <TypographyScalingHeading tag="h1">
+      <h1>
         Darin E. Reyes, Front-End Web Developer
-      </TypographyScalingHeading>
+      </h1>
     </template>
     <template v-slot:bottom>
       <p>Specializing in UX Engineering</p>
