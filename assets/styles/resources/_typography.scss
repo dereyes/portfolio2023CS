@@ -114,7 +114,9 @@ $remInPx: 24px;
 @function fluidTypescale($screenSize, $level) {
   $typescales: (
     "tablet":
-      getFluidTypescale("phone", "tablet", .5rem, ratio.justInterval(4)),
+      getFluidTypescale("phone", "tablet", .75rem, ratio.justInterval(3)),
+    "desktop":
+      getFluidTypescale("laptop", "desktop", .75rem, ratio.justInterval(4)),
   );
 
   @return collection.get(collection.get($typescales, $screenSize), $level);

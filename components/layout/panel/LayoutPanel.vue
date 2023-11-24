@@ -55,7 +55,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
       "end": "tablet",
     )
   ) {
-    max-width: 24rem;
+    // max-width: 24rem;
     padding: $layout-panel-padding-tablet;
   }
 
