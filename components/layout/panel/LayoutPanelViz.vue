@@ -1,18 +1,20 @@
 <template>
-  <LayoutPanel class="layout-panel-viz">
+  <div class="layout-panel-viz">
     <ClientOnly>
       <Visualization />
     </ClientOnly>
-  </LayoutPanel>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.layout-panel.layout-panel-viz {
-      display: flex;
-    justify-content: center;
+.layout-panel-viz {
+      display: grid;
+      height: 100vh;
+    place-items: center;
   padding: 0;
   position: fixed;
   top: 0;
+  width: 100vw;
   z-index: -1;
 }
 </style>
