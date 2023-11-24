@@ -16,8 +16,6 @@ const getCanvas = (p5, document, canvasId) => {
   };
 
   canvas.initialize = () => {
-    p5.resizeCanvas(canvas.element.offsetWidth, canvas.element.offsetHeight);
-
     canvas.frameRate.position = {
       x: p5.width * -0.5,
       y: p5.height * 0.5,
