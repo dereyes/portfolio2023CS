@@ -1,5 +1,6 @@
 import getCell from "./cell";
 import getNoise from "./noise";
+import getGradient from "./gradient";
 
 const getGrid = (p5, window) => {
   const gridSizeRelativeToCanvasWidth = 0.9;
@@ -28,6 +29,7 @@ const getGrid = (p5, window) => {
     render: undefined,
   };
 
+  const gradient = getGradient(p5);
   const noise = getNoise(p5, window);
 
   const getCells = () => {
@@ -50,8 +52,8 @@ const getGrid = (p5, window) => {
     grid.bounds.left = grid.size.width * -0.5;
 
     grid.cells = getCells();
-    console.log(grid.cells);
-    noise.initialize();
+
+    gradient.initialize();
   };
 
   const forEachCell = (method) => {
@@ -62,28 +64,30 @@ const getGrid = (p5, window) => {
     });
   };
 
-  grid.render = ({ lines, movement, gradient }) => {
+  const renderGridLines = (cell) => {
+    p5.noFill();
+    p5.stroke("#000");
+    p5.strokeWeight(1);
+
+    p5.rect(cell.position.x, cell.position.y, grid.cell.size);
+  };
+
+  grid.render = ({ lines, movement }) => {
     if (movement) {
       noise.update();
     }
 
     forEachCell((cell, x, y) => {
       cell.render({
-        color: noise.getColor(x, y),
+        color: gradient.getColor(noise.getPoint(x, y)),
       });
 
       if (lines) {
-        p5.noFill();
-        p5.stroke("#000");
-        p5.strokeWeight(1);
-
-        p5.rect(cell.position.x, cell.position.y, grid.cell.size);
+        renderGridLines(cell);
       }
     });
 
-    if (gradient) {
-      noise.render.gradient();
-    }
+    gradient.render(false);
   };
 
   return grid;

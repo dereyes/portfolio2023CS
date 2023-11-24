@@ -30,7 +30,6 @@ const runVisualization = (p5, window) => {
       grid.render({
         lines: false,
         movement: window.matchMedia('(prefers-reduced-motion: reduce)'),
-        gradient: false,
       });
       canvas.render.frameRate(true);
     };
