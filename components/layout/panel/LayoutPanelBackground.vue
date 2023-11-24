@@ -15,6 +15,6 @@
 
 <style lang="scss">
 .layout-panel-background {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 </style>

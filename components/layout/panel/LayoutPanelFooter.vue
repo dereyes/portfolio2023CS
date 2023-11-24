@@ -31,6 +31,6 @@ const footerYear = new Date().getFullYear();
 
 <style lang="scss">
 .layout-panel-footer {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 </style>

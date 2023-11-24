@@ -14,18 +14,8 @@ const classList = `scalingHeading scalingHeading-${props.tag}`;
 
 <style lang="scss" scoped>
 
-@include breakpoint(
-  (
-    "start": "medium",
-    "end": null,
-  )
-) {
-  .scalingHeading-h1 {
-    font-size: clamp(typography.typescale("h1"), 9vw, 5.6rem);
+.scalingHeading-h1 {
+    // font-size: clamp(typography.typescale("h1"), 9vw, 5.6rem);
+    font-size: typography.getFluidFontSize(typography.typescale("h1"), 768px, 1080px);
   }
-
-  .scalingHeading-h2 {
-    // font-size: clamp(typography.typescale("h2"), 8.9vw, 5rem);
-  }
-}
 </style>

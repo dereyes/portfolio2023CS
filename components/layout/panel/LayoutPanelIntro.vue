@@ -17,6 +17,6 @@
 
 <style lang="scss" scoped>
 .layout-panel-intro {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 </style>

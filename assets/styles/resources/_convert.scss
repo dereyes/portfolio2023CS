@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// @use "typography";
+
+@function stripUnits($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+// @function remToPx($rem) {
+//   @return stripUnits($rem) * $remInPx;
+// }

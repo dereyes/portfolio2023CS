@@ -4,10 +4,29 @@
 @use "sass:string";
 
 @use "collection";
+@use "convert";
+@use "layout" as *;
 @use "ratio";
 @use "u" as *;
 
 $remInPx: 27px;
+
+// Given a start font size and a start/end screen width, returns a 'font-size' value where the text is the start size at the start width, scales linearly between widths, and stops scaling at the end width
+@function getFluidFontSize(
+  $startFontSizeInRem,
+  $startScreenWidthInPx,
+  $endScreenWidthInPx
+) {
+  $startFontSizeInPx: convert.stripUnits($startFontSizeInRem) * $remInPx;
+  $fontSizeToScreenSizeRatio: math.div($startFontSizeInPx, $startScreenWidthInPx);
+  $startFontSizeInVw: $fontSizeToScreenSizeRatio * 100vw;
+
+  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) * $fontSizeToScreenSizeRatio;
+  $remInPxUnitless: convert.stripUnits($remInPx);
+  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) * 1rem;
+
+  @return clamp($startFontSizeInRem, $startFontSizeInVw, $endFontSizeInRems);
+}
 
 @function _getTypescalePixelSize(
   $level: 0,
@@ -17,6 +36,7 @@ $remInPx: 27px;
   @return math.pow($typescale-factor, $level) * $typescale-base;
 }
 
+// Creates a succession of font sizes which are proportional to each other, returns the requested level in the succession
 @function typescale($level) {
   // Difference in size from one level to the next
   $typescale-factor: ratio.justInterval(4);
