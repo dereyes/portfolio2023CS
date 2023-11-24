@@ -6,9 +6,10 @@
           Engineering + Design Thinking
         </h2>
         <ul class="layout-panel-skills-list">
-          <li>Pixel-perfect design implementation</li>
-          <li>Responsive, accessible components</li>
-          <li>User focus and product solutions</li>
+          <li>
+            Pixel-perfect design implementation
+          </li>
+          <li>Responsive, accessible UI components in modern JavaScript frameworks</li>
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
@@ -16,7 +17,7 @@
           A partner in UX Design <span class="noWrap">& Research</span>
         </h2>
         <ul class="layout-panel-skills-list">
-          <li>Rapid prototyping, interactive mockups</li>
+          <li>Rapid prototyping and interactive mockups in <span class="noWrap">the browser</span></li>
           <li>
             Bridging Engineering, Product, and
             <span class="noWrap">Design teams</span>
@@ -28,10 +29,13 @@
           Bringing Design Systems <span class="noWrap">to Life</span>
         </h2>
         <ul class="layout-panel-skills-list">
-          <li>Developing color and typography systems</li>
           <li>
-            Building and maintaining
-            <span class="noWrap">component libraries</span>
+            Intuitive color and typography systems in CSS
+            <span class="noWrap">+ SCSS</span>
+          </li>
+          <li>
+            Building, maintaining, and documenting component libraries
+            <span class="noWrap">in Storybook.js</span>
           </li>
         </ul>
       </ListHighlightItem>
@@ -52,7 +56,7 @@
     }
 
     &-list {
-      grid-column: 2 / -1;
+      grid-column: 3 / -1;
     }
   }
 
@@ -78,11 +82,11 @@
     )
   ) {
     &-heading {
-      grid-column: 1 / 5;
+      grid-column: 1 / 6;
     }
 
     &-list {
-      grid-column: 4 / -1;
+      grid-column: 5 / -1;
     }
   }
 }

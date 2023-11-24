@@ -35,7 +35,7 @@ onUnmounted(() => {
 .list-highlight-item {
   align-items: center;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;
   margin: 0 0 u(3);
   opacity: 0.1;
