@@ -1,5 +1,6 @@
 <template>
   <LayoutPanel class="layout-panel-more">
+    <div class="layout-panel-more-border"></div>
     <div class="layout-panel-more-left">
       <h2 class="layout-panel-more-heading">See more</h2>
     </div>
@@ -41,33 +42,32 @@
 <style lang="scss" scoped>
 .layout-panel-more {
   border-top: none;
-  display: flex;
-  flex-flow: row;
-  gap: $layout-panel-padding-breakpointSmall;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 $layout-panel-padding-breakpointSmall;
+  margin-top: $layout-panel-padding-breakpointSmall;
   padding-top: 0;
 
-    > :first-child {
-    border-top: none;
+  &-border {
+    border-top: 1px solid color.palette("black");
+    grid-column: 1 / -1;
   }
 
   &-left {
-    flex: 1 0;
+    grid-column: 1 / 2;
   }
 
   &-right {
-    flex: 2 0;
+    grid-column: 2 / -1;
   }
 
   &-heading {
-        border-top: 1px solid color.palette("black");
-    margin-bottom: 0;
     position: sticky;
     top: $layout-panel-padding-breakpointSmall;
   }
 
   &-list {
-    margin: $layout-panel-padding-breakpointSmall 0 0;
-    padding: $layout-panel-padding-breakpointSmall 0 0;
+    margin-top: u(.5);
 
     &,
     > :last-child {
