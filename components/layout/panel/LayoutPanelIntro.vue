@@ -1,33 +1,22 @@
 <template>
   <LayoutPanel class="layout-panel-intro">
-    <TypographyScalingHeading tag="h1">
-      <span class="layout-panel-intro-zIndexed">Darin E. Reyes,</span> Front-End
-      <span class="layout-panel-intro-zIndexed">Web</span> Developer
-    </TypographyScalingHeading>
-    <div class="layout-panel-intro-description">
+    <template v-slot:top>
+      <TypographyScalingHeading tag="h1">
+        Darin E. Reyes, Front-End Web Developer
+      </TypographyScalingHeading>
+    </template>
+    <template v-slot:bottom>
       <p>Specializing in UX Engineering</p>
       <p>
         Based in
         <span class="noWrap">Mountain View,</span> California
       </p>
-    </div>
+    </template>
   </LayoutPanel>
 </template>
 
-<style lang="scss">
-.layout-panel-intro-description {
-  @include breakpoint(
-    (
-      "start": "medium",
-      "end": null,
-    )
-  ) {
-    grid-column: 4 / -1;
-  }
-}
-
-.layout-panel-intro-zIndexed {
-  position: relative;
-  z-index: -2;
+<style lang="scss" scoped>
+.layout-panel-intro {
+  justify-content: space-between;
 }
 </style>

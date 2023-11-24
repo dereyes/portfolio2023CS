@@ -1,23 +1,27 @@
 <template>
   <LayoutPanel class="layout-panel-footer">
-    <TypographyScalingHeading tag="h2">Get in touch</TypographyScalingHeading>
-    <ul>
-      <li>
-        <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
-          LinkedIn
-        </a>
-      </li>
-    </ul>
-    <p>
-      <small> © {{ footerYear }} Darin E. Reyes </small>
-    </p>
-    <p class="layout-panel-footer-bottom">
-      <small>
-        Designed and built by Darin E. Reyes using
-        <span class="noWrap">Vue,</span> Nuxt,
-        <span class="noWrap">and p5.js</span>
-      </small>
-    </p>
+    <template v-slot:top>
+      <h2>Get in touch</h2>
+      <ul>
+        <li>
+          <a href="http://linkedin.com/in/dereyesdesign/" target="_blank">
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </template>
+    <template v-slot:bottom>
+      <p>
+        <small> © {{ footerYear }} Darin E. Reyes </small>
+      </p>
+      <p class="layout-panel-footer-bottom">
+        <small>
+          Designed and built by Darin E. Reyes using
+          <span class="noWrap">Vue,</span> Nuxt,
+          <span class="noWrap">and p5.js</span>
+        </small>
+      </p>
+    </template>
   </LayoutPanel>
 </template>
 
@@ -27,19 +31,6 @@ const footerYear = new Date().getFullYear();
 
 <style lang="scss">
 .layout-panel-footer {
-  &-bottom {
-    margin: 0;
-  }
-
-  @include breakpoint(
-    (
-      "start": "medium",
-      "end": null,
-    )
-  ) {
-    > * {
-      grid-column: 2 / -2;
-    }
-  }
+  justify-content: space-between;
 }
 </style>

@@ -9,31 +9,7 @@
   align-items: center;
     display: flex;
     flex-flow: column nowrap;
-    // height: 100vh;
-    // overflow-y: scroll;
-    // position: relative;
+    gap: 25vh;
     width: 100%;
-
-  // @include breakpoint("max-mobile") {
-  //   &-main {
-  //     grid-auto-flow: row;
-  //     grid-template-rows: max-content;
-  //   }
-
-  //   &-panel {
-  //     &:not(.layout-panel-intro, .layout-panel-viz) {
-  //       padding-top: calc(
-  //         $layout-panel-padding-mobile-y + $layout-viz-height-mobile
-  //       );
-  //     }
-  //   }
-  // }
-
-  // @include breakpoint("min-desktop") {
-  //   &-main {
-  //     grid-template-columns: [window-start] auto [center] auto [window-end];
-  //     grid-template-rows: auto auto auto auto;
-  //   }
-  // }
 }
 </style>

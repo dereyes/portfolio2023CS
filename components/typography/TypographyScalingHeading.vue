@@ -25,7 +25,7 @@ const classList = `scalingHeading scalingHeading-${props.tag}`;
   }
 
   .scalingHeading-h2 {
-    font-size: clamp(typography.typescale("h2"), 8.9vw, 5rem);
+    // font-size: clamp(typography.typescale("h2"), 8.9vw, 5rem);
   }
 }
 </style>
