@@ -14,8 +14,8 @@ const getGradient = (p5) => {
   };
 
   const palette = {
-    hilite: p5.color("hsl(60, 100%, 44%)"),
-    concrete: p5.color("hsl(300, 0%, 60%)"),
+    concrete: p5.color("hsl(0, 1%, 50%)"),
+    hilite: p5.color("hsl(72, 100%, 40%)"),
   };
 
   const gradientStops = [

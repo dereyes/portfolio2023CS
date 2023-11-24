@@ -9,7 +9,7 @@
 @use "ratio";
 @use "u" as *;
 
-$remInPx: 27px;
+$remInPx: 24px;
 
 // Given a start font size and a start/end screen width, returns a 'font-size' value where the text is the start size at the start width, scales linearly between widths, and stops scaling at the end width
 @function getFluidFontSize(
@@ -39,7 +39,7 @@ $remInPx: 27px;
 // Creates a succession of font sizes which are proportional to each other, returns the requested level in the succession
 @function typescale($level) {
   // Difference in size from one level to the next
-  $typescale-factor: ratio.justInterval(4);
+  $typescale-factor: ratio.justInterval(6);
   // The size of a <p> tag in the type scale
   $typescale-base: 1rem;
   // Levels in the type scale, from smallest to largest
