@@ -8,9 +8,10 @@
 
 <style lang="scss" scoped>
 .layout-panel-viz {
-      display: grid;
-      height: 100vh;
-    place-items: center;
+  display: grid;
+  height: 100vh;
+  height: 100dvh; // Better on mobile, falls back to vh
+  place-items: center;
   padding: 0;
   position: fixed;
   top: 0;

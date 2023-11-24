@@ -10,6 +10,7 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 25vh;
+    gap: 25dvh; // Better on mobile, falls back to vh
     width: 100%;
 }
 </style>

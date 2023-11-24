@@ -19,6 +19,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  min-height: 100dvh; // Better on mobile, falls back to vh
   padding: $layout-panel-padding-phone;
   width: 100%;
 

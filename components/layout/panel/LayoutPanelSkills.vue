@@ -9,7 +9,9 @@
           <li>
             Pixel-perfect design implementation
           </li>
-          <li>Responsive, accessible UI components in modern JavaScript frameworks</li>
+          <li>
+            Responsive, accessible UI components
+          </li>
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
@@ -17,7 +19,9 @@
           A partner in UX Design <span class="noWrap">& Research</span>
         </h2>
         <ul class="layout-panel-skills-list">
-          <li>Rapid prototyping and interactive mockups in <span class="noWrap">the browser</span></li>
+          <li>
+            Rapid prototyping and interactive mockups
+          </li>
           <li>
             Bridging Engineering, Product, and
             <span class="noWrap">Design teams</span>
@@ -30,12 +34,10 @@
         </h2>
         <ul class="layout-panel-skills-list">
           <li>
-            Intuitive color and typography systems in CSS
-            <span class="noWrap">+ SCSS</span>
+            Color and typography system implementation
           </li>
           <li>
-            Building, maintaining, and documenting component libraries
-            <span class="noWrap">in Storybook.js</span>
+            Building and maintaining UI <span class="noWrap">component libraries</span>
           </li>
         </ul>
       </ListHighlightItem>
