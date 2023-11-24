@@ -11,7 +11,7 @@
     <p>
       <small> © {{ footerYear }} Darin E. Reyes </small>
     </p>
-    <p>
+    <p class="layout-panel-footer-bottom">
       <small>
         Designed and built by Darin E. Reyes using
         <span class="noWrap">Vue,</span> Nuxt,
@@ -27,7 +27,9 @@ const footerYear = new Date().getFullYear();
 
 <style lang="scss">
 .layout-panel-footer {
-  margin: 0;
+  &-bottom {
+    margin: 0;
+  }
 
   @include breakpoint(
     (

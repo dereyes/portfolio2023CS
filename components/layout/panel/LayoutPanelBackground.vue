@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-background">
     <TypographyScalingHeading tag="h2"
-      >Developer Experience, Design Background</TypographyScalingHeading
+      >Development Skills, Design Background</TypographyScalingHeading
     >
     <div class="layout-panel-background-description">
       <p>Front-End Web Developer <span class="noWrap">since 2018</span></p>

@@ -14,26 +14,26 @@ const getGradient = (p5) => {
   };
 
   const palette = {
-    blue: p5.color("hsl(76, 100%, 44%)"),
-    concrete: p5.color("hsl(300, 1%, 62%)"),
+    hilite: p5.color("hsl(76, 100%, 44%)"),
+    concrete: p5.color("hsl(300, 2%, 60%)"),
   };
 
   const gradientStops = [
-    { color: palette.blue, progress: 0 },
+    { color: palette.hilite, progress: 0 },
     { color: palette.concrete, progress: 0.3 },
-    { color: palette.blue, progress: 0.4 },
+    { color: palette.hilite, progress: 0.4 },
     { color: palette.concrete, progress: 0.325 },
-    { color: palette.blue, progress: 0.475 },
-    { color: palette.blue, progress: 0.5 },
+    { color: palette.hilite, progress: 0.475 },
+    { color: palette.hilite, progress: 0.5 },
     { color: palette.concrete, progress: 0.55 },
-    { color: palette.blue, progress: 0.35 },
+    { color: palette.hilite, progress: 0.35 },
     { color: palette.concrete, progress: 0.45 },
-    { color: palette.blue, progress: 0.6 },
-    { color: palette.blue, progress: 0.5 },
-    { color: palette.blue, progress: 0.6 },
+    { color: palette.hilite, progress: 0.6 },
+    { color: palette.hilite, progress: 0.5 },
+    { color: palette.hilite, progress: 0.6 },
     { color: palette.concrete, progress: 0.65 },
-    { color: palette.blue, progress: 0.7 },
-    { color: palette.blue, progress: 1 },
+    { color: palette.hilite, progress: 0.7 },
+    { color: palette.hilite, progress: 1 },
   ];
 
   // Position should be between 0 and 1
