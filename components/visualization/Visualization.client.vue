@@ -7,14 +7,6 @@ import { onMounted, nextTick } from "vue";
 import p5 from "p5";
 import runVisualization from "./visualization";
 
-
-/*
-TODO:
-* Resize correctly
-* Respect 'prefers-reduced-motion'
-* rotate asterisks when scrolling
-*/
-
 onMounted(() => {
   nextTick(() => {
     runVisualization(p5, window);
