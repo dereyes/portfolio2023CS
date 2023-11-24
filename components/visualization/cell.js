@@ -32,12 +32,10 @@ const getCell = (p5, grid, x, y) => {
     };
   };
 
-  const initializeCell = (x, y) => {
+  cell.initialize = (x, y) => {
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
   };
-
-  cell.update = (shift) => {};
 
   cell.render = ({ color }) => {
     p5.stroke(color);
@@ -48,8 +46,6 @@ const getCell = (p5, grid, x, y) => {
       cell.position.y + (grid.cell.size / 2),
     );
   };
-
-  initializeCell(x, y);
 
   return cell;
 };

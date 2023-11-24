@@ -33,7 +33,9 @@ const getGrid = (p5, window) => {
   const getCells = () => {
     return Array.from({ length: grid.settings.columns }, (_column, x) => {
       return Array.from({ length: grid.settings.rows }, (_row, y) => {
-        return getCell(p5, grid, x, y);
+        const cell = getCell(p5, grid, x, y);
+        cell.initialize(x, y);
+        return cell;
       });
     });
   };
@@ -48,6 +50,7 @@ const getGrid = (p5, window) => {
     grid.bounds.left = grid.size.width * -0.5;
 
     grid.cells = getCells();
+    console.log(grid.cells);
     noise.initialize();
   };
 
