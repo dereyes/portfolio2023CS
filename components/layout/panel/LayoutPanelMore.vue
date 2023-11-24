@@ -43,7 +43,7 @@
 .layout-panel-more {
   border-top: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 0 $layout-panel-padding-phone;
   margin-top: $layout-panel-padding-phone;
   padding-top: 0;
@@ -73,6 +73,36 @@
     &,
     > :last-child {
       margin-bottom: 0;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "tablet",
+      "end": "desktop",
+    )
+  ) {
+    &-left {
+      grid-column: 1 / 4;
+    }
+
+    &-right {
+      grid-column: 4 / -1;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "desktop",
+      "end": null,
+    )
+  ) {
+    &-left {
+      grid-column: 1 / 3;
+    }
+
+    &-right {
+      grid-column: 3 / -1;
     }
   }
 }
