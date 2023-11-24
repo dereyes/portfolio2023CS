@@ -12,7 +12,7 @@ h1 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "h1");
   font-weight: typography.fontWeight("semibold");
-  line-height: ratio.justInterval(4);
+  line-height: ratio.justInterval(6);
   margin: 0 0 0.75em;
   text-transform: capitalize;
 }
@@ -22,7 +22,7 @@ h2 {
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "h2");
   font-weight: typography.fontWeight("semibold");
-  line-height: ratio.justInterval(5);
+  line-height: ratio.justInterval(6);
   margin: 0 0 0.75em;
   text-transform: capitalize;
 }

@@ -10,5 +10,6 @@
 
   display: flex;
   flex-flow: column nowrap;
+  gap: u(3);
 }
 </style>

@@ -68,6 +68,7 @@
 
   &-list {
     margin-top: u(0.5);
+    gap: u(2);
 
     &,
     > :last-child {

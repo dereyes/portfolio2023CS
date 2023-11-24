@@ -1,17 +1,21 @@
 <template>
-  <LayoutPanel>
-    <ListHighlightItem>
-      <h2>Engineering + Design Thinking</h2>
-      <ul class="skills-list">
-        <li>Pixel-perfect design implementation</li>
-        <li>Responsive, accessible components</li>
-        <li>User focus and product solutions</li>
-      </ul>
-    </ListHighlightItem>
+  <LayoutPanel class="layout-panel-skills">
     <ListHighlight>
       <ListHighlightItem>
-        <h2>A partner in UX Design <span class="noWrap">& Research</span></h2>
-        <ul class="skills-list">
+        <h2 class="layout-panel-skills-heading">
+          Engineering + Design Thinking
+        </h2>
+        <ul class="layout-panel-skills-list">
+          <li>Pixel-perfect design implementation</li>
+          <li>Responsive, accessible components</li>
+          <li>User focus and product solutions</li>
+        </ul>
+      </ListHighlightItem>
+      <ListHighlightItem>
+        <h2 class="layout-panel-skills-heading">
+          A partner in UX Design <span class="noWrap">& Research</span>
+        </h2>
+        <ul class="layout-panel-skills-list">
           <li>Rapid prototyping, interactive mockups</li>
           <li>
             Bridging Engineering, Product, and
@@ -20,8 +24,10 @@
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Bringing Design Systems <span class="noWrap">to Life</span></h2>
-        <ul class="skills-list">
+        <h2 class="layout-panel-skills-heading">
+          Bringing Design Systems <span class="noWrap">to Life</span>
+        </h2>
+        <ul class="layout-panel-skills-list">
           <li>Developing color and typography systems</li>
           <li>
             Building and maintaining
@@ -34,35 +40,50 @@
 </template>
 
 <style lang="scss" scoped>
-.skills-list {
-  @include unstyle.list();
+.layout-panel-skills {
+  @include breakpoint(
+    (
+      "start": "tablet",
+      "end": "laptop",
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / -1;
+    }
+
+    &-list {
+      grid-column: 2 / -1;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "laptop",
+      "end": "desktop",
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / 5;
+    }
+
+    &-list {
+      grid-column: 3 / -1;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "desktop",
+      "end": null,
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / 5;
+    }
+
+    &-list {
+      grid-column: 4 / -1;
+    }
+  }
 }
-
-// @include breakpoint(
-//   (
-//     "start": "medium",
-//     "end": "large",
-//   )
-// ) {
-//   .scalingHeading-h2 {
-//     grid-column: 1 / -1;
-//   }
-//   .skills-list {
-//     grid-column: 4 / -1;
-//   }
-// }
-
-// @include breakpoint(
-//   (
-//     "start": "large",
-//     "end": null,
-//   )
-// ) {
-//   .scalingHeading-h2 {
-//     grid-column: 1 / -2;
-//   }
-//   .skills-list {
-//     grid-column: 4 / -1;
-//   }
-// }
 </style>
