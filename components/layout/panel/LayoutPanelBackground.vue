@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-background">
     <template v-slot:top>
-      <h2>Cross-Discipline Expereince</h2>
+      <h2>Cross-Discipline Experience</h2>
     </template>
     <template v-slot:bottom>
       <p>Front-End Web Developer <span class="noWrap">since 2018</span></p>

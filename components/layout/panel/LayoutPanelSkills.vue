@@ -1,14 +1,9 @@
 <template>
   <LayoutPanel class="layout-panel-skills">
-    <!-- <template v-slot:top>
-      <div class="layout-panel-skills-tools">
-        <ListChips v-for="(value, key) in tools" :title="key" :list="value" />
-      </div>
-    </template> -->
     <ListHighlight>
       <ListHighlightItem>
         <h2 class="layout-panel-skills-heading">
-          Engineering + Design Thinking
+          Engineering with Design <span class="noWrap">in Mind</span>
         </h2>
         <ul class="layout-panel-skills-list">
           <li>Pixel-perfect design implementation</li>
@@ -43,30 +38,9 @@
   </LayoutPanel>
 </template>
 
-<script setup>
-const tools = {
-  "Front-End Fundamentals": ["Semantic HTML5", "CSS3", "JavaScript"],
-  "Modern Web Technologies": ["Vue", "React", "Next", "Git", "CSS Modules"],
-  "Design Systems & UI Libraries": ["Sass", "SCSS", "Storybook"],
-  "Responsive Development": ["Flexbox", "Grid"],
-  "Accessibility": ["Axe", "Lighthouse"]
-}
-// const 
-</script>
-
 <style lang="scss" scoped>
 .layout-panel-skills {
   border-top: none;
-
-  &-tools {
-    display: flex;
-    flex-flow: column;
-    gap: u(.75) u(.5);
-    // justify-content: space-between;
-    margin: u(5) 0;
-    // max-width: 50rem;
-  }
-
 
   @include breakpoint(
     (
@@ -75,7 +49,7 @@ const tools = {
     )
   ) {
     &-heading {
-      grid-column: 1 / -1;
+      grid-column: 1 / -2;
     }
 
     &-list {

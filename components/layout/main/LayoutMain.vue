@@ -11,6 +11,7 @@
   flex-flow: column nowrap;
   gap: 25vh;
   gap: 25dvh; // Better on mobile, falls back to vh
+  margin: 0 auto;
   width: 100%;
 
   @include breakpoint(
