@@ -52,14 +52,14 @@ li {
       color.palette("ink") 0.1em,
       color.palette("hilite") 0.1em,
       color.palette("hilite") 0.25em,
-      transparent 0.35em
+      transparent 0.25em
     );
     color: color.palette("ink");
     font-weight: typography.fontWeight("bold");
     text-decoration: none;
 
     &::after {
-      content: "↗";
+      content: "\2197 ︎ ";
       font-size: typography.fluidTypescale("tablet", "small");
     }
   }
