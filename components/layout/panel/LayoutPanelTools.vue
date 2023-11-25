@@ -53,7 +53,7 @@
   }
 
   &-background {
-    background: color.palette("black");
+    background: color.palette("ink");
     height: 100%;
     left: 0;
     position: absolute;

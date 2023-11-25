@@ -1,6 +1,7 @@
 @use "sass:map";
 
 @use "collection";
+@use "color";
 @use "u" as *;
 
 $layout-panel-padding-phone: u(1);
@@ -38,4 +39,8 @@ $layout-panel-padding-desktop: u(1);
       @content;
     }
   }
+}
+
+@mixin borderTop {
+  @include borderTop;
 }

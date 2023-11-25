@@ -24,7 +24,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   width: 100%;
 
   > :first-child {
-    border-top: 1px solid color.palette("black");
+    @include borderTop;;
   }
 
   &-top,

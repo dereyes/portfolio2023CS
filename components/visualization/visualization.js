@@ -21,7 +21,7 @@ const runVisualization = (p5, window) => {
 
       p5.textFont(font);
       p5.smooth();
-      p5.colorMode(p5.HSL);
+      p5.colorMode(p5.RGB);
     };
 
     p5.draw = () => {

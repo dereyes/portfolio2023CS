@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-  color: color.palette("black");
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "h1");
   font-weight: typography.fontWeight("semibold");
@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-  color: color.palette("black");
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "h2");
   font-weight: typography.fontWeight("semibold");
@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-  color: color.palette("black");
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "p");
   font-weight: typography.fontWeight("medium");
@@ -38,7 +38,7 @@ h3 {
 
 p,
 li {
-  color: color.palette("black");
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
   font-size: typography.fluidTypescale("tablet", "p");
   font-weight: typography.fontWeight("medium");
@@ -49,12 +49,12 @@ li {
   a {
     background: linear-gradient(
       to top,
-      color.palette("black") 0.1em,
+      color.palette("ink") 0.1em,
       color.palette("hilite") 0.1em,
       color.palette("hilite") 0.25em,
       transparent 0.35em
     );
-    color: color.palette("black");
+    color: color.palette("ink");
     font-weight: typography.fontWeight("bold");
     text-decoration: none;
 

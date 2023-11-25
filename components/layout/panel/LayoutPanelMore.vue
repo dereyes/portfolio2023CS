@@ -49,7 +49,7 @@
   }
 
   &-border {
-    border-top: 1px solid color.palette("black");
+    border-top: 1px solid color.palette("ink");
     grid-column: 1 / -1;
   }
 

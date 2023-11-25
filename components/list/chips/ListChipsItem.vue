@@ -17,7 +17,7 @@ const classlist = props.theme
 
 <style lang="scss" scoped>
 .list-chips-item {
-  border: 1px solid color.palette("black");
+  border: 1px solid color.palette("ink");
   border-radius: u(5);
   display: inline-grid;
   flex: 1 0;
@@ -27,14 +27,14 @@ const classlist = props.theme
   white-space: nowrap;
 
   &-dark {
-    background: color.palette("black");
-//       border: 1px solid color.palette("black");
+    background: color.palette("ink");
+//       border: 1px solid color.palette("ink");
 //   border-radius: u(5);
     color: color.palette("concrete");
   }
 
   &-light {
-    color: color.palette("black");
+    color: color.palette("ink");
   }
 }
 </style>

@@ -34,7 +34,7 @@ onUnmounted(() => {
 <style lang="scss">
 .list-highlight-item {
   align-items: center;
-  border-top: 1px solid color.palette("black");
+  @include borderTop;;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;
@@ -47,7 +47,7 @@ onUnmounted(() => {
   }
 
   &.list-highlight-item-highlighted {
-    color: color.palette("black");
+    color: color.palette("ink");
     opacity: 1;
   }
 }
