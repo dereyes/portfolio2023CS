@@ -17,7 +17,7 @@ $layout-panel-padding-desktop: u(1);
     "max": 1080px,
   );
 
-  @return collection.get($breakpoints, #{$size});
+@return collection.get($breakpoints, #{$size});
 }
 
 @mixin breakpoint($breakpoints) {
@@ -29,12 +29,16 @@ $layout-panel-padding-desktop: u(1);
       @media (min-width: getBreakpoint($start)) and (max-width: getBreakpoint($end) - 1) {
         @content;
       }
-    } @else {
+    }
+
+    @else {
       @media (min-width: getBreakpoint($start)) {
         @content;
       }
     }
-  } @else if ($end) {
+  }
+
+  @else if ($end) {
     @media (max-width: getBreakpoint($end) - 1) {
       @content;
     }
@@ -42,5 +46,5 @@ $layout-panel-padding-desktop: u(1);
 }
 
 @mixin borderTop {
-  @include borderTop;
+  border-top: 1px solid color.palette("ink");
 }

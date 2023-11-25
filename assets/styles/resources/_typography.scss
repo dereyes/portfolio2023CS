@@ -12,23 +12,17 @@
 $remInPx: 24px;
 
 // Given a start font size and a start/end screen width, returns a 'font-size' value where the text is the start size at the start width, scales linearly between widths, and stops scaling at the end width
-@function getFluidFontSize(
-  $startFontSizeInRem,
+@function getFluidFontSize($startFontSizeInRem,
   $startScreenWidthInPx,
-  $endScreenWidthInPx
-) {
+  $endScreenWidthInPx) {
   $startFontSizeInPx: convert.stripUnits($startFontSizeInRem) * $remInPx;
-  $fontSizeToScreenSizeRatio: math.div(
-    $startFontSizeInPx,
-    $startScreenWidthInPx
-  );
+  $fontSizeToScreenSizeRatio: math.div($startFontSizeInPx,
+      $startScreenWidthInPx );
   $startFontSizeInVw: $fontSizeToScreenSizeRatio * 100vw;
 
-  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) *
-    $fontSizeToScreenSizeRatio;
+  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) * $fontSizeToScreenSizeRatio;
   $remInPxUnitless: convert.stripUnits($remInPx);
-  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) *
-    1rem;
+  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) * 1rem;
 
   @return clamp($startFontSizeInRem, $startFontSizeInVw, $endFontSizeInRems);
 }
@@ -47,45 +41,40 @@ $remInPx: 24px;
   $levels: "small", "", "p", "", "h3", "h2", "h1";
   $levels-pIndex: list.index($levels, "p");
   // Eventually houses typescale values
-  $typescale: ();
+  $typescale: (
+  );
 
-  @for $i from 1 to length($levels) + 1 {
-    $level-name: list.nth($levels, $i);
-    $level-indexRelativeToP: ($i - $levels-pIndex);
-    $level-pixelSize: _getTypescalePixelSize(
-      $level-indexRelativeToP,
-      $base,
-      $ratio
-    );
+@for $i from 1 to length($levels)+1 {
+  $level-name: list.nth($levels, $i);
+  $level-indexRelativeToP: (
+    $i - $levels-pIndex
+  );
+$level-pixelSize: _getTypescalePixelSize($level-indexRelativeToP,
+    $base,
+    $ratio );
 
-    $level-fluidFontSize: getFluidFontSize(
-      $level-pixelSize,
-      getBreakpoint($startBreakpoint),
-      getBreakpoint($endBreakpoint) - 1,
-      // -1 to prevent media query overlap
-    );
+$level-fluidFontSize: getFluidFontSize($level-pixelSize,
+    getBreakpoint($startBreakpoint),
+    getBreakpoint($endBreakpoint) - 1,
+    // -1 to prevent media query overlap
+  );
 
-    $typescale: map.merge(
-      $typescale,
-      (
-        $level-name: $level-fluidFontSize,
-        // For non-fluid typescale, use $level-pixelSize here instead
-      )
-    );
-  }
+$typescale: map.merge($typescale,
+    ($level-name: $level-fluidFontSize,
+      // For non-fluid typescale, use $level-pixelSize here instead
+    ));
+}
 
-  @return $typescale;
+@return $typescale;
 }
 
 @function fluidTypescale($screenSize, $level) {
   $typescales: (
-    "tablet":
-      getFluidTypescale("phone", "tablet", 0.75rem, ratio.justInterval(3)),
-    "desktop":
-      getFluidTypescale("laptop", "desktop", 0.75rem, ratio.justInterval(4)),
+    "tablet": getFluidTypescale("phone", "tablet", 0.75rem, ratio.justInterval(3)),
+    "desktop": getFluidTypescale("laptop", "desktop", 0.75rem, ratio.justInterval(4)),
   );
 
-  @return collection.get(collection.get($typescales, $screenSize), $level);
+@return collection.get(collection.get($typescales, $screenSize), $level);
 }
 
 @function fontFamily($family) {
@@ -94,7 +83,7 @@ $remInPx: 24px;
     "monospace": string.unquote("'Space Grotesk', monospace"),
   );
 
-  @return collection.get($families, #{$family});
+@return collection.get($families, #{$family});
 }
 
 @function fontWeight($weight) {
@@ -107,7 +96,7 @@ $remInPx: 24px;
     "extrabold": 800,
   );
 
-  @return collection.get($weights, #{$weight});
+@return collection.get($weights, #{$weight});
 }
 
 .noWrap {

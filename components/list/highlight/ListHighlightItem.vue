@@ -34,7 +34,7 @@ onUnmounted(() => {
 <style lang="scss">
 .list-highlight-item {
   align-items: center;
-  @include borderTop;;
+  @include borderTop;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;
@@ -42,7 +42,7 @@ onUnmounted(() => {
   opacity: 0.1;
   transition: opacity 0.5s ease;
 
-  > * {
+  >* {
     grid-column: 1 / -1;
   }
 

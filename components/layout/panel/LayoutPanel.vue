@@ -1,8 +1,12 @@
 <template>
   <div :class="classList">
-    <div class="layout-panel-top"><slot name="top"></slot></div>
+    <div class="layout-panel-top">
+      <slot name="top"></slot>
+    </div>
     <slot />
-    <div class="layout-panel-bottom"><slot name="bottom"></slot></div>
+    <div class="layout-panel-bottom">
+      <slot name="bottom"></slot>
+    </div>
   </div>
 </template>
 
@@ -24,7 +28,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   width: 100%;
 
   > :first-child {
-    @include borderTop;;
+    @include borderTop;
   }
 
   &-top,
@@ -46,25 +50,19 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
     }
   }
 
-  > * {
+  >* {
     grid-column: 1 / -1;
   }
 
-  @include breakpoint(
-    (
-      "start": null,
+  @include breakpoint(("start": null,
       "end": "tablet",
-    )
-  ) {
+    )) {
     padding: $layout-panel-padding-tablet;
   }
 
-  @include breakpoint(
-    (
-      "start": "tablet",
+  @include breakpoint(("start": "tablet",
       "end": null,
-    )
-  ) {
+    )) {
     padding: $layout-panel-padding-desktop;
   }
 }
