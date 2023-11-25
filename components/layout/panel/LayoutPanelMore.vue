@@ -15,8 +15,7 @@
               "Make Something People Want"
             </a>
           </p>
-          <p>Talk on Product Design for Engineers</p>
-          <p>Hacker Dojo, 2023</p>
+          <p>Talk on Product Design for Engineers<br/>Hacker Dojo, 2023</p>
         </li>
         <li>
           <p>
@@ -24,15 +23,13 @@
               "ShadowPlay"
             </a>
           </p>
-          <p>Interactive art installation</p>
-          <p>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
         </li>
         <li>
           <p>
             <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
           </p>
-          <p>Interactive art installation</p>
-          <p>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
         </li>
       </ul>
     </div>
