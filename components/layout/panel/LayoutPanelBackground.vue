@@ -1,7 +1,19 @@
 <template>
-  <LayoutPanel>
-    <h2>Background in Design</h2>
-    <p><strong>Bachelor of Arts, Design</strong><br />UC Davis, 2016</p>
-    <p><strong>Innovation Scholar</strong><br />AIGA San Francisco, 2016</p>
+  <LayoutPanel class="layout-panel-background">
+    <template v-slot:top>
+      <h2>Cross-Discipline Experience</h2>
+    </template>
+    <template v-slot:bottom>
+      <p>Front-End Web Developer <span class="noWrap">since 2018</span></p>
+      <p><strong>Guest Speaker, Design for Social Change</strong><br />Hong Kong Polytechnic University, 2016</p>
+      <p><strong>Bachelor of Arts, Design</strong><br />UC Davis, 2016</p>
+      <p><strong>Innovation Scholar</strong><br />AIGA San Francisco, 2016</p>
+    </template>
   </LayoutPanel>
 </template>
+
+<style lang="scss">
+.layout-panel-background {
+  justify-content: space-around;
+}
+</style>

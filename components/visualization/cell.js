@@ -32,30 +32,28 @@ const getCell = (p5, grid, x, y) => {
     };
   };
 
-  const initializeCell = (x, y) => {
+  cell.initialize = (x, y) => {
     cell.position = getCellPosition(x, y);
     cell.bounds = getCellBounds(cell.position);
   };
 
-  cell.update = (shift) => {};
-
   cell.render = ({ color }) => {
-    // p5.fill(color);
-    // p5.stroke(color);
-    // p5.strokeWeight(grid.cell.size);
 
-    // p5.rect(cell.position.x, cell.position.y, grid.cell.size);
+    // p5.fill(color);
+    // p5.noStroke();
+    // p5.rect(
+    //   cell.position.x, cell.position.y,
+    //   grid.cell.size
+    // );
 
     p5.stroke(color);
-    p5.strokeWeight(grid.cell.size * .55);
+    p5.strokeWeight(grid.cell.size * .6);
 
     p5.point(
       cell.position.x + (grid.cell.size / 2),
       cell.position.y + (grid.cell.size / 2),
     );
   };
-
-  initializeCell(x, y);
 
   return cell;
 };

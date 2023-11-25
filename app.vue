@@ -12,27 +12,6 @@
 </template>
 
 <style lang="scss">
-// .app {
-//   align-items: start;
-//   display: grid;
-//   grid-template-columns: [window-start] 1fr [main-end nav-start] auto [window-end];
-//   grid-template-rows: [window-start] min-content [header-end main-start] 1fr [window-end];
-//   height: 100vh;
-//   margin: 0 auto;
-//   min-height: 100%;
-//   overflow-y: scroll;
-//   // padding: 0 2rem;
-//   justify-items: center;
-//   width: 100%;
-// }
-
-// .app-header {
-//   grid-column: main-end / window-end;
-//   grid-row: window-start / header-end;
-//   position: sticky;
-//   top: 0;
-// }
-
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,

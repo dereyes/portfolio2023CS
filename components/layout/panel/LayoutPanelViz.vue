@@ -1,32 +1,21 @@
 <template>
-  <LayoutPanel class="layout-panel-viz">
+  <div class="layout-panel-viz">
     <ClientOnly>
       <Visualization />
     </ClientOnly>
-  </LayoutPanel>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.layout-panel.layout-panel-viz {
-  // background: transparent;
-  height: 100%;
+.layout-panel-viz {
+  display: grid;
+  height: 100vh;
+  height: 100dvh; // Better on mobile, falls back to vh
+  place-items: center;
   padding: 0;
   position: fixed;
-  // top: 0;
-  width: 100%;
+  top: 0;
+  width: 100vw;
   z-index: -1;
-
-  // @include breakpoint("max-mobile") {
-  //   clip-path: inset(0 0 0 0);
-  //   height: calc(100vh + ($layout-viz-height-mobile * 2));
-  //   position: sticky;
-  //   top: calc(-100vh - $layout-viz-height-mobile);
-  //   // z-index: 1;
-  // }
-
-  // @include breakpoint("min-desktop") {
-  //   grid-column: 1 / 2;
-  //   grid-row: 1 / -1;
-  // }
 }
 </style>

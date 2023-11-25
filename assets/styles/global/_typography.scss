@@ -8,35 +8,39 @@ body {
 }
 
 h1 {
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("h1");
+  font-size: typography.fluidTypescale("tablet", "h1");
   font-weight: typography.fontWeight("semibold");
-  line-height: ratio.justInterval(4);
-  margin: 0 0 0.5em;
+  line-height: ratio.justInterval(6);
+  margin: 0 0 0.75em;
   text-transform: capitalize;
 }
 
 h2 {
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("h2");
+  font-size: typography.fluidTypescale("tablet", "h2");
   font-weight: typography.fontWeight("semibold");
-  line-height: ratio.justInterval(5);
-  margin: 0 0 1em;
+  line-height: ratio.justInterval(6);
+  margin: 0 0 0.75em;
   text-transform: capitalize;
 }
 
 h3 {
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("h3");
-  font-weight: typography.fontWeight("extrabold");
-  line-height: ratio.justInterval(5);
-  margin: 0 0 1em;
+  font-size: typography.fluidTypescale("tablet", "p");
+  font-weight: typography.fontWeight("medium");
+  line-height: ratio.justInterval(7);
+  margin: 0 0 2em;
 }
 
 p,
 li {
+  color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");
-  font-size: typography.typescale("p");
+  font-size: typography.fluidTypescale("tablet", "p");
   font-weight: typography.fontWeight("medium");
   letter-spacing: 0.03em;
   line-height: ratio.justInterval(7);
@@ -45,23 +49,23 @@ li {
   a {
     background: linear-gradient(
       to top,
-      color.palette("black") 0.1em,
-      color.palette("hilite2") 0.1em,
-      color.palette("hilite2") 0.25em,
+      color.palette("ink") 0.1em,
+      color.palette("hilite") 0.1em,
+      color.palette("hilite") 0.25em,
       transparent 0.35em
     );
-    color: color.palette("black");
+    color: color.palette("ink");
     font-weight: typography.fontWeight("bold");
     text-decoration: none;
 
     &::after {
       content: "↗";
-      font-size: typography.typescale("small");
+      font-size: typography.fluidTypescale("tablet", "small");
     }
   }
 
   small {
-    font-size: typography.typescale("small");
+    font-size: typography.fluidTypescale("tablet", "small");
   }
 
   strong {
@@ -75,4 +79,28 @@ ul {
   display: flex;
   flex-flow: column;
   margin: 0 0 u(3);
+}
+
+@include breakpoint(
+  (
+    "start": "laptop",
+    "end": null,
+  )
+) {
+  h1 {
+    font-size: typography.fluidTypescale("desktop", "h1");
+  }
+  h2 {
+    font-size: typography.fluidTypescale("desktop", "h2");
+  }
+  h3 {
+    font-size: typography.fluidTypescale("desktop", "p");
+  }
+  p, li {
+    font-size: typography.fluidTypescale("desktop", "p");
+
+    a::after, small {
+      font-size: typography.fluidTypescale("desktop", "small");
+    }
+  }
 }

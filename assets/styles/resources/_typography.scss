@@ -4,60 +4,91 @@
 @use "sass:string";
 
 @use "collection";
+@use "convert";
+@use "layout" as *;
 @use "ratio";
 @use "u" as *;
 
-$remInPx: 22px;
+$remInPx: 24px;
 
-@function _getTypescalePixelSize(
-  $level: 0,
-  $typescale-base,
-  $typescale-factor
-) {
-  @return math.pow($typescale-factor, $level) * $typescale-base;
+// Given a start font size and a start/end screen width, returns a 'font-size' value where the text is the start size at the start width, scales linearly between widths, and stops scaling at the end width
+@function getFluidFontSize($startFontSizeInRem,
+  $startScreenWidthInPx,
+  $endScreenWidthInPx) {
+  $startFontSizeInPx: convert.stripUnits($startFontSizeInRem) * $remInPx;
+  $fontSizeToScreenSizeRatio: math.div($startFontSizeInPx,
+      $startScreenWidthInPx );
+  $startFontSizeInVw: $fontSizeToScreenSizeRatio * 100vw;
+
+  $endFontSizeInPxUnitless: convert.stripUnits($endScreenWidthInPx) * $fontSizeToScreenSizeRatio;
+  $remInPxUnitless: convert.stripUnits($remInPx);
+  $endFontSizeInRems: math.div($endFontSizeInPxUnitless, $remInPxUnitless) * 1rem;
+
+  @return clamp($startFontSizeInRem, $startFontSizeInVw, $endFontSizeInRems);
 }
 
-@function typescale($level) {
+// Calculates the size of a level in a typescale succession
+@function _getTypescalePixelSize($level: 0, $typescale-base, $typescale-ratio) {
+  @return math.pow($typescale-ratio, $level) * $typescale-base;
+}
+
+@function getFluidTypescale($startBreakpoint, $endBreakpoint, $base, $ratio) {
   // Difference in size from one level to the next
-  $typescale-factor: ratio.justInterval(5);
+  $ratio: $ratio;
   // The size of a <p> tag in the type scale
-  $typescale-base: 1rem;
-  // Levels in the type scale, from smallest to largest
-  $typescale-levels: "small", "p", "", "h3", "h2", "h1";
+  $base: $base;
+  // Levels in the typescale, from smallest to largest
+  $levels: "small", "", "p", "", "h3", "h2", "h1";
+  $levels-pIndex: list.index($levels, "p");
   // Eventually houses typescale values
-  $typescale: ();
+  $typescale: (
+  );
 
-  @for $i from 1 to length($typescale-levels) + 1 {
-    $typescale-name: list.nth($typescale-levels, $i);
-    $typescale-p-index: list.index($typescale-levels, "p");
-    $typescale-index-relativeToP: ($i - $typescale-p-index);
-    $typescale-pixelSize: _getTypescalePixelSize(
-      $typescale-index-relativeToP,
-      $typescale-base,
-      $typescale-factor
-    );
+@for $i from 1 to length($levels)+1 {
+  $level-name: list.nth($levels, $i);
+  $level-indexRelativeToP: (
+    $i - $levels-pIndex
+  );
+$level-pixelSize: _getTypescalePixelSize($level-indexRelativeToP,
+    $base,
+    $ratio );
 
-    $typescale: map.merge(
-      $typescale,
-      (
-        $typescale-name: $typescale-pixelSize,
-      )
-    );
-  }
+$level-fluidFontSize: getFluidFontSize($level-pixelSize,
+    getBreakpoint($startBreakpoint),
+    getBreakpoint($endBreakpoint) - 1,
+    // -1 to prevent media query overlap
+  );
 
-  @return collection.get($typescale, #{$level});
+$typescale: map.merge($typescale,
+    ($level-name: $level-fluidFontSize,
+      // For non-fluid typescale, use $level-pixelSize here instead
+    ));
+}
+
+@return $typescale;
+}
+
+@function fluidTypescale($screenSize, $level) {
+  $typescales: (
+    "tablet": getFluidTypescale("phone", "tablet", 0.75rem, ratio.justInterval(3)),
+    "desktop": getFluidTypescale("laptop", "desktop", 0.75rem, ratio.justInterval(4)),
+  );
+
+@return collection.get(collection.get($typescales, $screenSize), $level);
 }
 
 @function fontFamily($family) {
   $families: (
     "sansSerif": string.unquote("'Manrope', sans-serif"),
+    "monospace": string.unquote("'Space Grotesk', monospace"),
   );
 
-  @return collection.get($families, #{$family});
+@return collection.get($families, #{$family});
 }
 
 @function fontWeight($weight) {
   $weights: (
+    "light": 300,
     "regular": 400,
     "medium": 500,
     "semibold": 600,
@@ -65,7 +96,7 @@ $remInPx: 22px;
     "extrabold": 800,
   );
 
-  @return collection.get($weights, #{$weight});
+@return collection.get($weights, #{$weight});
 }
 
 .noWrap {

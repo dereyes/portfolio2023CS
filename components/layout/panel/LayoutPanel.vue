@@ -1,6 +1,12 @@
 <template>
   <div :class="classList">
+    <div class="layout-panel-top">
+      <slot name="top"></slot>
+    </div>
     <slot />
+    <div class="layout-panel-bottom">
+      <slot name="bottom"></slot>
+    </div>
   </div>
 </template>
 
@@ -14,27 +20,49 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
 
 <style lang="scss">
 .layout-panel {
-  align-content: center;
-  display: grid;
-  grid-auto-rows: min-content;
-  // grid-template-columns: 1fr;
-  justify-content: center;
+  display: flex;
+  flex-flow: column;
   min-height: 100vh;
+  min-height: 100dvh; // Better on mobile, falls back to vh
+  padding: $layout-panel-padding-phone;
   width: 100%;
 
-  @include breakpoint("max-mobile") {
-    // grid-template-columns: 1fr;
-    max-width: 24rem;
-    padding: $layout-panel-padding-mobile;
+  > :first-child {
+    @include borderTop;
+  }
 
-    &-sidebar {
-      display: none;
+  &-top,
+  &-bottom {
+    display: flex;
+    flex-flow: column;
+    // flex: 1 0;
+  }
+
+  &-top {
+    align-items: top;
+  }
+
+  &-bottom {
+    justify-content: end;
+
+    > :last-child {
+      margin-bottom: 0;
     }
   }
 
-  @include breakpoint("min-desktop") {
-    // grid-template-columns: 1fr 3fr;
-    max-width: 32rem;
+  >* {
+    grid-column: 1 / -1;
+  }
+
+  @include breakpoint(("start": null,
+      "end": "tablet",
+    )) {
+    padding: $layout-panel-padding-tablet;
+  }
+
+  @include breakpoint(("start": "tablet",
+      "end": null,
+    )) {
     padding: $layout-panel-padding-desktop;
   }
 }

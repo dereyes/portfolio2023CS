@@ -1,8 +1,9 @@
 import getCell from "./cell";
 import getNoise from "./noise";
+import getGradient from "./gradient";
 
 const getGrid = (p5, window) => {
-  const gridSizeRelativeToCanvasWidth = .9;
+  const gridSizeRelativeToCanvasWidth = 0.95;
 
   const grid = {
     // Properties to initialize grid
@@ -28,12 +29,15 @@ const getGrid = (p5, window) => {
     render: undefined,
   };
 
+  const gradient = getGradient(p5);
   const noise = getNoise(p5, window);
 
-  const initializeCells = () => {
+  const getCells = () => {
     return Array.from({ length: grid.settings.columns }, (_column, x) => {
       return Array.from({ length: grid.settings.rows }, (_row, y) => {
-        return getCell(p5, grid, x, y);
+        const cell = getCell(p5, grid, x, y);
+        cell.initialize(x, y);
+        return cell;
       });
     });
   };
@@ -42,50 +46,48 @@ const getGrid = (p5, window) => {
     grid.settings.rows = grid.settings.columns;
     grid.size.width = p5.width * gridSizeRelativeToCanvasWidth;
     grid.cell.size = grid.size.width / grid.settings.columns;
-
     grid.size.height = grid.settings.rows * grid.cell.size;
 
-    grid.bounds.top = - grid.size.height / 2;
-    grid.bounds.left = - grid.size.width / 2;
+    grid.bounds.top = grid.size.height * -0.5;
+    grid.bounds.left = grid.size.width * -0.5;
 
-    grid.cells = initializeCells();
-    noise.initialize();
-    console.log(grid);
+    grid.cells = getCells();
+
+    gradient.initialize();
   };
 
   const forEachCell = (method) => {
-    for (let x = 0; x < grid.settings.columns; x++) {
-      for (let y = 0; y < grid.settings.rows; y++) {
+    grid.cells.forEach((column, x) => {
+      column.forEach((row, y) => {
         method(grid.cells[x][y], x, y);
-      }
-    }
+      });
+    });
   };
 
-  grid.render = ({ shift, lines, movement, gradient }) => {
-    p5.noStroke();
-    p5.fill("#000");
+  const renderGridLines = (cell) => {
+    p5.noFill();
+    p5.stroke("#000");
+    p5.strokeWeight(1);
 
-    noise.update();
+    p5.rect(cell.position.x, cell.position.y, grid.cell.size);
+  };
+
+  grid.render = ({ lines, movement }) => {
+    if (movement) {
+      noise.update();
+    }
 
     forEachCell((cell, x, y) => {
       cell.render({
-        color: noise.getColor(x, y),
+        color: gradient.getColor(noise.getPoint(x, y)),
       });
+
+      if (lines) {
+        renderGridLines(cell);
+      }
     });
 
-    if (lines) {
-      // Separate loop, otherwise rendering errors
-      p5.noFill();
-      p5.stroke("#000");
-
-      forEachCell((cell) => {
-        p5.rect(cell.position.x, cell.position.y, grid.cell.size);
-      });
-    }
-
-    if(gradient) {
-      noise.render.gradient();
-    }
+    gradient.render(false);
   };
 
   return grid;

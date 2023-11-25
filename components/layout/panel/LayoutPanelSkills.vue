@@ -1,56 +1,90 @@
 <template>
-  <LayoutPanel>
-    <h2 ref="scrollRef"></h2>
+  <LayoutPanel class="layout-panel-skills">
     <ListHighlight>
       <ListHighlightItem>
-        <h2>A partner in UX Design & Research</h2>
-        <ul class="skills-list">
-          <li>Rapid prototyping, interactive mockups</li>
-          <li>Bridging Engineering, Product, and Design teams</li>
+        <h2 class="layout-panel-skills-heading">
+          Engineering with Design <span class="noWrap">in Mind</span>
+        </h2>
+        <ul class="layout-panel-skills-list">
+          <li>Pixel-perfect design implementation</li>
+          <li>Responsive, accessible UI components</li>
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Design Thinking & User Focus</h2>
-        <ul class="skills-list">
-          <li>Ensuring pixel-perfect design implementation</li>
-          <li>Responsive, accessible soluions</li>
-          <li>Consulting on product solutions</li>
+        <h2 class="layout-panel-skills-heading">
+          A partner in UX Design <span class="noWrap">& Research</span>
+        </h2>
+        <ul class="layout-panel-skills-list">
+          <li>Rapid prototyping and interactive mockups</li>
+          <li>
+            Bridging Engineering, Product, and
+            <span class="noWrap">Design teams</span>
+          </li>
         </ul>
       </ListHighlightItem>
       <ListHighlightItem>
-        <h2>Bringing Design Systems to Life</h2>
-        <ul class="skills-list">
-          <li>Architecting color and typography systems</li>
-          <li>Building and maintaining component libraries</li>
+        <h2 class="layout-panel-skills-heading">
+          Bringing Design Systems <span class="noWrap">to Life</span>
+        </h2>
+        <ul class="layout-panel-skills-list">
+          <li>Color and typography system implementation</li>
+          <li>
+            Building and maintaining UI
+            <span class="noWrap">component libraries</span>
+          </li>
         </ul>
       </ListHighlightItem>
-      <!-- <ListHighlightItem>
-        <h2>UX Engineering</h2>
-        <ul class="skills-list">
-          <li>Collaborating with Design and Product teams</li>
-          <li>Rapid prototyping</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <h2>UI Development</h2>
-        <ul class="skills-list">
-          <li>Turning wireframes and mockups into pixel-perfect components</li>
-          <li>Responsive, accessible development</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <h2>Design Systems</h2>
-        <ul class="skills-list">
-          <li>Figma</li>
-          <li>Design Tokens</li>
-        </ul>
-      </ListHighlightItem> -->
     </ListHighlight>
   </LayoutPanel>
 </template>
 
 <style lang="scss" scoped>
-.skills-list {
-  @include unstyle.list();
+.layout-panel-skills {
+  border-top: none;
+
+  @include breakpoint(
+    (
+      "start": "tablet",
+      "end": "laptop",
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / -2;
+    }
+
+    &-list {
+      grid-column: 3 / -1;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "laptop",
+      "end": "desktop",
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / 5;
+    }
+
+    &-list {
+      grid-column: 3 / -1;
+    }
+  }
+
+  @include breakpoint(
+    (
+      "start": "desktop",
+      "end": null,
+    )
+  ) {
+    &-heading {
+      grid-column: 1 / 6;
+    }
+
+    &-list {
+      grid-column: 5 / -1;
+    }
+  }
 }
 </style>
