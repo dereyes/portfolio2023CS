@@ -6,11 +6,18 @@
       </h1>
     </template>
     <template v-slot:bottom>
-      <p>Specializing in UX Engineering</p>
-      <p>
-        Based in
-        <span class="noWrap">Mountain View,</span> California
-      </p>
+      <div class="layout-panel-intro-footer">
+        <div class="layout-panel-intro-footer-left">
+          <p>Specializing in UX Engineering</p>
+          <p>
+            Based in
+            <span class="noWrap">Mountain View,</span> California
+          </p>
+        </div>
+        <div class="layout-panel-intro-footer-right">
+          <div class="layout-panel-intro-arrow">↓</div>
+        </div>
+      </div>
     </template>
   </LayoutPanel>
 </template>
@@ -19,8 +26,37 @@
 .layout-panel-intro {
   justify-content: space-around;
 
+  &-footer {
+    align-items: end;
+    display: flex;
+    flex-flow: row;
+    gap: typography.fluidTypescale("tablet", "h2");
+    justify-content: space-between;
+
+    &-left :last-child {
+      margin: 0;
+    }
+  }
+
   &-heading {
     max-width: 20ch;
+  }
+
+  &-arrow {
+    font-family: typography.fontFamily("monospace");
+    font-size: typography.fluidTypescale("tablet", "h2");
+    font-weight: typography.fontWeight("light");
+    position: sticky;
+    top: 0;
+
+    @include breakpoint(
+      (
+        "start": "laptop",
+        "end": null,
+      )
+    ) {
+      font-size: typography.fluidTypescale("desktop", "h2");
+    }
   }
 }
 </style>

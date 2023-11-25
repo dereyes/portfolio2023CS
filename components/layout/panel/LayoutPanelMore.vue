@@ -38,12 +38,15 @@
 
 <style lang="scss" scoped>
 .layout-panel-more {
-  border-top: none;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 0 $layout-panel-padding-phone;
   margin-top: $layout-panel-padding-phone;
   padding-top: 0;
+
+  > :first-child {
+    border-top: none;
+  }
 
   &-border {
     border-top: 1px solid color.palette("black");

@@ -91,6 +91,7 @@ $remInPx: 24px;
 @function fontFamily($family) {
   $families: (
     "sansSerif": string.unquote("'Manrope', sans-serif"),
+    "monospace": string.unquote("'Space Grotesk', monospace"),
   );
 
   @return collection.get($families, #{$family});
@@ -98,6 +99,7 @@ $remInPx: 24px;
 
 @function fontWeight($weight) {
   $weights: (
+    "light": 300,
     "regular": 400,
     "medium": 500,
     "semibold": 600,
