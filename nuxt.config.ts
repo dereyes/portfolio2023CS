@@ -15,6 +15,10 @@ const useScss = [
 ].join(" ");
 
 export default defineNuxtConfig({
+  alias: {
+    "micromark/lib/preprocess.js": "micromark",
+    "micromark/lib/postprocess.js": "micromark",
+  },
   css: ["~/assets/styles/global/_index.scss"],
   modules: ["@nuxt/content", "@pinia/nuxt", "@vueuse/nuxt"],
   vite: {
