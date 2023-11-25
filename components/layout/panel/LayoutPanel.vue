@@ -1,7 +1,7 @@
 <template>
   <div :class="classList">
-    <slot />
     <div class="layout-panel-top"><slot name="top"></slot></div>
+    <slot />
     <div class="layout-panel-bottom"><slot name="bottom"></slot></div>
   </div>
 </template>

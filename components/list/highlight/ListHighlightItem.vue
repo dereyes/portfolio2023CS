@@ -34,6 +34,7 @@ onUnmounted(() => {
 <style lang="scss">
 .list-highlight-item {
   align-items: center;
+  border-top: 1px solid color.palette("black");
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;
