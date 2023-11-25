@@ -44,10 +44,11 @@
 
 <style lang="scss" scoped>
 .layout-panel-tools {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.70);
   position: relative;
 
-  h2, h3,
+  h2,
+  h3,
   li {
     color: color.palette("concrete");
   }

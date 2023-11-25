@@ -14,8 +14,8 @@ const getGradient = (p5) => {
   };
 
   const palette = {
-    concrete: p5.color("hsl(0, 0%, 50%)"),
-    hilite: p5.color("hsl(72, 100%, 60%)"),
+    concrete: p5.color("hsl(0, 0%, 65%)"),
+    hilite: p5.color("hsl(72, 80%, 44%)"),
   };
 
   const gradientStops = [
@@ -79,15 +79,15 @@ const getGradient = (p5) => {
 
   gradient.render = (render) => {
     if (render) {
-        for (let i = 0; i < gradient.size.width; i++) {
-          p5.stroke(gradient.getColor(i / gradient.size.width));
-          p5.line(
-            gradient.position.x + i,
-            gradient.position.y,
-            gradient.position.x + i,
-            gradient.position.y + gradient.size.height,
-          );
-        }
+      for (let i = 0; i < gradient.size.width; i++) {
+        p5.stroke(gradient.getColor(i / gradient.size.width));
+        p5.line(
+          gradient.position.x + i,
+          gradient.position.y,
+          gradient.position.x + i,
+          gradient.position.y + gradient.size.height,
+        );
+      }
     }
   };
 
