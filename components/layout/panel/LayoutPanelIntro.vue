@@ -15,7 +15,7 @@
           </p>
         </div>
         <div class="layout-panel-intro-footer-right">
-          <div class="layout-panel-intro-arrow">↓</div>
+          <TypographyArrow />
         </div>
       </div>
     </template>
@@ -40,23 +40,6 @@
 
   &-heading {
     max-width: 20ch;
-  }
-
-  &-arrow {
-    font-family: typography.fontFamily("monospace");
-    font-size: typography.fluidTypescale("tablet", "h2");
-    font-weight: typography.fontWeight("light");
-    position: sticky;
-    top: 0;
-
-    @include breakpoint(
-      (
-        "start": "laptop",
-        "end": null,
-      )
-    ) {
-      font-size: typography.fluidTypescale("desktop", "h2");
-    }
   }
 }
 </style>

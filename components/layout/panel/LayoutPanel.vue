@@ -56,7 +56,6 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
       "end": "tablet",
     )
   ) {
-    // max-width: 24rem;
     padding: $layout-panel-padding-tablet;
   }
 
@@ -66,7 +65,6 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
       "end": null,
     )
   ) {
-    max-width: 60rem;
     padding: $layout-panel-padding-desktop;
   }
 }

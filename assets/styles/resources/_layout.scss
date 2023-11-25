@@ -13,6 +13,7 @@ $layout-panel-padding-desktop: u(1);
     "tablet": 425px,
     "laptop": 720px,
     "desktop": 1024px,
+    "max": 1080px,
   );
 
   @return collection.get($breakpoints, #{$size});

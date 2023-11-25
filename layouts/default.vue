@@ -8,11 +8,4 @@
 .layout {
   display: contents;
 }
-
-// .layout-header {
-//   grid-column: main-end / window-end;
-//   grid-row: window-start / header-end;
-//   position: sticky;
-//   top: 0;
-// }
 </style>
