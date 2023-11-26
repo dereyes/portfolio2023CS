@@ -8,7 +8,7 @@ let arrowOpacity = ref(1);
 
 const setArrowOpacity = () => {
   arrowOpacity.value = Math.max(
-    1 - window.pageYOffset / (window.outerHeight * 0.25),
+    1 - window.scrollY / (window.outerHeight * 0.25),
     0,
   );
 };
@@ -30,12 +30,9 @@ onMounted(() => {
   position: sticky;
   top: 0;
 
-  @include breakpoint(
-    (
-      "start": "laptop",
+  @include breakpoint(("start": "laptop",
       "end": null,
-    )
-  ) {
+    )) {
     font-size: typography.fluidTypescale("desktop", "h2");
   }
 }
