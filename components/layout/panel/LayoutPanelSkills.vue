@@ -40,7 +40,9 @@
 
 <style lang="scss" scoped>
 .layout-panel-skills {
-  border-top: none;
+  > :first-child {
+    border-top: none;
+  }
 
   @include breakpoint(
     (
