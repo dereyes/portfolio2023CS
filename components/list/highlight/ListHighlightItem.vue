@@ -5,29 +5,26 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { onIntersect } from "@/composables/onIntersect";
+import { ref, onMounted } from "vue";
+import { getScrollObserver } from "@/composables/getScrollObserver";
 
-const observer = ref({});
 const scrollRef = ref({});
 
-const onEnter = () => {
-  scrollRef.value.classList.add("list-highlight-item-highlighted");
-};
-
-const onExit = () => {
-  scrollRef.value.classList.remove("list-highlight-item-highlighted");
+const onScroll = ({ progress }) => {
+  if (progress > 0) {
+    scrollRef.value.classList.add("list-highlight-item-highlighted");
+  }
+  if (progress >= 1) {
+    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+  }
 };
 
 onMounted(() => {
-  observer.value = onIntersect(scrollRef.value, onEnter, onExit, false, {
+  const scrollObserver = getScrollObserver({
+    ref: scrollRef,
+    onScroll: onScroll,
     threshold: 0.5,
-    rootMargin: "-25% 0px -25% 0px",
   });
-});
-
-onUnmounted(() => {
-  observer.value.disconnect();
 });
 </script>
 
