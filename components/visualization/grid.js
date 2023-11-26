@@ -8,7 +8,7 @@ const getGrid = (p5, window) => {
   const grid = {
     // Properties to initialize grid
     settings: {
-      columns: 50,
+      columns: 60,
       rows: undefined,
     },
     // Properties and methods of a prototypical cell
@@ -87,7 +87,7 @@ const getGrid = (p5, window) => {
       }
     });
 
-    gradient.render(false);
+    gradient.render(true);
   };
 
   return grid;
