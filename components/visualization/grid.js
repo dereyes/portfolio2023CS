@@ -87,7 +87,7 @@ const getGrid = (p5, window) => {
       }
     });
 
-    gradient.render(true);
+    gradient.render(false);
   };
 
   return grid;
