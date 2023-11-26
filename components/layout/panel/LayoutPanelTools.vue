@@ -1,10 +1,9 @@
 <template>
-  <LayoutPanel class="layout-panel-tools">
-    <h2>Tools</h2>
-    <div class="layout-panel-tools-background"></div>
+  <LayoutPanel class="layout-panel-tools" ref="scrollRef">
+    <h2 ref="scrollRef">Focusing on the Front of the Front-End</h2>
     <ListCards>
       <ListCardsItem>
-        <h3>Front-End Fundamentals</h3>
+        <h3>Fundamentals</h3>
         <ul class="layout-panel-tools-list">
           <li>Semantic HTML5</li>
           <li>CSS3</li>
@@ -43,19 +42,45 @@
   </LayoutPanel>
 </template>
 
+<script setup>
+import { onMounted, ref } from "vue";
+import { getScrollObserver } from "@/composables/getScrollObserver";
+import { scrollStore } from "@/stores/scrollStore.js";
+
+const scrollRef = ref({});
+
+const onScroll = ({ progress }) => {
+  console.log(progress);
+
+  scrollStore.panelTools.update({
+    progress: progress
+  });
+}
+
+onMounted(() => {
+  console.log(scrollRef.value.$refs.panel)
+  getScrollObserver({
+    target: scrollRef.value.$refs.panel,
+    onScroll: onScroll,
+    threshold: 0.5,
+  });
+});
+</script>
+
+
 <style lang="scss" scoped>
 .layout-panel-tools {
-  background: rgba(0, 0, 0, 0.70);
+  // background: rgba(0, 0, 0, 0.70);
   position: relative;
 
-  h2,
-  h3,
-  li {
-    color: color.palette("concrete");
-  }
+  // h2,
+  // h3,
+  // li {
+  //   color: color.palette("concrete");
+  // }
 
   &-background {
-    background: color.palette("ink");
+    // background: color.palette("ink");
     height: 100%;
     left: 0;
     position: absolute;

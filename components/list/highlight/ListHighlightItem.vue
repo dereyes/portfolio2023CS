@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { getScrollObserver } from "@/composables/getScrollObserver";
 
 const scrollRef = ref({});
@@ -20,8 +20,8 @@ const onScroll = ({ progress }) => {
 };
 
 onMounted(() => {
-  const scrollObserver = getScrollObserver({
-    ref: scrollRef,
+  getScrollObserver({
+    target: scrollRef.value,
     onScroll: onScroll,
     threshold: 0.5,
   });

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" ref="panel">
     <div class="layout-panel-top">
       <slot name="top"></slot>
     </div>
@@ -11,11 +11,19 @@
 </template>
 
 <script setup>
+import { ref, defineExpose } from "vue";
+
 const props = defineProps({
   class: String,
 });
 
 const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
+
+// Allow parent to access a a reference to this panel
+const panel = ref({});
+defineExpose({
+  panel
+});
 </script>
 
 <style lang="scss">
