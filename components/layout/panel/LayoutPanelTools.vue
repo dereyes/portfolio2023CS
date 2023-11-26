@@ -49,17 +49,19 @@ import { scrollStore } from "@/stores/scrollStore.js";
 
 const scrollRef = ref({});
 
-const onScroll = ({ progress }) => {
+const onScroll = ({ progress, approachProgress }) => {
   scrollStore.panelTools.update({
-    progress: progress
+    progress: progress,
+    approachProgress: approachProgress
   });
 }
 
 onMounted(() => {
   getScrollObserver({
     target: scrollRef.value.$refs.panel,
+    approachHeight: 200,
     onScroll: onScroll,
-    threshold: 0.75,
+    threshold: 1
   });
 });
 </script>
@@ -70,11 +72,11 @@ onMounted(() => {
   // background: rgba(0, 0, 0, 0.70);
   position: relative;
 
-  // h2,
-  // h3,
-  // li {
-  //   color: color.palette("concrete");
-  // }
+  h2,
+  h3,
+  li {
+    color: color.palette("concrete");
+  }
 
   &-background {
     // background: color.palette("ink");

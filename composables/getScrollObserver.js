@@ -4,15 +4,33 @@
  */
 export const getScrollObserver = ({
   target,
+  approachHeight = 0,
   onScroll = () => { },
   threshold = 0
 }) => {
+  const normalize = (value) => {
+    return Math.min(1, Math.max(0, value));
+  }
+
   const getProgress = () => {
-    return Math.min(1,
-      Math.max(0,
-        //((window.scrollY + (window.innerHeight * threshold)) - offsetTop(element)) / element.offsetHeight
-        ((window.scrollY + (window.innerHeight * threshold)) - element.offsetTop) / element.offsetHeight
-      )
+    const thresholdOffset = window.innerHeight * threshold;
+    const thresholdActual = window.scrollY + thresholdOffset;
+    const distanceFromThresholdToElement = thresholdActual - element.offsetTop;
+    const progressThroughElement = distanceFromThresholdToElement / element.offsetHeight;
+
+    return normalize(
+      progressThroughElement
+    );
+  }
+
+  const getApproachProgress = () => {
+    const thresholdOffset = window.innerHeight * threshold;
+    const thresholdActual = window.scrollY + thresholdOffset;
+    const distanceFromThresholdToApproach = thresholdActual - element.offsetTop - approachHeight;
+    const progressThroughApproach = distanceFromThresholdToApproach / approachHeight;
+
+    return normalize(
+      progressThroughApproach
     );
   }
 
@@ -30,6 +48,7 @@ export const getScrollObserver = ({
   window.addEventListener("scroll", (event) => {
     onScroll({
       event: event,
+      approachProgress: getApproachProgress(),
       progress: getProgress()
     });
   })
