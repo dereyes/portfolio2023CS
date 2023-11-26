@@ -26,6 +26,7 @@
         <ul class="layout-panel-tools-list">
           <li>Sass</li>
           <li>SCSS</li>
+          <li>Material UI (MUI)</li>
           <li>Storybook</li>
         </ul>
       </ListCardsItem>
