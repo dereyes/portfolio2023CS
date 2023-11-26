@@ -1,7 +1,8 @@
 <template>
   <main class="layout-main">
-    <div class="layout-main-underlay" :style="{ opacity: underlayOpacity }"></div>
-    <div class="layout-main-overlay" :style="{ opacity: underlayOpacity }"></div>
+    <div class="layout-main-underlay" :style="styleObject">
+    </div>
+    <!-- <div class="layout-main-overlay" :style="{ opacity: scrollStore.panelTools.scrollProgress }"></div> -->
     <slot />
   </main>
 </template>
@@ -10,11 +11,13 @@
 import { onMounted, ref } from "vue";
 import { scrollStore } from '@/stores/scrollStore';
 
-const underlayOpacity = ref(0);
+const getUnderlayOpacity = () => {
+  return scrollStore.panelTools.scrollProgress;
+}
 
-onMounted(() => {
-  underlayOpacity.value = scrollStore.panelTools.scrollProgress;
-});
+const styleObject = computed(() => ({
+  opacity: getUnderlayOpacity()
+}));
 </script>
 
 <style lang="scss">

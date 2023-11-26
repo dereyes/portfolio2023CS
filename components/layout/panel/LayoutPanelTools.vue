@@ -50,19 +50,16 @@ import { scrollStore } from "@/stores/scrollStore.js";
 const scrollRef = ref({});
 
 const onScroll = ({ progress }) => {
-  console.log(progress);
-
   scrollStore.panelTools.update({
     progress: progress
   });
 }
 
 onMounted(() => {
-  console.log(scrollRef.value.$refs.panel)
   getScrollObserver({
     target: scrollRef.value.$refs.panel,
     onScroll: onScroll,
-    threshold: 0.5,
+    threshold: 0.75,
   });
 });
 </script>

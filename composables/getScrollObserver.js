@@ -18,8 +18,6 @@ export const getScrollObserver = ({
 
   const element = target;
 
-  console.log(element.offsetHeight);
-
   // const offsetTop = (element) => {
   //   let distance = 0;
   //   while (element.offsetParent) {
