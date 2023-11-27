@@ -73,6 +73,7 @@ li {
   &.subtitle {
     font-family: typography.fontFamily("monospace");
     font-size: typography.fluidTypescale("tablet", "subtitle");
+    font-weight: typography.fontWeight("medium");
     text-transform: uppercase;
     letter-spacing: .125em;
     margin: 0 0 3em;
@@ -108,6 +109,7 @@ ul {
 
     &.subtitle {
       font-size: typography.fluidTypescale("desktop", "subtitle");
+      font-weight: typography.fontWeight("regular");
     }
 
     a::after,
