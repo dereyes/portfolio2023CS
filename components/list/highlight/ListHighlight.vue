@@ -8,8 +8,8 @@
 .list-highlight {
   @include unstyle.list();
 
-  display: flex;
-  flex-flow: column nowrap;
+  display: grid;
+  grid-auto-rows: 1fr;
   gap: u(3);
 }
 </style>

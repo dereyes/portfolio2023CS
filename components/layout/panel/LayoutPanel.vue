@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" ref="panel">
     <div class="layout-panel-top">
       <slot name="top"></slot>
     </div>
@@ -11,25 +11,29 @@
 </template>
 
 <script setup>
+import { ref, defineExpose } from "vue";
+
 const props = defineProps({
   class: String,
 });
 
 const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
+
+// Allow parent to access a a reference to this panel
+const panel = ref({});
+defineExpose({
+  panel
+});
 </script>
 
 <style lang="scss">
 .layout-panel {
   display: flex;
   flex-flow: column;
-  min-height: 100vh;
-  min-height: 100dvh; // Better on mobile, falls back to vh
+  min-height: 95vh;
+  // min-height: 100dvh; // Better on mobile, falls back to vh
   padding: $layout-panel-padding-phone;
   width: 100%;
-
-  > :first-child {
-    @include borderTop;
-  }
 
   &-top,
   &-bottom {
@@ -43,7 +47,7 @@ const classList = props.class ? `layout-panel ${props.class}` : "layout-panel";
   }
 
   &-bottom {
-    justify-content: end;
+    justify-content: flex-end;
 
     > :last-child {
       margin-bottom: 0;

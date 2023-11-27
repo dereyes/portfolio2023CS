@@ -7,5 +7,5 @@
     "hilite": hsl(72, 100%, 44%),
   );
 
-  @return collection.get($palette, #{$key});
+@return collection.get($palette, #{$key});
 }

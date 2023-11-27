@@ -5,36 +5,35 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { onIntersect } from "@/composables/onIntersect";
+import { onMounted, ref } from "vue";
+import { getScrollObserver } from "@/composables/getScrollObserver";
 
-const observer = ref({});
 const scrollRef = ref({});
 
-const onEnter = () => {
-  scrollRef.value.classList.add("list-highlight-item-highlighted");
-};
-
-const onExit = () => {
-  scrollRef.value.classList.remove("list-highlight-item-highlighted");
+const onScroll = ({ progress }) => {
+  if (progress == 0) {
+    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+  }
+  if (progress > 0) {
+    scrollRef.value.classList.add("list-highlight-item-highlighted");
+  }
+  if (progress >= 1) {
+    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+  }
 };
 
 onMounted(() => {
-  observer.value = onIntersect(scrollRef.value, onEnter, onExit, false, {
-    threshold: 0.5,
-    rootMargin: "-25% 0px -25% 0px",
+  getScrollObserver({
+    target: scrollRef.value,
+    onScroll: onScroll,
+    threshold: .5,
   });
-});
-
-onUnmounted(() => {
-  observer.value.disconnect();
 });
 </script>
 
 <style lang="scss">
 .list-highlight-item {
   align-items: center;
-  @include borderTop;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;

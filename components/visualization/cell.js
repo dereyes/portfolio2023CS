@@ -1,4 +1,6 @@
 const getCell = (p5, grid, x, y) => {
+  const dotSizeRelativeToCellWidth = 0.9;
+
   const cell = {
     color: undefined,
     position: {
@@ -47,7 +49,7 @@ const getCell = (p5, grid, x, y) => {
     // );
 
     p5.stroke(color);
-    p5.strokeWeight(grid.cell.size * .6);
+    p5.strokeWeight(grid.cell.size * dotSizeRelativeToCellWidth);
 
     p5.point(
       cell.position.x + (grid.cell.size / 2),

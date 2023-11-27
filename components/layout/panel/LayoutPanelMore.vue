@@ -1,35 +1,31 @@
 <template>
   <LayoutPanel class="layout-panel-more">
-    <div class="layout-panel-more-border"></div>
     <div class="layout-panel-more-left">
       <h2 class="layout-panel-more-heading">See more</h2>
     </div>
     <div class="layout-panel-more-right">
       <ul class="layout-panel-more-list">
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
-            <a
-              href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM"
-              target="_blank"
-            >
+            <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
               "Make Something People Want"
             </a>
           </p>
-          <p>Talk on Product Design for Engineers<br/>Hacker Dojo, 2023</p>
+          <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>
         </li>
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
             <a href="https://vimeo.com/278603739" target="_blank">
               "ShadowPlay"
             </a>
           </p>
-          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
             <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
           </p>
-          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
       </ul>
     </div>
@@ -43,15 +39,6 @@
   gap: 0 $layout-panel-padding-phone;
   margin-top: $layout-panel-padding-phone;
   padding-top: 0;
-
-  > :first-child {
-    border-top: none;
-  }
-
-  &-border {
-    border-top: 1px solid color.palette("ink");
-    grid-column: 1 / -1;
-  }
 
   &-left {
     grid-column: 1 / 2;
@@ -74,14 +61,15 @@
     > :last-child {
       margin-bottom: 0;
     }
+
+    &-item {
+      @include borderTop;
+    }
   }
 
-  @include breakpoint(
-    (
-      "start": "tablet",
+  @include breakpoint(("start": "tablet",
       "end": "desktop",
-    )
-  ) {
+    )) {
     &-left {
       grid-column: 1 / 4;
     }
@@ -91,12 +79,9 @@
     }
   }
 
-  @include breakpoint(
-    (
-      "start": "desktop",
+  @include breakpoint(("start": "desktop",
       "end": null,
-    )
-  ) {
+    )) {
     &-left {
       grid-column: 1 / 3;
     }

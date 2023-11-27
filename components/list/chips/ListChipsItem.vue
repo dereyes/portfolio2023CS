@@ -28,8 +28,8 @@ const classlist = props.theme
 
   &-dark {
     background: color.palette("ink");
-//       border: 1px solid color.palette("ink");
-//   border-radius: u(5);
+    border: 1px solid color.palette("ink");
+    border-radius: u(5);
     color: color.palette("concrete");
   }
 
