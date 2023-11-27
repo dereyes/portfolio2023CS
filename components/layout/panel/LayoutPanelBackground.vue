@@ -16,5 +16,9 @@
 <style lang="scss">
 .layout-panel-background {
   justify-content: space-around;
+
+  .layout-panel-bottom {
+    @include borderTop;
+  }
 }
 </style>

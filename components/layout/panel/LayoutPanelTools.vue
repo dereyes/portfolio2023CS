@@ -72,7 +72,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .layout-panel-tools {
-  // background: rgba(0, 0, 0, 0.70);
   position: relative;
 
   h2,
@@ -83,7 +82,6 @@ onMounted(() => {
   }
 
   &-background {
-    // background: color.palette("ink");
     height: 100%;
     left: 0;
     position: absolute;
@@ -92,9 +90,9 @@ onMounted(() => {
     z-index: -2;
   }
 
-  // > :first-child {
-  //   border-top: none;
-  // }
+  .list-cards-item {
+    border-top-color: color.palette("concrete");
+  }
 
   &-list {
     li {

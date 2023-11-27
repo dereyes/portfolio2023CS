@@ -2,18 +2,9 @@
   <LayoutPanel class="layout-panel-skills">
     <ListHighlight>
       <ListHighlightItem>
-        <h2 class="layout-panel-skills-heading">Design Implementation</h2>
-        <p class="subtitle">Engineering with Design in Mind</p>
-        <ul class="layout-panel-skills-list">
-          <li>Pixel-perfect mockup implementation</li>
-          <li>Responsive, accessible websites and web apps</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
         <h2 class="layout-panel-skills-heading">UX Engineering</h2>
         <p class="subtitle">A partner in UX Design & Research</p>
         <ul class="layout-panel-skills-list">
-          <li>Rapid prototypes and tools for design, research, and development</li>
           <li>
             Bridging Engineering, Product, and
             <span class="noWrap">Design teams</span>

@@ -1,12 +1,11 @@
 <template>
   <LayoutPanel class="layout-panel-more">
-    <div class="layout-panel-more-border"></div>
     <div class="layout-panel-more-left">
       <h2 class="layout-panel-more-heading">See more</h2>
     </div>
     <div class="layout-panel-more-right">
       <ul class="layout-panel-more-list">
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
             <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
               "Make Something People Want"
@@ -14,7 +13,7 @@
           </p>
           <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>
         </li>
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
             <a href="https://vimeo.com/278603739" target="_blank">
               "ShadowPlay"
@@ -22,7 +21,7 @@
           </p>
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
-        <li>
+        <li class="layout-panel-more-list-item">
           <p>
             <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
           </p>
@@ -40,15 +39,6 @@
   gap: 0 $layout-panel-padding-phone;
   margin-top: $layout-panel-padding-phone;
   padding-top: 0;
-
-  > :first-child {
-    // border-top: none;
-  }
-
-  &-border {
-    // border-top: 1px solid color.palette("ink");
-    grid-column: 1 / -1;
-  }
 
   &-left {
     grid-column: 1 / 2;
@@ -70,6 +60,10 @@
     &,
     > :last-child {
       margin-bottom: 0;
+    }
+
+    &-item {
+      @include borderTop;
     }
   }
 

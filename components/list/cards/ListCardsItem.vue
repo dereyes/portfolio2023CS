@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-// .list-cards-item {
-//     border-top: 1px solid color.palette("concrete");
-// }
+.list-cards-item {
+  @include borderTop;
+}
 </style>

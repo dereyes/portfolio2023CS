@@ -17,7 +17,7 @@ const classlist = props.theme
 
 <style lang="scss" scoped>
 .list-chips-item {
-  // border: 1px solid color.palette("ink");
+  border: 1px solid color.palette("ink");
   border-radius: u(5);
   display: inline-grid;
   flex: 1 0;
@@ -28,8 +28,8 @@ const classlist = props.theme
 
   &-dark {
     background: color.palette("ink");
-    //       border: 1px solid color.palette("ink");
-    //   border-radius: u(5);
+    border: 1px solid color.palette("ink");
+    border-radius: u(5);
     color: color.palette("concrete");
   }
 
