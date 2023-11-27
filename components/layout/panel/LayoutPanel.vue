@@ -30,8 +30,7 @@ defineExpose({
 .layout-panel {
   display: flex;
   flex-flow: column;
-  min-height: 95vh;
-  // min-height: 100dvh; // Better on mobile, falls back to vh
+  min-height: 90vh;
   padding: $layout-panel-padding-phone;
   width: 100%;
 
