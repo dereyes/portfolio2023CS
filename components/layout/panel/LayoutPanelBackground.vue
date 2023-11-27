@@ -1,7 +1,8 @@
 <template>
   <LayoutPanel class="layout-panel-background">
     <template v-slot:top>
-      <h2>Cross-Discipline Experience</h2>
+      <h2>Background</h2>
+      <p class="subtitle">Experience across development and design</p>
     </template>
     <template v-slot:bottom>
       <p>Front-End Web Developer <span class="noWrap">since 2018</span></p>

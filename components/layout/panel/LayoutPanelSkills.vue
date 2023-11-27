@@ -3,19 +3,11 @@
     <ListHighlight>
       <ListHighlightItem>
         <h2 class="layout-panel-skills-heading">
-          Engineering with Design <span class="noWrap">in Mind</span>
+          UX Engineering
         </h2>
+        <p class="subtitle">A partner in UX Design & Research</p>
         <ul class="layout-panel-skills-list">
-          <li>Pixel-perfect design implementation</li>
-          <li>Responsive, accessible UI components</li>
-        </ul>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <h2 class="layout-panel-skills-heading">
-          A partner in UX Design <span class="noWrap">& Research</span>
-        </h2>
-        <ul class="layout-panel-skills-list">
-          <li>Rapid prototyping and interactive mockups</li>
+          <li>Developing rapid prototypes and tools for design, research, and development</li>
           <li>
             Bridging Engineering, Product, and
             <span class="noWrap">Design teams</span>
@@ -24,12 +16,23 @@
       </ListHighlightItem>
       <ListHighlightItem>
         <h2 class="layout-panel-skills-heading">
-          Bringing Design Systems <span class="noWrap">to Life</span>
+          Design Implementation
         </h2>
+        <p class="subtitle">Engineering with Design in Mind</p>
         <ul class="layout-panel-skills-list">
-          <li>Color and typography system implementation</li>
+          <li>Pixel-perfect mockup implementation</li>
+          <li>Responsive, accessible websites and web apps</li>
+        </ul>
+      </ListHighlightItem>
+      <ListHighlightItem>
+        <h2 class="layout-panel-skills-heading">
+          Design Systems
+        </h2>
+        <p class="subtitle">Bringing Design Systems to Life</p>
+        <ul class="layout-panel-skills-list">
+          <li>Color, typography, and branding system implementation</li>
           <li>
-            Building and maintaining UI
+            Building and maintaining design token-based
             <span class="noWrap">component libraries</span>
           </li>
         </ul>
@@ -64,7 +67,7 @@
     }
 
     &-list {
-      grid-column: 3 / -1;
+      grid-column: 4 / -1;
     }
   }
 
@@ -76,7 +79,7 @@
     }
 
     &-list {
-      grid-column: 5 / -1;
+      grid-column: 4 / -1;
     }
   }
 }

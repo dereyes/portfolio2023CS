@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-tools" ref="scrollRef">
     <h2>Tools</h2>
-    <p class="subtitle"><small>Focusing on the Front of the Front-End</small></p>
+    <p class="subtitle">Focusing on the Front of the Front-End</p>
     <ListCards>
       <ListCardsItem>
         <h3>Fundamentals</h3>
@@ -71,12 +71,6 @@ onMounted(() => {
 
 
 <style lang="scss" scoped>
-.subtitle {
-  font-family: typography.fontFamily("monospace");
-  text-transform: uppercase;
-  letter-spacing: .125em;
-}
-
 .layout-panel-tools {
   // background: rgba(0, 0, 0, 0.70);
   position: relative;

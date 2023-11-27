@@ -47,13 +47,11 @@ li {
   margin: 0 0 2em;
 
   a {
-    background: linear-gradient(
-      to top,
-      color.palette("ink") 0.1em,
-      color.palette("hilite") 0.1em,
-      color.palette("hilite") 0.25em,
-      transparent 0.25em
-    );
+    background: linear-gradient(to top,
+        color.palette("ink") 0.1em,
+        color.palette("hilite") 0.1em,
+        color.palette("hilite") 0.25em,
+        transparent 0.25em);
     color: color.palette("ink");
     font-weight: typography.fontWeight("bold");
     text-decoration: none;
@@ -71,6 +69,14 @@ li {
   strong {
     font-weight: typography.fontWeight("bold");
   }
+
+  &.subtitle {
+    font-family: typography.fontFamily("monospace");
+    font-size: typography.fluidTypescale("tablet", "subtitle");
+    text-transform: uppercase;
+    letter-spacing: .125em;
+    margin: 0 0 3em;
+  }
 }
 
 ul {
@@ -81,25 +87,31 @@ ul {
   margin: 0 0 u(3);
 }
 
-@include breakpoint(
-  (
-    "start": "laptop",
+@include breakpoint(("start": "laptop",
     "end": null,
-  )
-) {
+  )) {
   h1 {
     font-size: typography.fluidTypescale("desktop", "h1");
   }
+
   h2 {
     font-size: typography.fluidTypescale("desktop", "h2");
   }
+
   h3 {
     font-size: typography.fluidTypescale("desktop", "p");
   }
-  p, li {
+
+  p,
+  li {
     font-size: typography.fluidTypescale("desktop", "p");
 
-    a::after, small {
+    &.subtitle {
+      font-size: typography.fluidTypescale("desktop", "subtitle");
+    }
+
+    a::after,
+    small {
       font-size: typography.fluidTypescale("desktop", "small");
     }
   }
