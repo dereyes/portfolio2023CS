@@ -27,7 +27,7 @@
   justify-content: space-around;
 
   &-footer {
-    align-items: end;
+    align-items: flex-end;
     display: flex;
     flex-flow: row;
     gap: typography.fluidTypescale("tablet", "h2");

@@ -51,7 +51,7 @@ defineExpose({
   }
 
   &-bottom {
-    justify-content: end;
+    justify-content: flex-end;
 
     > :last-child {
       margin-bottom: 0;
