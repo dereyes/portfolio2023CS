@@ -49,10 +49,11 @@ import { scrollStore } from "@/stores/scrollStore.js";
 
 const scrollRef = ref({});
 
-const onScroll = ({ progress, approachProgress }) => {
+const onScroll = ({ progress, approachProgress, departureProgress }) => {
   scrollStore.panelTools.update({
     progress: progress,
-    approachProgress: approachProgress
+    approachProgress: approachProgress,
+    departureProgress: departureProgress
   });
 }
 
@@ -60,8 +61,9 @@ onMounted(() => {
   getScrollObserver({
     target: scrollRef.value.$refs.panel,
     approachHeight: 200,
+    departureHeight: 200,
     onScroll: onScroll,
-    threshold: 1
+    threshold: 0.5,
   });
 });
 </script>

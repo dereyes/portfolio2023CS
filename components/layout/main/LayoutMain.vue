@@ -8,13 +8,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
 import { scrollStore } from '@/stores/scrollStore';
 
 const getUnderlayOpacity = () => {
-  console.log(scrollStore.panelTools.approachProgress)
+  const invertedDepartureApproach = 1 - scrollStore.panelTools.departureProgress;
+  const approachOrDepartureApproach = Math.min(
+    invertedDepartureApproach, scrollStore.panelTools.approachProgress
+  );
 
-  return scrollStore.panelTools.approachProgress;
+  return approachOrDepartureApproach;
 }
 
 const styleObject = computed(() => ({

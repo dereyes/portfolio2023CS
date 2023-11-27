@@ -5,6 +5,7 @@
 export const getScrollObserver = ({
   target,
   approachHeight = 0,
+  departureHeight = 0,
   onScroll = () => { },
   threshold = 0
 }) => {
@@ -34,6 +35,29 @@ export const getScrollObserver = ({
     );
   }
 
+  const getDepartureProgress = () => {
+    // When scrollY reaches top of departure, it should start increasing from 0 to 1, and is 1 when we hit the bottom of the departure zone
+    // scrollY is usually 0, at top of screen, but we offset it so it's further down the screen, up to 1
+    const thresholdOffset = window.innerHeight * threshold;
+    const thresholdActual = window.scrollY + thresholdOffset;
+    const departureTop = element.offsetTop + element.offsetHeight;
+    const distanceFromThresholdToDeparture = thresholdActual - departureTop;
+    const distanceThroughDeparture = distanceFromThresholdToDeparture / departureHeight;
+
+    // console.log(departureTop);
+
+    // const distanceFromThresholdToDeparture = thresholdActual - element.offsetTop;
+    // const progressThroughDeparture = distanceFromThresholdToDeparture / approachHeight;
+
+    // if (target.classList.contains('layout-panel-tools')) {
+    //   console.log('distanceThroughDeparture', normalize(distanceThroughDeparture));
+    // }
+
+    return normalize(
+      distanceThroughDeparture
+    );
+  }
+
   const element = target;
 
   // const offsetTop = (element) => {
@@ -49,7 +73,8 @@ export const getScrollObserver = ({
     onScroll({
       event: event,
       approachProgress: getApproachProgress(),
-      progress: getProgress()
+      progress: getProgress(),
+      departureProgress: getDepartureProgress()
     });
   })
 };
