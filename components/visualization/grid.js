@@ -3,7 +3,7 @@ import getNoise from "./noise";
 import getGradient from "./gradient";
 
 const getGrid = (p5, window) => {
-  const gridSizeRelativeToCanvasWidth = 0.95;
+  const gridSizeRelativeToCanvasWidth = 0.9;
 
   const grid = {
     // Properties to initialize grid

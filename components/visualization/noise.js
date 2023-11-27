@@ -20,7 +20,7 @@ const getNoise = (p5, window) => {
     speed: {
       x: 0.000001,
       y: 0,
-      z: 0.000002,
+      z: 0.000001,
     },
     shift: {
       x: 75,

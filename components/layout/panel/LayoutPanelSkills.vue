@@ -10,8 +10,8 @@
             <span class="noWrap">Design teams</span>
           </li>
           <li>
-            Developing rapid prototypes and tools for design, research, and
-            development
+            Rapid prototypes and tools for design, research, <span class="noWrap">and
+              development</span>
           </li>
         </ul>
       </ListHighlightItem>
@@ -76,7 +76,7 @@
       "end": null,
     )) {
     &-heading {
-      grid-column: 1 / 6;
+      grid-column: 1 / 7;
     }
 
     &-list {

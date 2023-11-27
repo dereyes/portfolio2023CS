@@ -35,10 +35,6 @@ defineExpose({
   padding: $layout-panel-padding-phone;
   width: 100%;
 
-  > :first-child {
-    // @include borderTop;
-  }
-
   &-top,
   &-bottom {
     display: flex;
