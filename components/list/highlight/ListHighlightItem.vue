@@ -34,7 +34,7 @@ onMounted(() => {
 <style lang="scss">
 .list-highlight-item {
   align-items: center;
-  @include borderTop;
+  // @include borderTop;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: min-content;

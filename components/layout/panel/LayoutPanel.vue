@@ -36,7 +36,7 @@ defineExpose({
   width: 100%;
 
   > :first-child {
-    @include borderTop;
+    // @include borderTop;
   }
 
   &-top,

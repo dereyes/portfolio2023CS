@@ -92,9 +92,9 @@ onMounted(() => {
     z-index: -2;
   }
 
-  > :first-child {
-    border-top: none;
-  }
+  // > :first-child {
+  //   border-top: none;
+  // }
 
   &-list {
     li {

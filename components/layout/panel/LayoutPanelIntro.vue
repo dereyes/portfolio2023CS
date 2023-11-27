@@ -27,6 +27,8 @@
   justify-content: space-around;
 
   &-footer {
+    @include borderTop;
+
     align-items: flex-end;
     display: flex;
     flex-flow: row;

@@ -8,14 +8,11 @@
       <ul class="layout-panel-more-list">
         <li>
           <p>
-            <a
-              href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM"
-              target="_blank"
-            >
+            <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
               "Make Something People Want"
             </a>
           </p>
-          <p>Talk on Product Design for Engineers<br/>Hacker Dojo, 2023</p>
+          <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>
         </li>
         <li>
           <p>
@@ -23,13 +20,13 @@
               "ShadowPlay"
             </a>
           </p>
-          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
         <li>
           <p>
             <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
           </p>
-          <p>Interactive art installation<br/>Crocker Art Museum, 2016</p>
+          <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
       </ul>
     </div>
@@ -45,11 +42,11 @@
   padding-top: 0;
 
   > :first-child {
-    border-top: none;
+    // border-top: none;
   }
 
   &-border {
-    border-top: 1px solid color.palette("ink");
+    // border-top: 1px solid color.palette("ink");
     grid-column: 1 / -1;
   }
 
@@ -76,12 +73,9 @@
     }
   }
 
-  @include breakpoint(
-    (
-      "start": "tablet",
+  @include breakpoint(("start": "tablet",
       "end": "desktop",
-    )
-  ) {
+    )) {
     &-left {
       grid-column: 1 / 4;
     }
@@ -91,12 +85,9 @@
     }
   }
 
-  @include breakpoint(
-    (
-      "start": "desktop",
+  @include breakpoint(("start": "desktop",
       "end": null,
-    )
-  ) {
+    )) {
     &-left {
       grid-column: 1 / 3;
     }
