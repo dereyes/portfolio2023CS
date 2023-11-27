@@ -11,6 +11,9 @@ import { getScrollObserver } from "@/composables/getScrollObserver";
 const scrollRef = ref({});
 
 const onScroll = ({ progress }) => {
+  if (progress == 0) {
+    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+  }
   if (progress > 0) {
     scrollRef.value.classList.add("list-highlight-item-highlighted");
   }
@@ -23,7 +26,7 @@ onMounted(() => {
   getScrollObserver({
     target: scrollRef.value,
     onScroll: onScroll,
-    threshold: 0.5,
+    threshold: .5,
   });
 });
 </script>

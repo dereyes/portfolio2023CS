@@ -44,12 +44,9 @@
     border-top: none;
   }
 
-  @include breakpoint(
-    (
-      "start": "tablet",
+  @include breakpoint(("start": "tablet",
       "end": "laptop",
-    )
-  ) {
+    )) {
     &-heading {
       grid-column: 1 / -2;
     }
@@ -59,14 +56,11 @@
     }
   }
 
-  @include breakpoint(
-    (
-      "start": "laptop",
+  @include breakpoint(("start": "laptop",
       "end": "desktop",
-    )
-  ) {
+    )) {
     &-heading {
-      grid-column: 1 / 5;
+      grid-column: 1 / 7;
     }
 
     &-list {
@@ -74,12 +68,9 @@
     }
   }
 
-  @include breakpoint(
-    (
-      "start": "desktop",
+  @include breakpoint(("start": "desktop",
       "end": null,
-    )
-  ) {
+    )) {
     &-heading {
       grid-column: 1 / 6;
     }
