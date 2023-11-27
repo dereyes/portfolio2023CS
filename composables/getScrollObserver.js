@@ -13,6 +13,7 @@ export const getScrollObserver = ({
     return Math.min(1, Math.max(0, value));
   }
 
+  // How far has the threshold progressed through the element?
   const getProgress = () => {
     const thresholdOffset = window.innerHeight * threshold;
     const thresholdActual = window.scrollY + thresholdOffset;
@@ -24,10 +25,14 @@ export const getScrollObserver = ({
     );
   }
 
+  // How far as the threshold progress through a certain number of pixels before the element?
   const getApproachProgress = () => {
+    // When scrollY reaches top of approach, it should start increasing from 0 to 1, and is 1 when we hit the bottom of the approach zone
+    // scrollY is usually 0, at top of screen, but we offset it so it's further down the screen, up to 1
     const thresholdOffset = window.innerHeight * threshold;
     const thresholdActual = window.scrollY + thresholdOffset;
-    const distanceFromThresholdToApproach = thresholdActual - element.offsetTop - approachHeight;
+    const arrivalTop = element.offsetTop - approachHeight;
+    const distanceFromThresholdToApproach = thresholdActual - arrivalTop;
     const progressThroughApproach = distanceFromThresholdToApproach / approachHeight;
 
     return normalize(
@@ -35,6 +40,7 @@ export const getScrollObserver = ({
     );
   }
 
+  // How far as the threshold progress through a certain number of pixels after the element?
   const getDepartureProgress = () => {
     // When scrollY reaches top of departure, it should start increasing from 0 to 1, and is 1 when we hit the bottom of the departure zone
     // scrollY is usually 0, at top of screen, but we offset it so it's further down the screen, up to 1
@@ -44,18 +50,14 @@ export const getScrollObserver = ({
     const distanceFromThresholdToDeparture = thresholdActual - departureTop;
     const distanceThroughDeparture = distanceFromThresholdToDeparture / departureHeight;
 
-    // console.log(departureTop);
-
-    // const distanceFromThresholdToDeparture = thresholdActual - element.offsetTop;
-    // const progressThroughDeparture = distanceFromThresholdToDeparture / approachHeight;
-
-    // if (target.classList.contains('layout-panel-tools')) {
-    //   console.log('distanceThroughDeparture', normalize(distanceThroughDeparture));
-    // }
-
     return normalize(
       distanceThroughDeparture
     );
+  }
+
+  // How far as the element progressed through the window? 0 = has not entered the window, 1 = has fully exited the window
+  const getWindowProgress = () => {
+
   }
 
   const element = target;
