@@ -1,7 +1,7 @@
 <template>
   <LayoutPanel class="layout-panel-tools" ref="scrollRef">
     <h2>Tools</h2>
-    <p class="subtitle">Focusing on the Front of the Front-End</p>
+    <p class="subtitle">Focused on the Front of the Front-End</p>
     <ListCards>
       <ListCardsItem>
         <h3>Fundamentals</h3>
