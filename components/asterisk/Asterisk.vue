@@ -14,8 +14,8 @@
 <script setup>
 import { onMounted } from "vue";
 
-const setRotation = (rotationPosition, timeStamp) => {
-  rotationPosition.value = (timeStamp * .00125) % 360;
+const setRotation = (rotationPosition, timeStamp, scrollY) => {
+  rotationPosition.value = (scrollY * .01) + (timeStamp * .00125) % 360;
 }
 
 const rotationPosition = ref(0);
@@ -26,7 +26,7 @@ const styleObject = computed(() => ({
 
 onMounted(() => {
   const animate = (timeStamp) => {
-    setRotation(rotationPosition, timeStamp);
+    setRotation(rotationPosition, timeStamp, window.scrollY);
     requestAnimationFrame((t) => animate(t));
   }
 
