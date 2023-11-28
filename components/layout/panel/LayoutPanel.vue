@@ -45,10 +45,6 @@ defineExpose({
     // flex: 1 0;
   }
 
-  &-top {
-    align-items: start;
-  }
-
   &-bottom {
     justify-content: flex-end;
 

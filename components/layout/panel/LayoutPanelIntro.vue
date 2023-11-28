@@ -1,5 +1,5 @@
 <template>
-  <LayoutPanel class="layout-panel-intro layout-panel-fullWidth">
+  <LayoutPanel class="layout-panel-intro">
     <template v-slot:top>
       <h1 class="layout-panel-intro-heading">
         Darin E. Reyes, Front-End Web Developer
@@ -24,7 +24,7 @@
 
 <style lang="scss" scoped>
 .layout-panel-intro {
-  justify-content: space-between;
+  justify-content: space-around;
 
   &-footer {
     @include borderTop;
