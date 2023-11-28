@@ -43,7 +43,7 @@ onMounted(() => {
   z-index: -2;
 
   &-character {
-    $asterisk-character-size: 300px;
+    $asterisk-character-size: clamp(180px, 50vw, 360px);
 
     display: block;
     height: $asterisk-character-size;
