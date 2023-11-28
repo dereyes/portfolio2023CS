@@ -30,9 +30,13 @@ defineExpose({
 .layout-panel {
   display: flex;
   flex-flow: column;
-  min-height: 90vh;
+  min-height: 100vh;
   padding: $layout-panel-padding-phone;
   width: 100%;
+
+  &:not(.layout-panel-fullWidth) {
+    max-width: getBreakpoint("max");
+  }
 
   &-top,
   &-bottom {
@@ -42,7 +46,7 @@ defineExpose({
   }
 
   &-top {
-    align-items: top;
+    align-items: start;
   }
 
   &-bottom {
