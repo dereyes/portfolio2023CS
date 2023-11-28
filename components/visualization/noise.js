@@ -1,7 +1,7 @@
 import getScrolling from "./scrolling";
 
 const getNoise = (p5, window) => {
-  const scrollSpeedMultiplier = 55;
+  const scrollSpeedMultiplier = 60;
 
   const noise = {
     initialize: undefined,
@@ -13,14 +13,14 @@ const getNoise = (p5, window) => {
     },
     scale: {
       // Larger: more variation. Smaller: smoother
-      x: 0.0007,
-      y: 0.0028,
+      x: 0.015,
+      y: 0.015,
       z: 10000,
     },
     speed: {
-      x: 0.000001,
+      x: 0.0000007,
       y: 0,
-      z: 0.000001,
+      z: 0.0000007,
     },
     shift: {
       x: 75,

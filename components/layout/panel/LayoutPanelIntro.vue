@@ -24,7 +24,7 @@
 
 <style lang="scss" scoped>
 .layout-panel-intro {
-  justify-content: flex-end;
+  justify-content: space-around;
 
   &-footer {
     @include borderTop;
@@ -42,10 +42,6 @@
 
   &-heading {
     max-width: 20ch;
-  }
-
-  @include breakpoint(("start": "laptop", "end": null)) {
-    justify-content: space-around;
   }
 }
 </style>

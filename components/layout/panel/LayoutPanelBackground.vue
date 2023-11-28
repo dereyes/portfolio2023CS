@@ -15,6 +15,7 @@
 
 <style lang="scss">
 .layout-panel-background {
+  background: color.palette("concrete-alpha");
   justify-content: space-around;
 
   .layout-panel-bottom {

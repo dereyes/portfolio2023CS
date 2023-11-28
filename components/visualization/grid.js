@@ -3,12 +3,12 @@ import getNoise from "./noise";
 import getGradient from "./gradient";
 
 const getGrid = (p5, window) => {
-  const gridSizeRelativeToCanvasWidth = 0.9;
+  const gridSizeRelativeToCanvasWidth = 1;
 
   const grid = {
     // Properties to initialize grid
     settings: {
-      columns: 60,
+      columns: 12,
       rows: undefined,
     },
     // Properties and methods of a prototypical cell

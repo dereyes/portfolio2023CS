@@ -16,6 +16,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .canvas {
+  clip-path: circle(50%);
   height: 300px;
   pointer-events: none;
   width: 300px;

@@ -44,6 +44,8 @@
 
 <style lang="scss" scoped>
 .layout-panel-skills {
+  background: color.palette("concrete-alpha");
+
   &-list {
     @include borderTop;
   }
