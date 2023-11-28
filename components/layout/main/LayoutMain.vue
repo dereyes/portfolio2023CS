@@ -50,11 +50,5 @@ const styleObject = computed(() => ({
   &-overlay {
     background: rgba(0, 0, 0, 0.7);
   }
-
-  @include breakpoint(("start": "tablet",
-      "end": null,
-    )) {
-    max-width: getBreakpoint("max");
-  }
 }
 </style>

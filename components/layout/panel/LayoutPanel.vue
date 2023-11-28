@@ -30,20 +30,19 @@ defineExpose({
 .layout-panel {
   display: flex;
   flex-flow: column;
-  min-height: 95vh;
-  // min-height: 100dvh; // Better on mobile, falls back to vh
+  min-height: 100vh;
   padding: $layout-panel-padding-phone;
   width: 100%;
+
+  &:not(.layout-panel-fullWidth) {
+    max-width: getBreakpoint("max");
+  }
 
   &-top,
   &-bottom {
     display: flex;
     flex-flow: column;
     // flex: 1 0;
-  }
-
-  &-top {
-    align-items: top;
   }
 
   &-bottom {
