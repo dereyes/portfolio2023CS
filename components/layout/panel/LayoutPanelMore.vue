@@ -6,6 +6,7 @@
     <div class="layout-panel-more-right">
       <ul class="layout-panel-more-list">
         <li class="layout-panel-more-list-item">
+          <img class="layout-panel-more-image" src="see-more-hacker-dojo.jpg" width="300" height="150">
           <p>
             <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
               "Make Something People Want"
@@ -14,6 +15,7 @@
           <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>
         </li>
         <li class="layout-panel-more-list-item">
+          <img class="layout-panel-more-image" src="see-more-shadowplay.jpg" width="300" height="150">
           <p>
             <a href="https://vimeo.com/278603739" target="_blank">
               "ShadowPlay"
@@ -22,6 +24,7 @@
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
         <li class="layout-panel-more-list-item">
+          <img class="layout-panel-more-image" src="see-more-gato.jpg" width="300" height="150">
           <p>
             <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
           </p>
