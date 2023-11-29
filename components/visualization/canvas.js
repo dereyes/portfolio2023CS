@@ -1,11 +1,7 @@
-const getCanvas = (p5, document, canvasId) => {
-  const canvas = {
-    element: undefined,
+const getCanvas = (document, canvasId) => {
+  return canvas = {
+    element: document.getElementById(canvasId),
   };
-
-  canvas.element = document.getElementById(canvasId);
-
-  return canvas;
 };
 
 export default getCanvas;
