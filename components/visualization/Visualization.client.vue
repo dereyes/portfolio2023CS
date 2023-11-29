@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas" class="canvas"></div>
+  <div></div>
 </template>
 
 <script setup>
@@ -14,10 +14,13 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
-.canvas {
-  height: 300px;
-  pointer-events: none;
-  width: 300px;
+<style lang="scss">
+canvas {
+  clip-path: circle(50%);
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  z-index: -2;
 }
 </style>

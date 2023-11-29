@@ -10,6 +10,7 @@ $layout-panel-padding-desktop: u(1);
 
 @function getBreakpoint($size) {
   $breakpoints: (
+    "min": 0px,
     "phone": 320px,
     "tablet": 425px,
     "laptop": 720px,

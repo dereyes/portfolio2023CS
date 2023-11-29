@@ -41,20 +41,20 @@ const getCell = (p5, grid, x, y) => {
 
   cell.render = ({ color }) => {
 
-    // p5.fill(color);
-    // p5.noStroke();
-    // p5.rect(
-    //   cell.position.x, cell.position.y,
-    //   grid.cell.size
-    // );
-
-    p5.stroke(color);
-    p5.strokeWeight(grid.cell.size * dotSizeRelativeToCellWidth);
-
-    p5.point(
-      cell.position.x + (grid.cell.size / 2),
-      cell.position.y + (grid.cell.size / 2),
+    p5.fill(color);
+    p5.noStroke();
+    p5.rect(
+      cell.position.x, cell.position.y,
+      grid.cell.size
     );
+
+    // p5.stroke(color);
+    // p5.strokeWeight(grid.cell.size * dotSizeRelativeToCellWidth);
+
+    // p5.point(
+    //   cell.position.x + (grid.cell.size / 2),
+    //   cell.position.y + (grid.cell.size / 2),
+    // );
   };
 
   return cell;

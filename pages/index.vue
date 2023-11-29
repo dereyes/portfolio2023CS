@@ -1,9 +1,10 @@
 <template>
   <LayoutMain>
+    <!-- <Asterisk /> -->
     <LayoutPanelViz />
     <LayoutPanelIntro />
     <LayoutPanelSkills />
-        <LayoutPanelTools/>
+    <LayoutPanelTools />
     <LayoutPanelBackground />
     <LayoutPanelMore />
     <LayoutPanelFooter />
