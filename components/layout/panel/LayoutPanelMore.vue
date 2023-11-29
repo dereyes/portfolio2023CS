@@ -34,7 +34,6 @@
 
 <style lang="scss" scoped>
 .layout-panel-more {
-  background: color.palette("concrete-alpha");
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 0 $layout-panel-padding-phone;

@@ -3,7 +3,6 @@
 @function palette($key) {
   $palette: (
     "concrete": hsl(0, 0%, 75%),
-    "concrete-alpha": hsl(0, 0%, 75%, .5),
     "ink": hsl(0, 0%, 10%),
     "hilite": hsl(72, 100%, 45%),
   );
