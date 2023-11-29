@@ -71,6 +71,14 @@
     }
   }
 
+  &-image {
+    aspect-ratio: 2 / 1;
+    height: auto;
+    margin: u(1) 0;
+    max-width: 500px;
+    width: 100%;
+  }
+
   @include breakpoint(("start": "tablet",
       "end": "desktop",
     )) {
