@@ -24,7 +24,7 @@
           <h2>
             Front-End Web Development
           </h2>
-          <p class="subtitle">Engineering with Design in Mind</p>
+          <p class="subtitle">Engineering with Design <span class="noWrap">in Mind</span></p>
         </template>
         <template v-slot:bottom>
           <ul class="layout-panel-skills-list">
@@ -41,7 +41,7 @@
           <h2>
             Design Implementation
           </h2>
-          <p class="subtitle">Bringing Design Systems to Life</p>
+          <p class="subtitle">Bringing Design Systems <span class="noWrap">to Life</span></p>
         </template>
         <template v-slot:bottom>
           <ul class="layout-panel-skills-list">
