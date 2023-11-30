@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' }
       ],
+      title: 'Darin E. Reyes, UX Engineer',
     },
   },
   css: ["~/assets/styles/global/_index.scss"],
