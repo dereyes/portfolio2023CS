@@ -6,8 +6,7 @@ import { World } from "./world";
 
 const main = (container) => {
   const world = new World(container);
-
-  console.log('test');
+  world.start();
 }
 
 export default main;
