@@ -1,9 +1,13 @@
 import {
   PlaneGeometry,
   MeshStandardMaterial,
+  ShaderMaterial,
   Mesh,
   TextureLoader,
 } from "three";
+
+import fragmentShader from "./-shader.fragment.glsl";
+import vertexShader from "./shader.fragment.glsl";
 
 export default function getMesh(color) {
   const loader = new TextureLoader();
@@ -11,9 +15,15 @@ export default function getMesh(color) {
 
   const geometry = new PlaneGeometry(3, 3, 64, 64);
 
-  const material = new MeshStandardMaterial({
-    color: "green",
-    wireframe: true
+  // const material = new MeshStandardMaterial({
+  //   color: "green",
+  //   wireframe: true
+  // });
+
+  var material = new ShaderMaterial({
+    // uniforms: uniforms,
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader
   });
 
   const plane = new Mesh(geometry, material);

@@ -27,6 +27,16 @@ export default defineNuxtConfig({
       title: 'Darin E. Reyes, UX Engineer',
     },
   },
+  build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.glsl$/,
+        loader: 'raw-loader',
+        exclude: /(node_modules)/
+      });
+    }
+  },
   css: ["~/assets/styles/global/_index.scss"],
   modules: ["@nuxt/content", "@pinia/nuxt", "@vueuse/nuxt"],
   vite: {
