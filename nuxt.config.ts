@@ -19,6 +19,14 @@ export default defineNuxtConfig({
     "micromark/lib/preprocess.js": "micromark",
     "micromark/lib/postprocess.js": "micromark",
   },
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ],
+      title: 'Darin E. Reyes, UX Engineer',
+    },
+  },
   css: ["~/assets/styles/global/_index.scss"],
   modules: ["@nuxt/content", "@pinia/nuxt", "@vueuse/nuxt"],
   vite: {

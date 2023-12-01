@@ -16,15 +16,13 @@
       </ul>
     </template>
     <template v-slot:bottom>
-      <p>
-        <small> © {{ footerYear }} Darin E. Reyes </small>
+      <p class="subtitle">
+        © {{ footerYear }} Darin E. Reyes
       </p>
-      <p class="layout-panel-footer-bottom">
-        <small>
-          Designed and built by Darin E. Reyes using
-          <span class="noWrap">Vue,</span> Nuxt,
-          <span class="noWrap">and p5.js</span>
-        </small>
+      <p class="layout-panel-footer-bottom subtitle">
+        Designed and built by Darin E. Reyes using
+        <span class="noWrap">Vue,</span> Nuxt,
+        <span class="noWrap">and p5.js</span>
       </p>
     </template>
   </LayoutPanel>
