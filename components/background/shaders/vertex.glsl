@@ -82,8 +82,12 @@ float snoise(vec3 v) {
 void main() {
   vColor = vec3(0.68);
 
-  float noise = snoise(vec3(uv, uTime * 0.1));
-  vec3 pos = vec3(position.x, position.y, position.z + noise * 1.5);
+  // Larger = more variation. Smaller = smoother.
+  vec2 noiseCoord = uv * vec2(7., 1.);
+
+  float noise = snoise(vec3(noiseCoord.x, noiseCoord.y + uTime * .3, uTime * 0.1));
+
+  vec3 pos = vec3(position.x, position.y, position.z + noise * 10.0);
 
   vUv = uv;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
