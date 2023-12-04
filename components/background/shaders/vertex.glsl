@@ -1,6 +1,7 @@
 uniform vec2 uAmplitude;
 uniform vec2 uFrequency;
 uniform float uTime;
+uniform vec3 uColor[3];
 
 varying vec2 vUv;
 varying vec3 vColor;
