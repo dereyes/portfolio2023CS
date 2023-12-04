@@ -1,9 +1,9 @@
 
 <template>
   <TresCanvas window-size clear-color="blue">
-    <TresPerspectiveCamera />
+    <TresPerspectiveCamera :position="[11, 11, 11]" />
     <OrbitControls />
-    <TresMesh ref="blobRef" :position="[11, 11, 11]">
+    <TresMesh ref="blobRef" :position="[0, 4, 0]">
       <TresSphereGeometry />
       <!-- <TresMeshNormalMaterial /> -->
       <TresShaderMaterial ref="materialRef" :vertex-shader="vertexShader" :fragment-shader="fragmentShader"
@@ -31,11 +31,11 @@ const uniforms = {
   uFrequency: { value: new Vector2(20, 5) },
 }
 
-// const { onLoop, resume } = useRenderLoop();
-// resume();
-// onLoop(({ _delta, elapsed }) => {
-//   if (blobRef.value) {
-//     blobRef.value.material.uniforms.uTime.value = elapsed
-//   }
-// });
+const { onLoop, resume } = useRenderLoop();
+resume();
+onLoop(({ _delta, elapsed }) => {
+  if (blobRef.value) {
+    blobRef.value.material.uniforms.uTime.value = elapsed
+  }
+});
 </script>
