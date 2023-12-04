@@ -1,7 +1,8 @@
 <template>
   <LayoutMain>
     <!-- <Asterisk /> -->
-    <LayoutPanelViz />
+    <Background />
+    <!-- <LayoutPanelViz /> -->
     <LayoutPanelIntro />
     <LayoutPanelSkills />
     <LayoutPanelTools />
