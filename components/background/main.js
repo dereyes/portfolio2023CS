@@ -4,17 +4,19 @@ const runVisualization = (p5, window, vertexShader, fragmentShader) => {
 
     p5.setup = () => {
       p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
-      p5.background(0);
+      p5.pixelDensity(1);
+      p5.noStroke();
+      // p5.background(0);
 
       shader = p5.createShader(vertexShader, fragmentShader);
       p5.shader(shader);
 
-      shader.setUniform('p', [-0.74364388703, 0.13182590421]);
-      p5.describe('zooming Mandelbrot set. a colorful, infinitely detailed fractal.');
+      shader.setUniform('u_resolution', [p5.windowWidth, p5.windowHeight]);
+      // p5.describe('zooming Mandelbrot set. a colorful, infinitely detailed fractal.');
     }
 
     p5.draw = () => {
-      shader.setUniform('r', 1.5 * p5.exp(-6.5 * (1 + p5.sin(p5.millis() / 2000))));
+      shader.setUniform('u_time', p5.millis() * .0001);
       p5.plane(p5.width, p5.height);
     }
   }
