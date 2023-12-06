@@ -27,7 +27,18 @@ const classObject = reactive({
   display: flex;
   flex: 1 0 50%;
   flex-flow: column;
-  padding: u(1);
+
+  @include breakpoint(("start": null,
+      "end": "tablet",
+    )) {
+    padding: $layout-panel-padding-tablet;
+  }
+
+  @include breakpoint(("start": "tablet",
+      "end": null,
+    )) {
+    padding: $layout-panel-padding-desktop;
+  }
 }
 
 .panel-transparent {
