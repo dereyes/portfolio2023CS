@@ -4,6 +4,8 @@
     <!-- <LayoutPanelViz /> -->
     <PanelIntro />
     <PanelSkills />
+    <PanelTools />
+
     <LayoutPanelIntro />
     <LayoutPanelSkills />
     <LayoutPanelTools />

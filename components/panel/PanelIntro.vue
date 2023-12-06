@@ -10,7 +10,7 @@
         <span class="noWrap">Mountain View,</span> California
       </p>
     </Panel>
-    <Panel transparent />
+    <Panel autoHeight transparent />
   </Panel>
 </template>
 

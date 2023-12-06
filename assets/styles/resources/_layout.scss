@@ -6,7 +6,7 @@
 
 $layout-panel-padding-phone: u(1);
 $layout-panel-padding-tablet: u(1);
-$layout-panel-padding-desktop: u(1);
+$layout-panel-padding-desktop: u(1.25);
 
 @function getBreakpoint($size) {
   $breakpoints: (

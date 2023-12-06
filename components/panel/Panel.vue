@@ -28,9 +28,14 @@ const classObject = reactive({
 <style lang="scss">
 .panel {
   align-content: start;
-  border: 1px solid red;
+  // border: 1px solid red;
   display: grid;
+  min-height: 0px;
   width: 100%;
+
+  &.panel-autoHeight {
+    min-height: 0px;
+  }
 
   &:not(.panel-autoHeight) {
     min-height: 100vh;
@@ -41,8 +46,6 @@ const classObject = reactive({
   }
 
   >.panel {
-    min-height: 0px;
-
     &:not(.panel-transparent) {
       background: color.palette("concrete");
     }
