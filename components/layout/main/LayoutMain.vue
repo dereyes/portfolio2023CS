@@ -29,7 +29,6 @@ const styleObject = computed(() => ({
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
-  gap: 25vh;
   margin: 0 auto;
   width: 100%;
 

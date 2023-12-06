@@ -3,6 +3,7 @@
     <!-- <Asterisk /> -->
     <!-- <LayoutPanelViz /> -->
     <PanelIntro />
+    <PanelSkills />
     <LayoutPanelIntro />
     <LayoutPanelSkills />
     <LayoutPanelTools />

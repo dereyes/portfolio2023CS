@@ -1,6 +1,6 @@
 <template>
-  <Panel column>
-    <PanelSlot class="panel-slot-intro-top">
+  <Panel>
+    <Panel autoHeight class="panel-intro-top">
       <h1>
         Darin E. Reyes, <span class="noWrap">UX Engineer</span>
       </h1>
@@ -9,20 +9,14 @@
         Based in
         <span class="noWrap">Mountain View,</span> California
       </p>
-    </PanelSlot>
-    <PanelSlot transparent />
-    <!-- <template v-slot:start>
-      Test
-    </template>
-    <template v-slot:end>
-      Test
-    </template> -->
+    </Panel>
+    <Panel transparent />
   </Panel>
 </template>
 
 <style lang="scss" scoped>
-.panel-slot-intro-top {
-  justify-content: flex-end;
+.panel-intro-top {
+  align-content: end;
 
   > :last-child {
     margin: 0;
