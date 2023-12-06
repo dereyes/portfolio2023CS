@@ -5,10 +5,12 @@
     <PanelIntro />
     <PanelSkills />
     <PanelTools />
+    <PanelBackground />
+    <PanelMore />
 
-    <LayoutPanelIntro />
-    <LayoutPanelSkills />
-    <LayoutPanelTools />
+    <!-- <LayoutPanelIntro /> -->
+    <!-- <LayoutPanelSkills /> -->
+    <!-- <LayoutPanelTools /> -->
     <LayoutPanelBackground />
     <LayoutPanelMore />
     <LayoutPanelFooter />
