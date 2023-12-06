@@ -41,8 +41,8 @@ const classObject = reactive({
     min-height: 100vh;
   }
 
-  .panel-gaps {
-    gap: u(5);
+  &.panel-gaps {
+    gap: u(5) $layout-panel-padding-desktop;
   }
 
   >.panel {
