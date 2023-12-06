@@ -28,6 +28,7 @@ defineExpose({
 
 <style lang="scss">
 .layout-panel {
+  background: color.palette("concrete");
   display: flex;
   flex-flow: column;
   min-height: 100vh;
