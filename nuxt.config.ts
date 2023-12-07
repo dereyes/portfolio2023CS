@@ -27,6 +27,9 @@ export default defineNuxtConfig({
       title: 'Darin E. Reyes, UX Engineer',
     },
   },
+  content: {
+    documentDriven: true,
+  },
   css: ["~/assets/styles/global/_index.scss"],
   modules: ["@nuxt/content", "@pinia/nuxt", "@vueuse/nuxt"],
   vite: {
