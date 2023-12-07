@@ -3,6 +3,7 @@
     <!-- <Asterisk /> -->
     <!-- <LayoutPanelViz /> -->
     <PanelIntro />
+    <PanelLatestPosts />
     <PanelSkills />
     <PanelTools />
     <PanelBackground />
@@ -11,8 +12,8 @@
     <!-- <LayoutPanelIntro /> -->
     <!-- <LayoutPanelSkills /> -->
     <!-- <LayoutPanelTools /> -->
-    <LayoutPanelBackground />
-    <LayoutPanelMore />
+    <!-- <LayoutPanelBackground />
+    <LayoutPanelMore /> -->
     <LayoutPanelFooter />
   </LayoutMain>
 </template>

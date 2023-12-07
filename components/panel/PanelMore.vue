@@ -42,6 +42,24 @@
     align-content: start;
   }
 
+  &-left {
+
+    @include breakpoint(("start": null,
+        "end": "laptop",
+      )) {
+      grid-column: span 2;
+    }
+  }
+
+  &-right {
+
+    @include breakpoint(("start": null,
+        "end": "laptop",
+      )) {
+      grid-column: span 4;
+    }
+  }
+
   &-heading {
     position: sticky;
 

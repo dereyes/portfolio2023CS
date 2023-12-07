@@ -11,6 +11,7 @@ const props = defineProps({
   column: Boolean,
   gaps: Boolean,
   row: Boolean,
+  // span: Number,
   transparent: Boolean,
 });
 
@@ -23,6 +24,10 @@ const classObject = reactive({
   "panel-transparent": props.transparent,
   [props.class]: props.class,
 });
+
+// const styleObject = reactive({
+//   "grid-template-columns": `span ${props.span}`
+// });
 </script>
 
 <style lang="scss">
