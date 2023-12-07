@@ -1,5 +1,5 @@
 <template>
-  <Panel autoHeight>
+  <Panel>
     <Panel autoHeight class="panel-latestPosts">
       <h2>Latest Posts</h2>
       <div class="panel-latestPosts-carousel">
@@ -19,11 +19,13 @@
 
 <style lang="scss" scoped>
 .panel-latestPosts {
+  align-content: center;
+
   &-carousel {
     @include responsiveGap;
 
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
 
     &-item {
       @include borderTop;
