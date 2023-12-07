@@ -46,6 +46,21 @@ $layout-panel-padding-desktop: u(1.25);
   }
 }
 
+@mixin responsiveGap {
+
+  @include breakpoint(("start": null,
+      "end": "laptop",
+    )) {
+    gap: $layout-panel-padding-phone;
+  }
+
+  @include breakpoint(("start": "laptop",
+      "end": "desktop",
+    )) {
+    gap: $layout-panel-padding-desktop;
+  }
+}
+
 @mixin borderTop {
   border-top: 1px solid color.palette("ink");
 }
