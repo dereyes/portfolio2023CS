@@ -77,6 +77,7 @@
   }
 
   &-list {
+    gap: u(2);
     margin-bottom: 0;
 
     &-item {
