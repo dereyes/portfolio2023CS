@@ -1,5 +1,5 @@
 <template>
-  <li autoHeight class="list-highlight-item" ref="scrollRef">
+  <li autoHeight :class="classObject" ref="scrollRef">
     <slot></slot>
   </li>
 </template>
@@ -10,15 +10,21 @@ import { getScrollObserver } from "@/composables/getScrollObserver";
 
 const scrollRef = ref({});
 
+let highlighted = ref(false);
+const classObject = reactive({
+  "list-highlight-item": true,
+  "list-highlight-item-highlighted": highlighted,
+});
+
 const onScroll = ({ progress }) => {
   if (progress == 0) {
-    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+    highlighted.value = false;
   }
   if (progress > 0) {
-    scrollRef.value.classList.add("list-highlight-item-highlighted");
+    highlighted.value = true;
   }
   if (progress >= 1) {
-    scrollRef.value.classList.remove("list-highlight-item-highlighted");
+    highlighted.value = false;
   }
 };
 
