@@ -39,6 +39,11 @@
         </ul>
       </ListHighlight2Item>
     </ListHighlight2>
-    <Panel transparent />
   </Panel>
 </template>
+
+<style lang="scss" scoped>
+.layout-panel-skills-list {
+  @include borderTop;
+}
+</style>

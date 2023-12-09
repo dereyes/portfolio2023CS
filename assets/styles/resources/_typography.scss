@@ -71,7 +71,7 @@ $typescale: map.merge($typescale,
 @function fluidTypescale($screenSize, $level) {
   $typescales: (
     "tablet": getFluidTypescale("phone", "tablet", 0.7rem, ratio.justInterval(3)),
-    "desktop": getFluidTypescale("laptop", "desktop", 0.7rem, ratio.justInterval(4)),
+    "desktop": getFluidTypescale("laptop", "desktop", 0.7rem, ratio.justInterval(5)),
   );
 
 @return collection.get(collection.get($typescales, $screenSize), $level);

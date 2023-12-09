@@ -53,7 +53,6 @@ li {
         color.palette("hilite") 0.25em,
         transparent 0.25em);
     color: color.palette("ink");
-    font-weight: typography.fontWeight("bold");
     text-decoration: none;
 
     &::after {
@@ -71,12 +70,12 @@ li {
   }
 
   &.subtitle {
-    font-family: typography.fontFamily("monospace");
+    color: color.palette("graphite");
     font-size: typography.fluidTypescale("tablet", "subtitle");
     font-weight: typography.fontWeight("medium");
     text-transform: uppercase;
-    letter-spacing: .125em;
-    margin: 0 0 3em;
+    letter-spacing: .15em;
+    margin: 0 0 4em;
   }
 }
 
@@ -109,7 +108,6 @@ ul {
 
     &.subtitle {
       font-size: typography.fluidTypescale("desktop", "subtitle");
-      font-weight: typography.fontWeight("regular");
     }
 
     a::after,

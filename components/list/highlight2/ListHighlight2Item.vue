@@ -1,7 +1,7 @@
 <template>
-  <Panel class="list-highlight2-item">
+  <div autoHeight class="list-highlight2-item">
     <slot></slot>
-  </Panel>
+  </div>
 </template>
 
 <style lang="scss">
