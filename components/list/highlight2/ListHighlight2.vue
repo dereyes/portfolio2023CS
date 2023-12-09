@@ -1,11 +1,13 @@
 <template>
-  <div class="list-hightlight2">
+  <ul class="list-hightlight2">
     <slot></slot>
-  </div>
+  </ul>
 </template>
 
 <style lang="scss">
 .list-hightlight2 {
+  @include unstyle.list;
+
   display: flex;
   flex-flow: column;
   gap: u(6);
