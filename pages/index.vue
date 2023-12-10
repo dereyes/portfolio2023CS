@@ -8,12 +8,6 @@
     <PanelTools />
     <PanelBackground />
     <PanelMore />
-
-    <!-- <LayoutPanelIntro /> -->
-    <!-- <LayoutPanelSkills /> -->
-    <!-- <LayoutPanelTools /> -->
-    <!-- <LayoutPanelBackground />
-    <LayoutPanelMore /> -->
-    <LayoutPanelFooter />
+    <PanelFooter />
   </LayoutMain>
 </template>

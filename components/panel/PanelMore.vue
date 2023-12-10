@@ -1,5 +1,5 @@
 <template>
-  <Panel autoHeight row class="panel-more">
+  <Panel row class="panel-more">
     <div class="panel-more-left">
       <h2 class="panel-more-heading">See More</h2>
     </div>
@@ -78,6 +78,7 @@
     margin-bottom: 0;
 
     &-item {
+      @include borderTop;
 
       &:last-child,
       :last-child {

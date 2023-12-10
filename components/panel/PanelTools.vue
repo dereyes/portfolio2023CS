@@ -1,5 +1,5 @@
 <template>
-  <Panel autoHeight class="panel-tools">
+  <Panel class="panel-tools">
     <h2>Tools</h2>
     <ListCards>
       <ListCardsItem>

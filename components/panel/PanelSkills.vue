@@ -23,7 +23,7 @@
         <ul class="layout-panel-skills-list">
           <li>Responsive, accessible websites and <span class="noWrap">web apps</span></li>
           <li>
-            Building and maintaining design token-based
+            Design Token-based
             <span class="noWrap">component libraries</span>
           </li>
         </ul>
@@ -35,7 +35,7 @@
         <p class="subtitle">Bringing Design Systems <span class="noWrap">to Life</span></p>
         <ul class="layout-panel-skills-list">
           <li>Pixel-perfect mockup implementation</li>
-          <li>Building color and typography systems for <span class="noWrap">the web</span></li>
+          <li>Color and typography systems for <span class="noWrap">the web</span></li>
         </ul>
       </ListHighlightItem>
     </ListHighlight>

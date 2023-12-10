@@ -32,15 +32,8 @@ const classObject = reactive({
 
 <style lang="scss">
 .panel {
-  align-content: start;
-  // border: 1px solid red;
-  display: grid;
   min-height: 0px;
   width: 100%;
-
-  &.panel-autoHeight {
-    min-height: 0px;
-  }
 
   &:not(.panel-autoHeight) {
     min-height: 100vh;
@@ -61,31 +54,30 @@ const classObject = reactive({
   }
 
   &-column {
-    grid-auto-flow: row;
-    grid-auto-rows: 1fr;
+    display: flex;
+    flex-flow: column;
   }
 
   &-row {
-    align-content: stretch;
+    @include responsiveGap;
+
+    display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
   }
 }
 
-.panel:not(.panel-gaps) {
-  >.panel {
+.panel {
 
-    @include breakpoint(("start": null,
-        "end": "tablet",
-      )) {
-      padding: $layout-panel-padding-tablet;
-    }
+  @include breakpoint(("start": null,
+      "end": "tablet",
+    )) {
+    padding: $layout-panel-padding-tablet;
+  }
 
-    @include breakpoint(("start": "tablet",
-        "end": null,
-      )) {
-      padding: $layout-panel-padding-desktop;
-    }
+  @include breakpoint(("start": "tablet",
+      "end": null,
+    )) {
+    padding: $layout-panel-padding-desktop;
   }
 }
 </style>
