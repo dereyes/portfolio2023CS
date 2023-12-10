@@ -80,7 +80,6 @@ $typescale: map.merge($typescale,
 @function fontFamily($family) {
   $families: (
     "sansSerif": string.unquote("'Manrope', sans-serif"),
-    "monospace": string.unquote("'Space Grotesk', monospace"),
   );
 
 @return collection.get($families, #{$family});

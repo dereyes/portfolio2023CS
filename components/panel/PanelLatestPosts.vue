@@ -1,36 +1,31 @@
 <template>
-  <Panel>
-    <Panel autoHeight class="panel-latestPosts">
-      <h2>Latest Posts</h2>
-      <div class="panel-latestPosts-carousel">
-        <a class="panel-latestPosts-carousel-item" href="#">
-          <p>Fluid Typography in SASS</p>
-        </a>
-        <a class="panel-latestPosts-carousel-item" href="#">
-          <p>Generating Harmonic Typescales in SASS</p>
-        </a>
-        <a class="panel-latestPosts-carousel-item" href="#">
-          <p>"Good design is as little design as possible": Thoughts on Intrinsic Design</p>
-        </a>
-      </div>
-    </Panel>
+  <Panel autoHeight>
+    <h2>Latest Posts</h2>
+    <ul class="panel-latestPosts-list">
+      <li class="panel-latestPosts-list-item">
+        <TypographyLink text="Generating Harmonic Typescales in SASS" href="#" />
+      </li>
+      <li class="panel-latestPosts-list-item">
+        <TypographyLink text="Making text readable on images with CSS Flexbox" href="#" />
+      </li>
+    </ul>
   </Panel>
 </template>
 
 <style lang="scss" scoped>
 .panel-latestPosts {
-  align-content: center;
-
-  &-carousel {
+  &-list {
     @include responsiveGap;
 
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
 
     &-item {
       @include borderTop;
 
-      flex: 1 0;
+      padding: 0 0 u(3);
     }
   }
 }

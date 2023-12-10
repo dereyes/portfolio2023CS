@@ -7,23 +7,20 @@
       <ul class="panel-more-list">
         <li class="panel-more-list-item">
           <p>
-            <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
-              "Make Something People Want"
-            </a>
+            <TypographyLink text="“Make Something People Want”" href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM"
+              opensInNewWindow />
           </p>
           <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>
         </li>
         <li class="panel-more-list-item">
           <p>
-            <a href="https://vimeo.com/278603739" target="_blank">
-              "ShadowPlay"
-            </a>
+            <TypographyLink text="“ShadowPlay”" href="https://vimeo.com/278603739" opensInNewWindow />
           </p>
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>
         <li class="panel-more-list-item">
           <p>
-            <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
+            <TypographyLink text="Gato" href="https://vimeo.com/243570108" opensInNewWindow />
           </p>
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </li>

@@ -1,7 +1,9 @@
 <template>
   <div class="nav-wrapper">
     <button class="nav-toggle">
-      +
+      <span class="material-symbols-outlined">
+        add_circle
+      </span>
     </button>
   </div>
 </template>
@@ -17,9 +19,7 @@
 
     aspect-ratio: 1 / 1;
     display: grid;
-    font-family: typography.fontFamily("monospace");
-    font-size: u(6);
-    font-weight: typography.fontWeight("light");
+    font-size: u(4);
     line-height: .5;
     place-items: center;
     position: sticky;

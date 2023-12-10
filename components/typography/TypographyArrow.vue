@@ -23,7 +23,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .arrow {
   color: color.palette("ink");
-  font-family: typography.fontFamily("monospace");
+  // font-family: typography.fontFamily("monospace");
   font-size: typography.fluidTypescale("tablet", "h2");
   font-weight: typography.fontWeight("light");
   line-height: 0.8;
