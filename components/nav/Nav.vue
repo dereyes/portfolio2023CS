@@ -1,28 +1,32 @@
 <template>
-  <div class="nav-wrapper">
-    <button class="nav-toggle">
-      +
-    </button>
+  <div :class="classObject">
+    <div class="nav-top">
+      <NavToggle />
+    </div>
+    <div class="nav-bottom">
+
+    </div>
   </div>
 </template>
 
+<script setup>
+import { useNavStore } from "@/stores/navStore";
+
+const navStore = useNavStore();
+const classObject = computed(() => ({
+  "nav": true,
+  "nav-isClosed": !navStore.isOpen,
+  "nav-isOpened": navStore.isOpen
+}));
+</script>
+
 <style lang="scss" scoped>
 .nav {
-  &-wrapper {
-    padding: u(1);
-  }
-
-  &-toggle {
-    @include unstyle.button;
-
-    aspect-ratio: 1 / 1;
-    display: grid;
-    font-size: u(5);
-    font-weight: typography.fontWeight("light");
-    line-height: .5;
-    place-items: center;
-    position: sticky;
-    top: u(1);
-  }
+  background: blue;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 </style>
