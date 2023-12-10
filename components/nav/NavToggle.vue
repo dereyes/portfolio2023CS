@@ -17,13 +17,16 @@ const navStore = useNavStore();
 
   aspect-ratio: 1 / 1;
   display: grid;
-  font-size: u(5);
-  font-weight: typography.fontWeight("light");
-  line-height: .5;
-  margin: u(1);
   place-items: center;
+  position: fixed;
+  width: $nav-toggle-size-small;
 
   &-icon {
+    color: color.palette("ink");
+    font-family: typography.fontFamily("sansSerif");
+    font-size: u(5);
+    font-weight: typography.fontWeight("medium");
+    line-height: .5;
     transition: transform .5s;
   }
 }

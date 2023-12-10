@@ -1,11 +1,14 @@
 <template>
   <div :class="classObject">
-    <div class="nav-top">
-      <NavToggle />
+    <div class="nav-placeholder"></div>
+    <div class="nav-slideOut">
+      <h1>Home</h1>
+      <h1>Posts</h1>
+      <h1>Contact</h1>
     </div>
-    <div class="nav-bottom">
-
-    </div>
+    <!-- <div class="nav-toggle-wrapper"> -->
+    <NavToggle />
+    <!-- </div> -->
   </div>
 </template>
 
@@ -22,11 +25,34 @@ const classObject = computed(() => ({
 
 <style lang="scss" scoped>
 .nav {
-  background: blue;
-  display: flex;
-  flex-flow: column;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  &-placeholder {
+    width: $nav-toggle-size-small;
+  }
+
+  &-slideOut {
+    $nav-slideOut-padding: u(1);
+
+    background-color: blue;
+    height: 100%;
+    padding: $nav-toggle-size-small $nav-toggle-size-small $nav-slideOut-padding $nav-slideOut-padding;
+    right: 0;
+    position: fixed;
+    top: 0;
+    transition: translate 1s, opacity, .5s;
+  }
+
+  &-isClosed {
+    .nav-slideOut {
+      opacity: 0;
+      transform: translate(100%, 0px);
+    }
+  }
+
+  &-isOpened {
+    .nav-slideOut {
+      opacity: 1;
+      transform: translate(0%, 0px);
+    }
+  }
 }
 </style>

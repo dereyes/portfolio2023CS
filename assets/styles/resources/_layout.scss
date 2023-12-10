@@ -4,6 +4,8 @@
 @use "color";
 @use "u" as *;
 
+$nav-toggle-size-small: u(5);
+
 $layout-panel-padding-phone: u(1);
 $layout-panel-padding-tablet: u(1);
 $layout-panel-padding-desktop: u(1.25);

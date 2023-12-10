@@ -37,7 +37,7 @@ const lastWord = words[words.length - 1];
     line-height: 0;
     position: relative;
     top: 0.2em;
-    transition: all .125s;
+    transition: left .125s, top .125s;
   }
 
   &:hover {
