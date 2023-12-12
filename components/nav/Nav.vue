@@ -2,9 +2,15 @@
   <div :class="classObject">
     <div class="nav-placeholder"></div>
     <div class="nav-slideOut">
-      <h1>Home</h1>
-      <h1>Posts</h1>
-      <h1>Contact</h1>
+      <h1 class="nav-link">
+        <TypographyLink noHighlight text="Home" />
+      </h1>
+      <h1 class="nav-link">
+        <TypographyLink noHighlight text="Posts" />
+      </h1>
+      <h1 class="nav-link">
+        <TypographyLink noHighlight text="Contact" />
+      </h1>
     </div>
     <!-- <div class="nav-toggle-wrapper"> -->
     <NavToggle />
@@ -39,6 +45,10 @@ const classObject = computed(() => ({
     position: fixed;
     top: 0;
     transition: translate 1s, opacity, .5s;
+  }
+
+  &-link {
+    color: color.palette("concrete");
   }
 
   &-isClosed {

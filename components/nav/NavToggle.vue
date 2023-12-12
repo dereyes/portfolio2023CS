@@ -27,18 +27,20 @@ const navStore = useNavStore();
     font-size: u(5);
     font-weight: typography.fontWeight("medium");
     line-height: .5;
-    transition: transform .5s;
+    transition: color .5s, transform .5s;
   }
 }
 
 .nav-isClosed {
   .nav-toggle-icon {
+    color: color.palette("ink");
     transform: rotate(0deg);
   }
 }
 
 .nav-isOpened {
   .nav-toggle-icon {
+    color: color.palette("concrete");
     transform: rotate(-135deg);
   }
 }
