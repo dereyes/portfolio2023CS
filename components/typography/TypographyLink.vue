@@ -45,7 +45,7 @@ const lastWord = words[words.length - 1];
     // font-family: typography.fontFamily("monospace");
     bottom: 0.3em;
     font-size: 0.6em;
-    left: 0em;
+    left: 0.1em;
     line-height: 0;
     position: relative;
     transition: left .125s, bottom .125s;
@@ -54,7 +54,7 @@ const lastWord = words[words.length - 1];
   &:hover {
     .link-arrow {
       bottom: 0.4em;
-      left: .1em;
+      left: .2em;
     }
   }
 }
