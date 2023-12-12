@@ -2,6 +2,7 @@
   <LayoutMain>
     <!-- <Asterisk /> -->
     <!-- <LayoutPanelViz /> -->
+    <!-- <GradientBackground /> -->
     <PanelIntro />
     <PanelLatestPosts />
     <PanelSkills />
