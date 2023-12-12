@@ -1,6 +1,7 @@
 <template>
   <div class="layout">
     <Nav />
+    <div class="layout-overlay"></div>
     <slot></slot>
   </div>
 </template>
@@ -9,5 +10,28 @@
 .layout {
   display: flex;
   flex-flow: row-reverse;
+
+  &-overlay {
+    @include gradient;
+
+    height: 100%;
+    position: fixed;
+    transition: opacity .5s;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.body-navIsShut {
+  .layout-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.body-navIsOpen {
+  .layout-overlay {
+    opacity: .95;
+  }
 }
 </style>

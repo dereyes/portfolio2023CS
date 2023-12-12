@@ -15,8 +15,8 @@ import { useNavStore } from "@/stores/navStore";
 const navStore = useNavStore();
 
 const classObject = computed(() => ({
-  "body-navIsClosed": !navStore.isOpen,
-  "body-navIsOpened": navStore.isOpen
+  "body-navIsShut": !navStore.isOpen,
+  "body-navIsOpen": navStore.isOpen
 }));
 
 useHead({
@@ -28,12 +28,12 @@ useHead({
 
 <style lang="scss">
 .body {
-  &-navIsClosed {
+  &-navIsShut {
     overflow-x: hidden;
     overflow-y: scroll;
   }
 
-  &-navIsOpened {
+  &-navIsOpen {
     overflow-x: hidden;
     overflow-y: clip;
   }
