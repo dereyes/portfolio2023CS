@@ -4,17 +4,7 @@
     <div class="nav-drawer-scollArea">
       <div class="nav-drawer-grid">
         <NavToggle />
-        <ul class="nav-list">
-          <li class="nav-list-item">
-            <TypographyLink noHighlight text="Home" />
-          </li>
-          <li class="nav-list-item">
-            <TypographyLink noHighlight text="Posts" />
-          </li>
-          <li class="nav-list-item">
-            <TypographyLink noHighlight text="Contact" />
-          </li>
-        </ul>
+        <NavList />
       </div>
     </div>
   </div>
@@ -54,21 +44,6 @@
     grid-column: 2 / -1;
     grid-row: 1 / 2;
   }
-
-  &-list {
-    grid-column: 1 / 2;
-    grid-row: 2 / -1;
-    margin: 0;
-    padding: $layout-panel-padding-tablet;
-
-    &-item {
-      @include typography.fluidTypescaleH1;
-
-      color: color.palette("concrete");
-      margin: 0 0 0.5em;
-      transition: transform .5s;
-    }
-  }
 }
 
 .body-navIsShut {
@@ -79,12 +54,8 @@
 
 
       &-underlay {
-        transform: translate(u(3), 0);
+        transform: translate(u(4), 0);
       }
-    }
-
-    &-list-item {
-      transform: translate(u(3), 0);
     }
   }
 }
@@ -97,19 +68,6 @@
       &-underlay {
         transform: translate(0, 0);
       }
-    }
-
-    &-list {
-      &-item {
-        transform: translate(0, 0);
-      }
-
-      @for $i from 1 through 3 {
-        > :nth-child(#{$i}) {
-          transition-duration: .5s + ($i * .125s);
-        }
-      }
-
     }
   }
 }
