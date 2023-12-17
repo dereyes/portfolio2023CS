@@ -39,12 +39,6 @@
     align-content: start;
   }
 
-  &-heading {
-    margin-bottom: 0;
-    position: sticky;
-    top: $layout-panel-padding-tablet;
-  }
-
   @include breakpoint(("start": "laptop",
       "end": null,
     )) {
@@ -52,7 +46,9 @@
     grid-template-columns: 1fr 1fr;
 
     &-heading {
-      top: $layout-panel-padding-desktop;
+      margin-bottom: 0;
+      position: sticky;
+      top: $layout-panel-padding-tablet;
     }
   }
 
