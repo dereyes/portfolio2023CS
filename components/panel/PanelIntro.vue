@@ -1,9 +1,9 @@
 <template>
-  <Panel class="panel-intro-top">
+  <Panel class="panel-intro-top" id="intro">
     <h1>
-      Darin E. Reyes, <span class="noWrap">UX Engineer</span>
+      Darin E. Reyes, Web Developer
     </h1>
-    <p>Front-End Web Developer with a background <span class="noWrap">in Design</span></p>
+    <p>Specializing in UX Engineering and <span class="noWrap">Design Systems</span></p>
     <p>
       Based in
       <span class="noWrap">Mountain View,</span> California
@@ -12,11 +12,13 @@
 </template>
 
 <style lang="scss" scoped>
-.panel-intro-top {
-  justify-content: flex-end;
+.panel-intro {
+  &-top {
+    justify-content: flex-end;
 
-  > :last-child {
-    margin: 0;
+    > :last-child {
+      margin: 0;
+    }
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classObject">
+  <div :class="classObject" :id="id">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +10,7 @@ const props = defineProps({
   class: String,
   column: Boolean,
   gaps: Boolean,
+  id: String,
   row: Boolean,
   // span: Number,
   transparent: Boolean,

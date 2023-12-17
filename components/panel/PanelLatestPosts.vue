@@ -1,5 +1,5 @@
 <template>
-  <Panel autoHeight>
+  <Panel autoHeight id="posts">
     <h2>Latest Posts</h2>
     <ul class="panel-latestPosts-list">
       <li class="panel-latestPosts-list-item">

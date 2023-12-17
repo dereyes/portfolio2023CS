@@ -1,5 +1,5 @@
 <template>
-  <Panel class="panel-footer">
+  <Panel class="panel-footer" id="contact">
     <div class="panel-footer-top">
       <h2>Get in touch</h2>
       <ul class="panel-footer-links">

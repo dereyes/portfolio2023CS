@@ -1,5 +1,5 @@
 <template>
-  <Panel row>
+  <Panel row class="panel-skills" id="about">
     <ListHighlight>
       <ListHighlightItem>
         <h2>UX Engineering</h2>

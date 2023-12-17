@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
 .panel-background {
-  justify-content: space-between;
+  // justify-content: space-between;
 
   &-bottom {
     @include borderTop;
