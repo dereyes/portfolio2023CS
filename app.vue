@@ -29,12 +29,10 @@ useHead({
 <style lang="scss">
 .body {
   &-navIsShut {
-    overflow-x: hidden;
     overflow-y: scroll;
   }
 
   &-navIsOpen {
-    overflow-x: hidden;
     overflow-y: clip;
   }
 }

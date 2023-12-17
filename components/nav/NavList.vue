@@ -1,13 +1,16 @@
 <template>
   <ul class="nav-list">
     <li class="nav-list-item">
-      <TypographyLink noHighlight text="Home" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#intro" text="Home" @click="navStore.toggle()" />
     </li>
     <li class="nav-list-item">
-      <TypographyLink noHighlight text="Posts" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#posts" text="Posts" @click="navStore.toggle()" />
     </li>
     <li class="nav-list-item">
-      <TypographyLink noHighlight text="Contact" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#about" text="About" @click="navStore.toggle()" />
+    </li>
+    <li class="nav-list-item">
+      <TypographyLink noHighlight href="#contact" text="Contact" @click="navStore.toggle()" />
     </li>
   </ul>
 </template>
@@ -50,7 +53,7 @@ const navStore = useNavStore();
         transform: translate(0, 0);
       }
 
-      @for $i from 1 through 3 {
+      @for $i from 1 through 4 {
         > :nth-child(#{$i}) {
           transition-duration: .5s + ($i * .125s);
         }

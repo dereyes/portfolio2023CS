@@ -1,7 +1,10 @@
 @mixin gradient {
   // animation: gradient 10s ease infinite;
-  background-image: linear-gradient(45deg, #000, hsl(0, 0%, 30%));
+  // background-image: linear-gradient(45deg, #000, hsl(0, 0%, 30%));
   // background-size: 400% 400%;
+
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
 
   @keyframes gradient {
     0% {

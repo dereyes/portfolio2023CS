@@ -38,7 +38,7 @@ $remInPx: 24px;
   // The size of a <p> tag in the type scale
   $base: $base;
   // Levels in the typescale, from smallest to largest
-  $levels: "small", "subtitle", "p", "", "h3", "h2", "", "h1";
+  $levels: "small", "subtitle", "p", "", "h3", "h2", "", "h1", "large";
   $levels-pIndex: list.index($levels, "p");
   // Eventually houses typescale values
   $typescale: (
@@ -75,6 +75,26 @@ $typescale: map.merge($typescale,
   );
 
 @return collection.get(collection.get($typescales, $screenSize), $level);
+}
+
+@mixin fluidTypescaleH1 {
+  font-size: fluidTypescale("tablet", "h1");
+
+  @include breakpoint(("start": "laptop",
+      "end": null,
+    )) {
+    font-size: fluidTypescale("desktop", "h1");
+  }
+}
+
+@mixin fluidTypescaleLarge {
+  font-size: fluidTypescale("tablet", "large");
+
+  @include breakpoint(("start": "laptop",
+      "end": null,
+    )) {
+    font-size: fluidTypescale("desktop", "large");
+  }
 }
 
 @function fontFamily($family) {
