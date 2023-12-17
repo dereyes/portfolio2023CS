@@ -31,44 +31,27 @@
 
 <style lang="scss" scoped>
 .panel-more {
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
 
   &-left,
   &-right {
     align-content: start;
   }
 
-  &-left {
-
-    @include breakpoint(("start": null,
-        "end": "laptop",
-      )) {
-      grid-column: span 2;
-    }
-  }
-
-  &-right {
-
-    @include breakpoint(("start": null,
-        "end": "laptop",
-      )) {
-      grid-column: span 4;
-    }
-  }
-
   &-heading {
     margin-bottom: 0;
     position: sticky;
+    top: $layout-panel-padding-tablet;
+  }
 
-    @include breakpoint(("start": null,
-        "end": "tablet",
-      )) {
-      top: $layout-panel-padding-tablet;
-    }
+  @include breakpoint(("start": "laptop",
+      "end": null,
+    )) {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
 
-    @include breakpoint(("start": "tablet",
-        "end": null,
-      )) {
+    &-heading {
       top: $layout-panel-padding-desktop;
     }
   }
