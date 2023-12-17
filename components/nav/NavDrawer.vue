@@ -1,20 +1,22 @@
 <template>
   <div class="nav-drawer">
     <div class="nav-drawer-underlay"></div>
-    <div class="nav-toggle-wrapper">
-      <NavToggle />
+    <div class="nav-drawer-scollArea">
+      <div class="nav-drawer-grid">
+        <NavToggle />
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <TypographyLink noHighlight text="Home" />
+          </li>
+          <li class="nav-list-item">
+            <TypographyLink noHighlight text="Posts" />
+          </li>
+          <li class="nav-list-item">
+            <TypographyLink noHighlight text="Contact" />
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul class="nav-list">
-      <li class="nav-list-item">
-        <TypographyLink noHighlight text="Home" />
-      </li>
-      <li class="nav-list-item">
-        <TypographyLink noHighlight text="Posts" />
-      </li>
-      <li class="nav-list-item">
-        <TypographyLink noHighlight text="Contact" />
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -23,10 +25,7 @@
   &-drawer {
     backdrop-filter: blur(10px);
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto 1fr;
     height: 100vh;
-    // overflow-y: scroll;
     right: 0;
     transition: opacity .5s;
     position: fixed;
@@ -39,13 +38,21 @@
       height: 100%;
       width: 100%;
     }
+
+    &-scollArea {
+      overflow-y: scroll;
+    }
+
+    &-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto 1fr;
+    }
   }
 
-  &-toggle-wrapper {
+  &-toggle {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
-    position: sticky;
-    top: 0;
   }
 
   &-list {
