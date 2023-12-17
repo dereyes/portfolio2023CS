@@ -4,11 +4,14 @@
 @use "color";
 @use "u" as *;
 
-$nav-toggle-size-small: u(5);
+// $nav-toggle-size-small: u(5);
 
-$layout-panel-padding-phone: u(1);
-$layout-panel-padding-tablet: u(1);
-$layout-panel-padding-desktop: u(1.25);
+$layout-panel-padding-phone: u(.5);
+$layout-panel-padding-tablet: u(.5);
+$layout-panel-padding-desktop: u(.5);
+
+$layout-spacing-small: u(.5);
+$layout-spacing-large: u(1);
 
 @function getBreakpoint($size) {
   $breakpoints: (
@@ -53,13 +56,13 @@ $layout-panel-padding-desktop: u(1.25);
   @include breakpoint(("start": null,
       "end": "laptop",
     )) {
-    gap: $layout-panel-padding-phone;
+    gap: $layout-spacing-small;
   }
 
   @include breakpoint(("start": "laptop",
-      "end": "desktop",
+      "end": null,
     )) {
-    gap: $layout-panel-padding-desktop;
+    gap: $layout-spacing-large;
   }
 }
 
