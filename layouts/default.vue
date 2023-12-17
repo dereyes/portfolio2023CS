@@ -16,7 +16,7 @@
 
     height: 100%;
     position: fixed;
-    transition: opacity .5s;
+    transition: opacity .25s;
     width: 100%;
     z-index: 1;
   }
@@ -31,7 +31,7 @@
 
 .body-navIsOpen {
   .layout-overlay {
-    opacity: .95;
+    opacity: 1;
   }
 }
 </style>

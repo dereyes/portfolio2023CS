@@ -1,20 +1,7 @@
 <template>
   <div class="nav">
-    <div class="nav-placeholder"></div>
-    <div class="nav-slideOut">
-      <h1 class="nav-link">
-        <TypographyLink noHighlight text="Home" />
-      </h1>
-      <h1 class="nav-link">
-        <TypographyLink noHighlight text="Posts" />
-      </h1>
-      <h1 class="nav-link">
-        <TypographyLink noHighlight text="Contact" />
-      </h1>
-    </div>
-    <!-- <div class="nav-toggle-wrapper"> -->
     <NavToggle />
-    <!-- </div> -->
+    <NavDrawer />
   </div>
 </template>
 
@@ -23,23 +10,37 @@
   z-index: 2;
 
   &-placeholder {
-    width: $nav-toggle-size-small;
+    // width: $nav-toggle-size-small;
   }
 
   &-slideOut {
-    @include gradient;
     $nav-slideOut-padding: u(1);
 
+    backdrop-filter: blur(10px);
+    background: color.palette("ink");
     height: 100%;
-    padding: $nav-toggle-size-small $nav-toggle-size-small $nav-slideOut-padding $nav-slideOut-padding;
+    // padding: $nav-toggle-size-small $nav-toggle-size-small $nav-slideOut-padding $nav-slideOut-padding;
     right: 0;
     position: fixed;
     top: 0;
     transition: translate 1s, opacity, .5s;
   }
 
-  &-link {
-    color: color.palette("concrete");
+  &-list {
+    &-item {
+      color: color.palette("concrete");
+      font-size: typography.fluidTypescale("tablet", "h1");
+      margin: 0 0 .5em;
+    }
+  }
+
+  @include breakpoint(("start": "laptop",
+      "end": null,
+    )) {
+
+    &-list-item {
+      font-size: typography.fluidTypescale("desktop", "h1");
+    }
   }
 }
 

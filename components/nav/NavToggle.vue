@@ -11,29 +11,32 @@ const navStore = useNavStore();
 
 <style lang="scss" scoped>
 .nav-toggle {
+  @include typography.fluidTypescaleLarge;
   @include unstyle.button;
 
   aspect-ratio: 1 / 1;
   border-radius: 100%;
   display: grid;
+  margin: $layout-panel-padding-tablet $layout-panel-padding-tablet 0 0;
+  min-width: 50px;
+  overflow: hidden;
   place-items: center;
-  position: fixed;
-  width: $nav-toggle-size-small;
+  position: sticky;
+  top: $layout-panel-padding-tablet;
+  width: .75em;
 
   &-icon {
-    color: color.palette("concrete");
     font-family: typography.fontFamily("sansSerif");
-    font-size: u(5);
+    font-size: inherit;
     font-weight: typography.fontWeight("medium");
     line-height: .5;
-    transition: background-image .5s, transform .5s;
+    position: absolute;
+    transition: color .5s, transform .5s;
   }
 }
 
 .body-navIsShut {
   .nav-toggle {
-    // @include gradient;
-
     &-icon {
       color: color.palette("ink");
       transform: rotate(0deg);
@@ -43,8 +46,6 @@ const navStore = useNavStore();
 
 .body-navIsOpen {
   .nav-toggle {
-    // background: transparent;
-
     &-icon {
       color: color.palette("concrete");
       transform: rotate(-135deg);
