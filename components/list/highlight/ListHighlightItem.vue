@@ -32,7 +32,7 @@ onMounted(() => {
   getScrollObserver({
     target: scrollRef.value,
     onScroll: onScroll,
-    threshold: .5,
+    threshold: .25,
   });
 });
 </script>
