@@ -29,16 +29,6 @@ useHead({
 </script>
 
 <style lang="scss">
-.body {
-  &-navIsShut {
-    overflow-y: scroll;
-  }
-
-  &-navIsOpen {
-    overflow-y: clip;
-  }
-}
-
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,

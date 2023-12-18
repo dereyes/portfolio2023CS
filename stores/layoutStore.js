@@ -5,7 +5,8 @@ export const useLayoutStore = defineStore('layoutStore', () => {
   const navToggleCenterCoordinates = ref({});
 
   const toggleBodyBackgroudTheme = () => {
-    backgroundTheme.value === "light" ? "dark" : "light";
+    backgroundTheme.value = (backgroundTheme.value === "light") ? "dark" : "light";
+    console.log(backgroundTheme.value);
   }
 
   const toggleNav = () => {

@@ -15,7 +15,24 @@ body,
 }
 
 body {
-  background: color.palette("concrete");
   margin: 0;
   overflow-x: hidden;
+
+  &.body {
+    &-navIsShut {
+      overflow-y: scroll;
+    }
+
+    &-navIsOpen {
+      overflow-y: clip;
+    }
+
+    &-backgroundTheme-light {
+      background: color.palette("concrete");
+    }
+
+    &-backgroundTheme-dark {
+      background: color.palette("ink");
+    }
+  }
 }

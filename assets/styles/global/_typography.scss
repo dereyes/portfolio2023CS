@@ -2,11 +2,6 @@ html {
   font-size: typography.$remInPx; // set rem
 }
 
-body {
-  background-color: color.palette("concrete");
-  margin: 0;
-}
-
 h1 {
   color: color.palette("ink");
   font-family: typography.fontFamily("sansSerif");

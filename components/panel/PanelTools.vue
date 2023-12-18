@@ -52,27 +52,17 @@ const layoutStore = useLayoutStore();
 const previousScrollProgress = ref(0);
 
 const getPanelScrollState = ({ previous, current }) => {
-  if (previous === 0 && current > 0) {
-    return "entering";
-  }
-
-  if (previous === 1 && current < 1) {
-    return "entering";
-  }
-
-  if (previous > 0 && current === 0) {
-    return "exiting";
-  }
-
-  if (previous < 1 && current === 1) {
-    return "exiting";
-  }
-
   if (current === 0 || current === 1) {
+    if (previous > 0 && previous < 1) {
+      return "exiting";
+    }
     return "outside";
   }
 
   if (current > 0 && current < 1) {
+    if (previous === 0 || previous === 1) {
+      return "entering";
+    }
     return "inside";
   }
 }
@@ -83,7 +73,12 @@ const onScroll = ({ progress }) => {
     current: progress
   });
 
-  console.log(panelScrollState);
+  if (
+    panelScrollState === "entering" ||
+    panelScrollState === "exiting"
+  ) {
+    layoutStore.toggleBodyBackgroudTheme();
+  }
 
   previousScrollProgress.value = progress;
 }
