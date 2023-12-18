@@ -1,10 +1,12 @@
 <template>
-  <div :class="classObject" :id="id">
+  <div :class="classObject" :id="id" ref="panel">
     <slot></slot>
   </div>
 </template>
 
 <script setup>
+import { ref, defineExpose } from "vue";
+
 const props = defineProps({
   autoHeight: Boolean,
   class: String,
@@ -29,6 +31,12 @@ const classObject = reactive({
 // const styleObject = reactive({
 //   "grid-template-columns": `span ${props.span}`
 // });
+
+// Allow parent to access a a reference to this panel
+const panel = ref({});
+defineExpose({
+  panel
+});
 </script>
 
 <style lang="scss">
