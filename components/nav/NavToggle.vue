@@ -1,14 +1,14 @@
 <template>
-  <button class="nav-toggle" @click="navStore.toggle()" ref="navToggle">
+  <button class="nav-toggle" @click="layoutStore.toggleNav()" ref="navToggle">
     <span class="nav-toggle-icon">+</span>
   </button>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useNavStore } from "@/stores/navStore";
+import { useLayoutStore } from "@/stores/layoutStore";
 
-const navStore = useNavStore();
+const layoutStore = useLayoutStore();
 const navToggle = ref();
 
 const getNavToggleCenterCoordinates = () => {
@@ -19,7 +19,7 @@ const getNavToggleCenterCoordinates = () => {
     y: rect.top + (rect.height / 2),
   };
 
-  navStore.setNavToggleCenterCoordinates(rectCenterCoordinates);
+  layoutStore.setNavToggleCenterCoordinates(rectCenterCoordinates);
 }
 
 onMounted(() => {

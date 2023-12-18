@@ -10,13 +10,13 @@
 </template>
 
 <script setup>
-import { useNavStore } from "@/stores/navStore";
+import { useLayoutStore } from "@/stores/layoutStore";
 
-const navStore = useNavStore();
+const layoutStore = useLayoutStore();
 
 const classObject = computed(() => ({
-  "body-navIsShut": !navStore.isOpen,
-  "body-navIsOpen": navStore.isOpen
+  "body-navIsShut": !layoutStore.navIsOpen,
+  "body-navIsOpen": layoutStore.navIsOpen
 }));
 
 useHead({

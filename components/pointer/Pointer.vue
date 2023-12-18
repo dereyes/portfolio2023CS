@@ -8,9 +8,9 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { useNavStore } from "@/stores/navStore";
+import { useLayoutStore } from "@/stores/layoutStore";
 
-const navStore = useNavStore();
+const layoutStore = useLayoutStore();
 
 const showPointer = ref(false);
 const pointerSpeed = .08;
@@ -61,11 +61,11 @@ onMounted(() => {
     );
     cursorDistanceToNavToggle.value = getDistance(
       cursorPosition.value,
-      navStore.getNavToggleCenterCoordinates().value
+      layoutStore.getNavToggleCenterCoordinates().value
     );
     pointerDistanceToNavToggle.value = getDistance(
       pointerPosition.value,
-      navStore.getNavToggleCenterCoordinates().value
+      layoutStore.getNavToggleCenterCoordinates().value
     );
 
     if (cursorDistanceToNavToggle.value.hypotenuse < 100) {

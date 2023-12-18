@@ -1,23 +1,23 @@
 <template>
   <ul class="nav-list">
     <li class="nav-list-item">
-      <TypographyLink noHighlight href="#intro" text="Home" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#intro" text="Home" @click="layoutStore.toggleNav()" />
     </li>
     <li class="nav-list-item">
-      <TypographyLink noHighlight href="#posts" text="Posts" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#posts" text="Posts" @click="layoutStore.toggleNav()" />
     </li>
     <li class="nav-list-item">
-      <TypographyLink noHighlight href="#about" text="About" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#about" text="About" @click="layoutStore.toggleNav()" />
     </li>
     <li class="nav-list-item">
-      <TypographyLink noHighlight href="#contact" text="Contact" @click="navStore.toggle()" />
+      <TypographyLink noHighlight href="#contact" text="Contact" @click="layoutStore.toggleNav()" />
     </li>
   </ul>
 </template>
 
 <script setup>
-import { useNavStore } from "@/stores/navStore";
-const navStore = useNavStore();
+import { useLayoutStore } from "@/stores/layoutStore";
+const layoutStore = useLayoutStore();
 </script>
 
 <style lang="scss" scoped>

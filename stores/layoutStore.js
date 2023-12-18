@@ -1,9 +1,9 @@
-export const useNavStore = defineStore('navStore', () => {
-  const isOpen = ref(false);
+export const useLayoutStore = defineStore('layoutStore', () => {
+  const navIsOpen = ref(false);
   const navToggleCenterCoordinates = ref({});
 
-  const toggle = () => {
-    isOpen.value = !isOpen.value;
+  const toggleNav = () => {
+    navIsOpen.value = !navIsOpen.value;
   }
 
   const setNavToggleCenterCoordinates = (coordinates) => {
@@ -14,5 +14,5 @@ export const useNavStore = defineStore('navStore', () => {
     return navToggleCenterCoordinates;
   }
 
-  return { isOpen, toggle, setNavToggleCenterCoordinates, getNavToggleCenterCoordinates }
+  return { navIsOpen, toggleNav, setNavToggleCenterCoordinates, getNavToggleCenterCoordinates }
 });
