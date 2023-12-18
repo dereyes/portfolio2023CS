@@ -1,9 +1,18 @@
 export const useNavStore = defineStore('navStore', () => {
   const isOpen = ref(false);
+  const navToggleCenterCoordinates = ref({});
 
-  function toggle() {
+  const toggle = () => {
     isOpen.value = !isOpen.value;
   }
 
-  return { isOpen, toggle }
+  const setNavToggleCenterCoordinates = (coordinates) => {
+    navToggleCenterCoordinates.value = coordinates;
+  }
+
+  const getNavToggleCenterCoordinates = () => {
+    return navToggleCenterCoordinates;
+  }
+
+  return { isOpen, toggle, setNavToggleCenterCoordinates, getNavToggleCenterCoordinates }
 });
