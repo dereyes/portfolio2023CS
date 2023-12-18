@@ -1,7 +1,7 @@
 <template>
   <Panel class="panel-intro-top" id="intro">
     <h1>
-      Darin E. Reyes, Web Developer
+      Darin E. Reyes, Front-End Web Developer
     </h1>
     <p>Specializing in UX Engineering and <span class="noWrap">Design Systems</span></p>
     <p>
