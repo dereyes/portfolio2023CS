@@ -1,5 +1,6 @@
 <template>
   <div class="layout">
+    <Pointer />
     <Nav />
     <div class="layout-overlay"></div>
     <slot></slot>
