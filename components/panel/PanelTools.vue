@@ -53,35 +53,27 @@ const previousScrollProgress = ref(0);
 
 const getPanelScrollState = ({ previous, current }) => {
   if (previous === 0 && current > 0) {
-    // Panel enters threshold
     return "entering";
   }
 
   if (previous === 1 && current < 1) {
-    // Panel enters threshold
     return "entering";
   }
 
   if (previous > 0 && current === 0) {
-    // Panel enters threshold
     return "exiting";
   }
 
   if (previous < 1 && current === 1) {
-    // Panel exits threshold
     return "exiting";
   }
 
-  if (current === 0) {
+  if (current === 0 || current === 1) {
     return "outside";
   }
 
   if (current > 0 && current < 1) {
     return "inside";
-  }
-
-  if (current === 1) {
-    return "outside";
   }
 }
 
