@@ -16,7 +16,9 @@ const layoutStore = useLayoutStore();
 
 const classObject = computed(() => ({
   "body-navIsShut": !layoutStore.navIsOpen,
-  "body-navIsOpen": layoutStore.navIsOpen
+  "body-navIsOpen": layoutStore.navIsOpen,
+  "body-backgroundTheme-light": (layoutStore.backgroundTheme === "light"),
+  "body-backgroundTheme-dark": (layoutStore.backgroundTheme === "dark"),
 }));
 
 useHead({

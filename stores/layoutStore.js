@@ -1,6 +1,12 @@
 export const useLayoutStore = defineStore('layoutStore', () => {
+  const backgroundTheme = ref("light");
+
   const navIsOpen = ref(false);
   const navToggleCenterCoordinates = ref({});
+
+  const toggleBodyBackgroudTheme = () => {
+    backgroundTheme.value === "light" ? "dark" : "light";
+  }
 
   const toggleNav = () => {
     navIsOpen.value = !navIsOpen.value;
@@ -10,9 +16,12 @@ export const useLayoutStore = defineStore('layoutStore', () => {
     navToggleCenterCoordinates.value = coordinates;
   }
 
-  const getNavToggleCenterCoordinates = () => {
-    return navToggleCenterCoordinates;
+  return {
+    backgroundTheme,
+    navIsOpen,
+    navToggleCenterCoordinates,
+    setNavToggleCenterCoordinates,
+    toggleBodyBackgroudTheme,
+    toggleNav,
   }
-
-  return { navIsOpen, toggleNav, setNavToggleCenterCoordinates, getNavToggleCenterCoordinates }
 });

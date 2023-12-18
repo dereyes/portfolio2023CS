@@ -14,16 +14,15 @@ const navToggle = ref();
 const getNavToggleCenterCoordinates = () => {
   const rect = navToggle.value.getBoundingClientRect();
 
-  const rectCenterCoordinates = {
+  return {
     x: rect.left + (rect.width / 2),
     y: rect.top + (rect.height / 2),
   };
-
-  layoutStore.setNavToggleCenterCoordinates(rectCenterCoordinates);
 }
 
 onMounted(() => {
-  getNavToggleCenterCoordinates();
+  const rectCenterCoordinates = getNavToggleCenterCoordinates();
+  layoutStore.setNavToggleCenterCoordinates(rectCenterCoordinates);
 });
 
 </script>

@@ -61,11 +61,11 @@ onMounted(() => {
     );
     cursorDistanceToNavToggle.value = getDistance(
       cursorPosition.value,
-      layoutStore.getNavToggleCenterCoordinates().value
+      layoutStore.navToggleCenterCoordinates
     );
     pointerDistanceToNavToggle.value = getDistance(
       pointerPosition.value,
-      layoutStore.getNavToggleCenterCoordinates().value
+      layoutStore.navToggleCenterCoordinates
     );
 
     if (cursorDistanceToNavToggle.value.hypotenuse < 100) {
