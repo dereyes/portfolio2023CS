@@ -8,49 +8,82 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+import { useNavStore } from "@/stores/navStore";
+
+const navStore = useNavStore();
 
 const showPointer = ref(false);
 const pointerSpeed = .08;
 const pointerPosition = ref({ x: -100, y: -100 });
-const pointerTarget = ref({ x: 0, y: 0 });
-const pointerDistance = ref({ x: 0, y: 0 });
+const cursorPosition = ref({ x: 0, y: 0 });
+
+const pointerDistanceToCursor = ref({ x: 0, y: 0, hypotenuse: 0 });
+const cursorDistanceToNavToggle = ref({ x: 0, y: 0, hypotenuse: 0 });
+const pointerDistanceToNavToggle = ref({ x: 0, y: 0, hypotenuse: 0 });
+
 const pointerFollowerOrigin = ref();
 
 const styleObject = computed(() => ({
   transform: `translate(${pointerPosition.value.x}px, ${pointerPosition.value.y}px)`,
 }));
 
+const getDistance = (point = { x: 0, y: 0 }, target = { x: 0, y: 0 }) => {
+  const distanceX = target.x - point.x;
+  const distanceY = target.y - point.y;
+  const distanceHypotenuse = Math.abs(Math.sqrt(
+    distanceX * distanceX +
+    distanceY * distanceY
+  ));
+
+  return {
+    x: distanceX,
+    y: distanceY,
+    hypotenuse: distanceHypotenuse
+  }
+}
+
 onMounted(() => {
-  const updatePointerTarget = (event) => {
+  const updateCursorPosition = (event) => {
     if (!showPointer.value) {
       showPointer.value = true;
     }
 
-    pointerTarget.value = {
+    cursorPosition.value = {
       x: event.x,
       y: event.y,
     }
   }
 
-  const updatePointerPosition = (timeStamp) => {
-    if (!showPointer.value) {
-      return;
-    }
+  const updatePointerPosition = () => {
+    pointerDistanceToCursor.value = getDistance(
+      pointerPosition.value,
+      cursorPosition.value
+    );
+    cursorDistanceToNavToggle.value = getDistance(
+      cursorPosition.value,
+      navStore.getNavToggleCenterCoordinates().value
+    );
+    pointerDistanceToNavToggle.value = getDistance(
+      pointerPosition.value,
+      navStore.getNavToggleCenterCoordinates().value
+    );
 
-    pointerDistance.value = {
-      x: pointerTarget.value.x - pointerPosition.value.x,
-      y: pointerTarget.value.y - pointerPosition.value.y,
-    }
-
-    pointerPosition.value = {
-      x: pointerPosition.value.x + (pointerDistance.value.x * pointerSpeed),
-      y: pointerPosition.value.y + (pointerDistance.value.y * pointerSpeed),
+    if (cursorDistanceToNavToggle.value.hypotenuse < 100) {
+      pointerPosition.value = {
+        x: pointerPosition.value.x + (pointerDistanceToNavToggle.value.x * pointerSpeed),
+        y: pointerPosition.value.y + (pointerDistanceToNavToggle.value.y * pointerSpeed),
+      }
+    } else {
+      pointerPosition.value = {
+        x: pointerPosition.value.x + (pointerDistanceToCursor.value.x * pointerSpeed),
+        y: pointerPosition.value.y + (pointerDistanceToCursor.value.y * pointerSpeed),
+      }
     }
 
     window.requestAnimationFrame(updatePointerPosition);
   }
 
-  document.addEventListener("mousemove", updatePointerTarget);
+  document.addEventListener("mousemove", updateCursorPosition);
   window.requestAnimationFrame(updatePointerPosition);
 });
 </script>
@@ -68,7 +101,7 @@ onMounted(() => {
   }
 
   &-follower {
-    $follower-size: u(4);
+    $follower-size: u(5);
     $follower-offset: math.div($follower-size, 2);
 
     aspect-ratio: 1/1;
