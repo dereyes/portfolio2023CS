@@ -94,6 +94,15 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .panel-tools {
+
+  h2,
+  h3,
+  li,
+  .list-cards-item {
+    border-color: color.palette("concrete");
+    color: color.palette("concrete");
+  }
+
   &-content {
     align-content: center;
   }
