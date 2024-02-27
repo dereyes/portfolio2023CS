@@ -17,31 +17,34 @@
       <ListCards>
         <ListCardsItem>
           <template v-slot:media>
-            <Thumbnail link="https://vimeo.com/243570108" source="thumbnail-gato.jpg" />
+            <Thumbnail link="https://vimeo.com/243570108" source="thumbnail-gato.jpg"
+              alt="A cartoon cat projected onto a ceiling" />
           </template>
           <p>
-            <a href="https://vimeo.com/243570108" target="_blank"> "Gato" </a>
+            <a href="https://vimeo.com/243570108" target="_blank">Gato</a>
           </p>
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </ListCardsItem>
         <ListCardsItem>
           <template v-slot:media>
-            <Thumbnail link="https://vimeo.com/278603739" source="thumbnail-shadowplay.jpg" />
+            <Thumbnail link="https://vimeo.com/278603739" source="thumbnail-shadowplay.jpg"
+              alt="A pair of legs standing on a projection on a dance floor" />
           </template>
           <p>
             <a href="https://vimeo.com/278603739" target="_blank">
-              "ShadowPlay"
+              ShadowPlay
             </a>
           </p>
           <p>Interactive art installation<br />Crocker Art Museum, 2016</p>
         </ListCardsItem>
         <ListCardsItem>
           <template v-slot:media>
-            <Thumbnail link="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" source="thumbnail-hackerdojo.jpg" />
+            <Thumbnail link="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" source="thumbnail-hackerdojo.jpg"
+              alt="Darin Reyes giving a presentation at Hacker Dojo" />
           </template>
           <p>
             <a href="https://youtu.be/hsT-G2K28CM?si=no7jIXZQi00N1pPM" target="_blank">
-              "Make Something People Want"
+              Make Something People Want
             </a>
           </p>
           <p>Talk on Product Design for Engineers<br />Hacker Dojo, 2023</p>

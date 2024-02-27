@@ -1,11 +1,12 @@
 <template>
   <a class="thumbnail" :href="link" target="_blank">
-    <img :src="source" width="300" height="150">
+    <img :src="source" width="300" height="150" :alt="alt">
   </a>
 </template>
 
 <script setup>
 const props = defineProps({
+  alt: String,
   link: String,
   source: String,
 });
