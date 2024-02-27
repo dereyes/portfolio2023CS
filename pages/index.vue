@@ -4,8 +4,8 @@
     <LayoutPanelIntro />
     <LayoutPanelMedia />
     <LayoutPanelSkills />
-    <LayoutPanelTools />
     <LayoutPanelBackground />
+    <LayoutPanelTools />
     <LayoutPanelFooter />
   </LayoutMain>
 </template>
