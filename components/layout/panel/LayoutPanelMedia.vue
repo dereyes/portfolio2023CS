@@ -5,7 +5,7 @@
     </div>
     <div class="layout-panel-media-right">
       <video width="320" height="320" autoplay muted controls loop class="layout-panel-media-highlight-video">
-        <source src="Reel-2017.mp4" type="video/mp4">
+        <source src="/Reel-2017.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <ul class="layout-panel-media-highlight">
