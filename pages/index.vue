@@ -1,12 +1,11 @@
 <template>
   <LayoutMain>
-    <!-- <Asterisk /> -->
     <LayoutPanelViz />
     <LayoutPanelIntro />
+    <LayoutPanelMedia />
     <LayoutPanelSkills />
-    <LayoutPanelTools />
     <LayoutPanelBackground />
-    <LayoutPanelMore />
+    <LayoutPanelTools />
     <LayoutPanelFooter />
   </LayoutMain>
 </template>
