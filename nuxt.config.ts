@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
-      title: "Darin E. Reyes, Dev meets Design",
+      title: "Darin E. Reyes",
     },
   },
   css: ["~/assets/styles/global/_index.scss"],
