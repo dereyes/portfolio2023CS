@@ -3,50 +3,38 @@
     <ListHighlight>
       <ListHighlightItem>
         <template v-slot:top>
-          <h2>UX Engineering</h2>
-          <p class="subtitle">A partner in UX Design & Research</p>
+          <h2>
+            Engineering experience meets an eye
+            <span class="noWrap">for design</span>
+          </h2>
+          <p class="subtitle">Bridging UI Design and UX Development</p>
         </template>
         <template v-slot:bottom>
           <ul class="layout-panel-skills-list">
+            <li>Pixel-perfect user interface implementation</li>
+            <li>Responsiveness, accessibility, and cross-browser solutions</li>
             <li>
-              Bridging Engineering, Product, and
-              <span class="noWrap">Design teams</span>
+              Cross-discipline facilitation across product managers, engineers,
+              and designers
             </li>
-            <li>
-              Rapid prototypes and tools for design, research, <span class="noWrap">and
-                development</span>
-            </li>
+            <!-- <li>
+              Rapid prototypes and tools for design, research,
+              <span class="noWrap">and development</span>
+            </li> -->
           </ul>
         </template>
       </ListHighlightItem>
       <ListHighlightItem>
         <template v-slot:top>
-          <h2>
-            Front-End Web Development
-          </h2>
-          <p class="subtitle">Engineering with Design <span class="noWrap">in Mind</span></p>
+          <h2>Bringing design thinking to Web Development</h2>
+          <p class="subtitle">
+            Engineering with Design <span class="noWrap">in Mind</span>
+          </p>
         </template>
         <template v-slot:bottom>
           <ul class="layout-panel-skills-list">
-            <li>Responsive, accessible websites and <span class="noWrap">web apps</span></li>
-            <li>
-              Building and maintaining design token-based
-              <span class="noWrap">component libraries</span>
-            </li>
-          </ul>
-        </template>
-      </ListHighlightItem>
-      <ListHighlightItem>
-        <template v-slot:top>
-          <h2>
-            Design Implementation
-          </h2>
-          <p class="subtitle">Bringing Design Systems <span class="noWrap">to Life</span></p>
-        </template>
-        <template v-slot:bottom>
-          <ul class="layout-panel-skills-list">
-            <li>Pixel-perfect mockup implementation</li>
-            <li>Building color and typography systems for <span class="noWrap">the web</span></li>
+            <li>Architecting reusable component libraries</li>
+            <li>Translating color and typography design systems into code</li>
           </ul>
         </template>
       </ListHighlightItem>
@@ -56,7 +44,6 @@
 
 <style lang="scss" scoped>
 .layout-panel-skills {
-
   &-list {
     @include borderTop;
   }

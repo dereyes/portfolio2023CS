@@ -1,42 +1,48 @@
 <template>
   <LayoutPanel class="layout-panel-tools" ref="scrollRef">
     <h2>Tools</h2>
-    <p class="subtitle">Focused on the Front of the Front-End</p>
+    <p class="subtitle">Focused on the Front of the Frontend</p>
     <ListCards>
       <ListCardsItem>
-        <h3>Fundamentals</h3>
+        <h3>Languages</h3>
         <ul class="layout-panel-tools-list">
+          <li>JavaScript/TypeScript</li>
           <li>Semantic HTML5</li>
           <li>CSS3</li>
-          <li>JavaScript</li>
-          <li>Git</li>
+          <li>PHP</li>
         </ul>
       </ListCardsItem>
       <ListCardsItem>
-        <h3>Modern Web Technologies</h3>
+        <h3>Frameworks and Libraries</h3>
         <ul class="layout-panel-tools-list">
-          <li>Vue</li>
-          <li>React</li>
-          <li>Next</li>
-          <li>CSS Modules</li>
+          <li>ReactJS</li>
+          <li>Tailwind CSS</li>
+          <li>SASS/SCSS</li>
+          <li>HeroUI</li>
+          <li>jQuery</li>
+          <li>NextJS</li>
         </ul>
       </ListCardsItem>
       <ListCardsItem>
-        <h3>Design Systems & UI Libraries</h3>
+        <h3>Tools</h3>
         <ul class="layout-panel-tools-list">
-          <li>Sass</li>
-          <li>SCSS</li>
-          <li>Material UI (MUI)</li>
-          <li>Storybook</li>
+          <li>Figma</li>
+          <li>Adobe XD</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe Illustrator</li>
         </ul>
       </ListCardsItem>
       <ListCardsItem>
-        <h3>Responsiveness & Accessibility</h3>
+        <h3>Concepts</h3>
         <ul class="layout-panel-tools-list">
-          <li>Flexbox</li>
-          <li>Grid</li>
-          <li>Axe</li>
-          <li>Lighthouse</li>
+          <li>Accessibility</li>
+          <li>Responsiveness</li>
+          <li>Cross-browser compatibility</li>
+          <li>Component libaries</li>
+          <li>Design systems</li>
+          <li>REST APIs</li>
+          <li>UI/UX principles</li>
+          <li>Rapid prototyping</li>
         </ul>
       </ListCardsItem>
     </ListCards>
@@ -54,9 +60,9 @@ const onScroll = ({ progress, approachProgress, departureProgress }) => {
   scrollStore.panelTools.update({
     progress: progress,
     approachProgress: approachProgress,
-    departureProgress: departureProgress
+    departureProgress: departureProgress,
   });
-}
+};
 
 onMounted(() => {
   getScrollObserver({
@@ -68,7 +74,6 @@ onMounted(() => {
   });
 });
 </script>
-
 
 <style lang="scss" scoped>
 .layout-panel-tools {

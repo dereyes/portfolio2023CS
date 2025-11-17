@@ -2,7 +2,6 @@
   <LayoutMain>
     <LayoutPanelViz />
     <LayoutPanelIntro />
-    <LayoutPanelMedia />
     <LayoutPanelSkills />
     <LayoutPanelBackground />
     <LayoutPanelTools />

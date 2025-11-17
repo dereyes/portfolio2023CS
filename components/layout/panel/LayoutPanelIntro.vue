@@ -2,16 +2,17 @@
   <LayoutPanel class="layout-panel-intro">
     <template v-slot:top>
       <h1 class="layout-panel-intro-heading">
-        Darin E. Reyes, <span class="noWrap">UX Engineer</span>
+        Darin E. Reyes, Senior Software Engineer
       </h1>
     </template>
     <template v-slot:bottom>
       <div class="layout-panel-intro-footer">
         <div class="layout-panel-intro-footer-left">
-          <p>Front-End Web Developer with a background <span class="noWrap">in Design</span></p>
+          <p>7+ experience in Frontend Web Development</p>
+          <p>Bachelor's Degree <span class="noWrap">in Design</span></p>
           <p>
             Based in
-            <span class="noWrap">Mountain View,</span> California
+            <span class="noWrap">Santa Clara,</span> California
           </p>
         </div>
         <div class="layout-panel-intro-footer-right">
