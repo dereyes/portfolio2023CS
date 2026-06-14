@@ -38,7 +38,7 @@
           <li>Accessibility</li>
           <li>Responsiveness</li>
           <li>Cross-browser compatibility</li>
-          <li>Component libaries</li>
+          <li>Component libraries</li>
           <li>Design systems</li>
           <li>REST APIs</li>
           <li>UI/UX principles</li>

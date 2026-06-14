@@ -8,7 +8,7 @@
     <template v-slot:bottom>
       <div class="layout-panel-intro-footer">
         <div class="layout-panel-intro-footer-left">
-          <p>7+ experience in Frontend Web Development</p>
+          <p>Frontend Web Developer <span class="noWrap">since 2018</span></p>
           <p>Bachelor's Degree <span class="noWrap">in Design</span></p>
           <p>
             Based in
